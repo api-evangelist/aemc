@@ -1,0 +1,320 @@
+aid: aemc
+name: Australian Energy Market Commission
+review:
+  question: Does the Australian Energy Market Commission expose a documented public
+    API or machine-readable data product, and what energy data mandate applies to or
+    is imposed by it?
+  answer: false
+  date: '2026-07-27'
+  reviewer: API Evangelist
+  homeMarket: Australia
+  tier: regulator
+  summary: |
+    AEMC publishes no API, no developer portal, and no machine-readable data
+    product. It is the rule maker, not an operator or a data holder. The
+    substantive finding for this sector study is regulatory: AEMC AUTHORED a
+    smart-meter real-time data access mandate (final rule 18 December 2025) that
+    is designated but does not commence until 30 November 2028, and it is a
+    separate instrument from the Consumer Data Right, which is administered by
+    Treasury, the ACCC and the Data Standards Body with AEMO as gateway.
+
+mandate:
+  regime: smart-meter-infrastructure
+  status: designated-not-live
+  appliesToThisOrganization: false
+  clarification: |
+    No data-sharing obligation applies TO the AEMC. It is not a designated CDR
+    data holder, not a CDR data recipient, and not a market operator. The regime
+    recorded here is the mandate the AEMC IMPOSES on the industry it supervises.
+    Recording it as `none` would be technically true of AEMC-as-obliged-party and
+    would erase the fact that Australia now has a second, non-CDR energy data
+    mandate on the books.
+  instrument: |
+    National Electricity Amendment (Real-time data for consumers) Rule and the
+    corresponding National Energy Retail Amendment — final determination and final
+    rules published 18 December 2025 (rule change project "Real-time data for
+    consumers", status Completed).
+  whatItRequires: |
+    All customers, and representatives they appoint, may request access to
+    real-time data from their smart meter. Metering Coordinators must facilitate
+    access in accordance with AEMO's real-time data procedures. AEMO must publish
+    those real-time data procedures by 30 November 2026. All new smart meters
+    installed from 30 November 2028 must be capable of wirelessly communicating
+    real-time data, free of charge to the customer; customers whose meters are not
+    due for replacement may pay a reasonable charge to upgrade or install an
+    alternative device. Third-party representatives that are not registered
+    participants must be accredited by AEMO and may access data only with the
+    customer's consent, and must not disclose it without consent.
+  commencement: '2028-11-30'
+  proceduresDue: '2026-11-30 (AEMO real-time data procedures due 30 November 2026)'
+  howVerified: |
+    Fetched https://www.aemc.gov.au/rule-changes/real-time-data-consumers (HTTP 200)
+    and https://www.aemc.gov.au/news-centre/media-releases/aemcs-final-rule-gives-consumers-smarter-data-options
+    (HTTP 200) on 2026-07-27. Both confirm the 18 December 2025 final determination,
+    the 30 November 2028 meter obligation and the AEMO accreditation of
+    customer-appointed representatives. NO implementation exists to verify: no
+    endpoint, no technical standard, no register of accredited representatives —
+    AEMO's procedures are not due until 30 November 2026. This is a rule on paper,
+    which is precisely why the status is designated-not-live and not
+    live-implemented.
+  notAnImplementation: |
+    A completed rule change, a media release and a determination PDF are the
+    mandate. They are not an implementation. Nothing callable exists today.
+  relatedRegime:
+    name: Consumer Data Right (energy)
+    regime: cdr-energy
+    administeredBy: Australian Treasury (designation), ACCC (regulator), Data
+      Standards Body / Consumer Data Standards (standards), OAIC (privacy)
+    dataHolders: Energy retailers are primary data holders; AEMO is secondary data
+      holder and operates the gateway for standardised retailer/NMI data.
+    aemcRole: |
+      AEMC is NOT part of the CDR machinery. It is not a data holder, not the
+      designator, and does not write the Consumer Data Standards. Its connection is
+      indirect — its National Electricity Rules and metering framework define the
+      data (NMI standing data, metering data) that the CDR energy schemas expose.
+      Do not credit AEMC with CDR energy implementation.
+    liveSince: 'Consumer Data Right went live in the National Electricity Market in
+      November 2022 (retailers plus AEMO gateway).'
+    registerProbe:
+      url: https://api.cdr.gov.au/cdr-register/v1/energy/data-holders/brands/summary
+      httpStatus: 200
+      headers: 'x-v: 1'
+      anonymous: true
+      date: '2026-07-27'
+      note: |
+        The CDR Register energy data-holder brand summary responds anonymously and
+        returns real energy data holders with live publicBaseUri values (e.g.
+        "Arcline by RACV" -> https://public.cdr.energy.arcline.com.au). This is the
+        mechanism by which a CDR energy claim CAN be verified for a retailer. It is
+        an ACCC-operated register, not an AEMC API, and is recorded here only as the
+        verification path for the rest of this sector study.
+    registerProbeNegative:
+      url: https://api.cdr.gov.au/cdr-register/v1/energy/data-holders/brands
+      httpStatus: 404
+      note: Not a valid register path; the /summary variant is the working one.
+
+dataStandard:
+  implemented: none
+  value: no standard reference found
+  detail: |
+    AEMC implements no data standard because it publishes no data interface. Its
+    real-time data rule deliberately defers all technical standards, protocols and
+    requirements to AEMO's real-time data procedures, which do not exist yet (due
+    30 November 2026). The final determination does not name Green Button/ESPI,
+    IEEE 2030.5, OpenADR, OCPP/OCPI, IEC CIM, or the Consumer Data Standards. For
+    the CDR energy pathway the applicable standard is the Consumer Data Standards
+    (energy), maintained at
+    https://consumerdatastandardsaustralia.github.io/standards/ (HTTP 200,
+    2026-07-27) — but that standard is implemented by retailers and AEMO, not by
+    AEMC.
+
+consumerVsMarketData:
+  consumer_data_api: false
+  market_data_open: false
+  split: |
+    AEMC is closed on both sides, which is unusual in this sector and worth stating
+    plainly. It holds no consumer energy data and offers no consumer-data API. It
+    also publishes no open machine-readable market data: its Data portal
+    (https://www.aemc.gov.au/news-centre/data-portal, HTTP 200) is seven HTML
+    interactive chart projects whose newest entry is the 2021 Residential
+    Electricity Price Trends review, with no CSV, XLSX, ZIP, API or licence
+    statement found on the portal index or on the two child pages probed. AEMC's
+    market analysis reaches the public as PDF reports. The genuinely open Australian
+    energy market data lives at AEMO, not AEMC — a regulator publishing a stale
+    HTML dashboard while the operator it governs runs real data services.
+  onlyMachineReadableSurface:
+    url: https://www.aemc.gov.au/rss.xml
+    httpStatus: 200
+    contentType: application/rss+xml; charset=utf-8
+    note: Drupal-generated site feed. A feed, not an API; not listed in apis[].
+
+accessGate:
+  gate: none-published
+  gated: true
+  whatADeveloperMustDo: |
+    Nothing is available to do. There is no signup, no key, no application form, no
+    licence click-through, no accreditation path and no partner programme published
+    by AEMC, because there is no API or data service behind them. A developer
+    wanting Australian energy data must go elsewhere: AEMO for market and system
+    data, the CDR Register plus an accredited-data-recipient accreditation from the
+    ACCC for a consumer's own energy data, or the AER for retail offer data. For
+    the AEMC's own material, the access path is a web browser and PDF downloads.
+
+authModel:
+  scheme: none
+  detail: |
+    No authentication scheme is published because no protected resource is
+    published. https://www.aemc.gov.au/.well-known/openid-configuration returns 404
+    (probed 2026-07-27); no OAuth2, OIDC, API key, or mTLS surface exists. For
+    context, the CDR energy pathway a third party would actually use requires ACCC
+    accreditation plus OAuth2/OIDC with mTLS-protected client authentication under
+    the Consumer Data Standards — implemented by retailers and AEMO, not AEMC. The
+    AEMC real-time data rule instead contemplates AEMO accreditation of
+    customer-appointed representatives, with the technical scheme unspecified until
+    AEMO's 2026 procedures.
+
+probes:
+  date: '2026-07-27'
+  method: 'curl -sIL, browser user-agent, redirects followed'
+  results:
+  - url: https://www.aemc.gov.au/
+    status: 200
+  - url: https://aemc.gov.au/
+    status: 200
+    note: redirects to www
+  - url: https://developer.aemc.gov.au/
+    status: 000
+    note: DNS does not resolve
+  - url: https://developers.aemc.gov.au/
+    status: 000
+    note: DNS does not resolve
+  - url: https://api.aemc.gov.au/
+    status: 000
+    note: DNS does not resolve
+  - url: https://docs.aemc.gov.au/
+    status: 000
+    note: DNS does not resolve
+  - url: https://data.aemc.gov.au/
+    status: 000
+    note: DNS does not resolve
+  - url: https://rules.aemc.gov.au/
+    status: 000
+    note: DNS does not resolve
+  - url: https://energyrules.aemc.gov.au/
+    status: 000
+    note: DNS does not resolve
+  - url: https://www.aemc.gov.au/developers
+    status: 404
+  - url: https://www.aemc.gov.au/api
+    status: 404
+  - url: https://www.aemc.gov.au/api/v1
+    status: 404
+  - url: https://www.aemc.gov.au/api/search
+    status: 404
+  - url: https://www.aemc.gov.au/docs
+    status: 404
+  - url: https://www.aemc.gov.au/data
+    status: 200
+    note: redirects to /news-centre/data-portal
+  - url: https://www.aemc.gov.au/openapi.json
+    status: 404
+  - url: https://www.aemc.gov.au/openapi.yaml
+    status: 404
+  - url: https://www.aemc.gov.au/swagger.json
+    status: 404
+  - url: https://www.aemc.gov.au/swagger/index.html
+    status: 404
+  - url: https://www.aemc.gov.au/api-docs
+    status: 404
+  - url: https://www.aemc.gov.au/jsonapi
+    status: 404
+    note: Drupal JSON:API module not enabled
+  - url: https://www.aemc.gov.au/jsonapi/node/page
+    status: 404
+  - url: https://www.aemc.gov.au/graphql
+    status: 404
+  - url: https://www.aemc.gov.au/rest/session/token
+    status: 404
+  - url: https://www.aemc.gov.au/apis.json
+    status: 404
+  - url: https://www.aemc.gov.au/.well-known/apis.json
+    status: 404
+  - url: https://www.aemc.gov.au/.well-known/openid-configuration
+    status: 404
+  - url: https://www.aemc.gov.au/.well-known/ai-plugin.json
+    status: 404
+  - url: https://www.aemc.gov.au/.well-known/security.txt
+    status: 403
+  - url: https://www.aemc.gov.au/llms.txt
+    status: 403
+  - url: https://www.aemc.gov.au/ai.txt
+    status: 403
+  - url: https://www.aemc.gov.au/robots.txt
+    status: 200
+    note: stock Drupal robots.txt; no sitemap or API references
+  - url: https://www.aemc.gov.au/sitemap.xml
+    status: 404
+  - url: https://www.aemc.gov.au/rss.xml
+    status: 200
+    note: valid RSS 2.0 feed of AEMC projects
+  - url: https://www.aemc.gov.au/search
+    status: 200
+    note: server-rendered Drupal search; no backing JSON/Funnelback/Solr endpoint
+      found in page source
+  - url: https://www.aemc.gov.au/news-centre/data-portal
+    status: 200
+  - url: https://www.aemc.gov.au/news-centre/data-portal/price-trends-2020
+    status: 200
+    note: no xlsx/csv/zip/download links found
+  - url: https://www.aemc.gov.au/news-centre/data-portal/retail-energy-competition-review-2020
+    status: 200
+    note: no xlsx/csv/zip/download links found
+  - url: https://www.aemc.gov.au/regulation/energy-rules
+    status: 200
+  - url: https://www.aemc.gov.au/regulation/energy-rules/national-electricity-rules
+    status: 200
+  - url: https://www.aemc.gov.au/our-work/changing-energy-rules/rule-changes
+    status: 200
+  - url: https://www.aemc.gov.au/rule-changes/real-time-data-consumers
+    status: 200
+  - url: https://www.aemc.gov.au/news-centre/media-releases/aemcs-final-rule-gives-consumers-smarter-data-options
+    status: 200
+  - url: https://api.github.com/orgs/aemc
+    status: 404
+    note: no AEMC GitHub organization found
+  - url: https://data.gov.au/data/api/3/action/organization_list?q=energy%20market%20commission
+    status: 200
+    note: empty result — AEMC is not a publishing organization on data.gov.au
+
+findings:
+  developerPortal: none
+  developerPortalConfirmed: false
+  openapiHarvested: false
+  specsCount: 0
+  apisListed: 0
+  regulatorPublishesBetterThanIndustry: false
+  regulatorNote: |
+    This series has repeatedly found regulators out-publishing the industry they
+    supervise (EIA being the benchmark). AEMC is the opposite case: the rule maker
+    ships nothing machine-readable at all, while AEMO — the operator it writes rules
+    for — runs the real data and API surface for the National Electricity Market.
+    AEMC's contribution to the API landscape is entirely normative: it writes the
+    obligation, and hands the technical standard to AEMO to specify.
+
+sources:
+- url: https://www.aemc.gov.au/about-us
+  type: About
+  note: Independent statutory body established 2005; makes rules under the National
+    Electricity Law, National Gas Law and National Energy Retail Law; Sydney.
+- url: https://www.aemc.gov.au/rule-changes/real-time-data-consumers
+  type: Regulation
+  note: Final determination 18 December 2025; AEMO procedures by 30 November 2026;
+    meter obligation from 30 November 2028; AEMO accreditation of representatives.
+- url: https://www.aemc.gov.au/news-centre/media-releases/aemcs-final-rule-gives-consumers-smarter-data-options
+  type: Blog
+  note: Media release confirming the final rule and the consumer right of access.
+- url: https://www.aemc.gov.au/news-centre/data-portal
+  type: DataPortal
+  note: HTML interactive charts only, newest project 2021, no downloads or licence
+    found.
+- url: https://www.aemc.gov.au/regulation/energy-rules/national-electricity-rules
+  type: Regulation
+  note: The National Electricity Rules as published by AEMC; documents, not data.
+- url: https://api.cdr.gov.au/cdr-register/v1/energy/data-holders/brands/summary
+  type: APIReference
+  note: ACCC-operated CDR Register (not AEMC); anonymous 200; the verification path
+    for CDR energy data-holder claims.
+- url: https://consumerdatastandardsaustralia.github.io/standards/
+  type: Specification
+  note: Consumer Data Standards, including the energy schemas; maintained by the
+    Data Standards Body, not AEMC.
+
+actions:
+  apisYmlCreated: true
+  apisArrayEmpty: true
+  openapiDirectory: omitted — no real specification was found to harvest
+  reason: |
+    apis[] is deliberately empty. AEMC documents no API and exposes no callable
+    surface, and this profile records only what was fetched and verified. Nothing
+    was invented, and the site RSS feed was recorded as a common[] property rather
+    than promoted to an API.
