@@ -1,0 +1,37 @@
+generated: '2026-07-27'
+method: derived
+source: 'GET https://energy-rules.aemc.gov.au/api/v1/rules/{ner,ngr,nerr}/versions (probed 2026-07-27)'
+note: >-
+  AEMC publishes no API changelog — the Energy Rules API is undocumented and unversioned beyond its
+  /api/v1 prefix. What the API does expose is the dated version history of the rule books
+  themselves, which is the change record that matters to consumers of this data. The entries below
+  are the current version of each rule book as returned by listRuleVersions on 2026-07-27; the full
+  history (304 / 115 / 65 versions) is live at the endpoint and is not duplicated here.
+scheme: rule-consolidation-number
+subjects:
+- rule_book: ner
+  name: National Electricity Rules
+  current_version: 251
+  version_id: 803
+  start_date: '2026-07-23'
+  total_versions: 304
+  history: https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?showAll=true
+- rule_book: ngr
+  name: National Gas Rules
+  current_version: 92
+  version_id: 800
+  start_date: '2026-07-16'
+  total_versions: 115
+  history: https://energy-rules.aemc.gov.au/api/v1/rules/ngr/versions?showAll=true
+- rule_book: nerr
+  name: National Energy Retail Rules
+  current_version: 51
+  version_id: 802
+  start_date: '2026-07-01'
+  total_versions: 65
+  history: https://energy-rules.aemc.gov.au/api/v1/rules/nerr/versions?showAll=true
+human_changelog:
+  rule_changes: https://www.aemc.gov.au/our-work/changing-energy-rules/rule-changes
+  note: >-
+    AEMC's human-facing record of rule changes. Each completed rule change eventually appears as a
+    new consolidated version in the API above.

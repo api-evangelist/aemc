@@ -1,0 +1,45 @@
+generated: '2026-07-27'
+method: probed
+source: live anonymous probes of https://energy-rules.aemc.gov.au/api/v1 on 2026-07-27
+summary:
+  types: [none]
+  api_key_in: []
+  oauth2_flows: []
+  anonymous_read: true
+note: >-
+  The AEMC Energy Rules API requires no authentication of any kind for read access. Every endpoint
+  in openapi/aemc-energy-rules-openapi-derived.yml was called anonymously on 2026-07-27 with no
+  key, no bearer token, no session cookie and no CSRF header, and returned HTTP 200 with data. The
+  spec therefore declares no securitySchemes — that is the real contract, not an omission.
+schemes: []
+observations:
+- name: preview-token
+  kind: query parameter
+  parameter: previewToken
+  applies_to: [listRuleVersions, getRuleContent, searchRuleVersion]
+  description: >-
+    An editorial preview token accepted as a query parameter on several read endpoints, used by
+    AEMC's internal rule-approval workflow to view unapproved rule versions. It is not obtainable
+    or usable anonymously and is not an end-user authentication mechanism.
+  probed: false
+- name: administrative-approval-route
+  kind: token-in-path
+  path_pattern: /api/v1/{type}/{version}/approve/{token}
+  description: >-
+    A state-changing approval route present in AEMC's production JavaScript bundle, guarded by a
+    token in the path. Deliberately NOT probed and deliberately not modelled in the OpenAPI. Noted
+    here because a token-in-URL approval link is a security-relevant design observation, not
+    because it is available for use.
+  probed: false
+aemc_website:
+  host: www.aemc.gov.au
+  scheme: none
+  detail: >-
+    The AEMC corporate site (Drupal) publishes no protected API surface;
+    /.well-known/openid-configuration and /.well-known/oauth-authorization-server return 404
+    (re-probed 2026-07-27).
+related_regimes:
+  note: >-
+    For consumer energy data in Australia the authentication model that matters is the Consumer
+    Data Right (OAuth2/OIDC + mTLS under the Consumer Data Standards), implemented by retailers and
+    AEMO — not by AEMC. See review.yml.

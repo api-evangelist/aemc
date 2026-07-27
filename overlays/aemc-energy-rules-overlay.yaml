@@ -1,0 +1,45 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the AEMC Energy Rules API
+  version: 1.0.0
+extends: openapi/aemc-energy-rules-openapi-derived.yml
+x-provenance:
+  generated: '2026-07-27'
+  method: generated
+  note: >-
+    The base document is itself an API Evangelist derivation (AEMC publishes no spec). This overlay
+    carries the catalog metadata and the consumer warnings that belong to API Evangelist rather than
+    to the derived contract, so the two stay separable.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: aemc
+    x-apievangelist-api: aemc-energy-rules-api
+    x-apievangelist-artifacts:
+      authentication: authentication/aemc-authentication.yml
+      conventions: conventions/aemc-conventions.yml
+      errors: errors/aemc-problem-types.yml
+      rate_limits: rate-limits/aemc-rate-limits.yml
+      lifecycle: lifecycle/aemc-lifecycle.yml
+      data_model: data-model/aemc-data-model.yml
+      examples: examples/_index.yml
+      skills: skills/_index.yml
+    x-apievangelist-status: undocumented-public
+    x-apievangelist-warning: >-
+      Undocumented internal API of a public AEMC website. No published terms of use, SLA, support
+      channel or versioning policy. Verify before depending on it in production.
+- target: $.paths['/rules/{versionId}/toc'].get
+  update:
+    x-apievangelist-note: >-
+      The path parameter is the rule version id (e.g. 803), not the human-facing version number
+      (e.g. 251). Passing the version number returns HTTP 404.
+- target: $.paths['/rules/{ruleType}/versions'].get
+  update:
+    x-apievangelist-note: >-
+      showAll=true returns the entire version history in a single response (4.5 MB for ner as at
+      2026-07-27). Prefer page/perPage unless the whole history is genuinely needed.
+- target: $.paths['/rules/{versionId}/search'].get
+  update:
+    x-apievangelist-note: >-
+      Search is scoped to a single rule version. To search "the current rules", resolve the current
+      version id from listRuleVersions first (data[0].id, or the entry with is_current = 1).

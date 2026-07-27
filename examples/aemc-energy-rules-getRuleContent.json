@@ -1,0 +1,423 @@
+{
+  "data": {
+    "id": 872794,
+    "parent_id": null,
+    "title": "Introduction",
+    "description": null,
+    "index": "1",
+    "chapter": "1",
+    "content": null,
+    "content_type": "chapter",
+    "metadata": {
+      "is_glossary": false
+    },
+    "links": {
+      "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794",
+      "parent": null
+    },
+    "parent": [],
+    "children": [
+      {
+        "id": 872795,
+        "parent_id": 872794,
+        "title": "Preliminary",
+        "description": null,
+        "index": "1.1",
+        "chapter": "1",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872795",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": [
+          {
+            "id": 872796,
+            "parent_id": 872795,
+            "title": "References to the Rules",
+            "description": null,
+            "index": "1.1.1",
+            "chapter": "1",
+            "content": "<p class=\"level1\">These Rules (the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>) are called the National Electricity Rules.</p>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872796",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872795"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872797,
+            "parent_id": 872795,
+            "title": "Italicised expressions",
+            "description": null,
+            "index": "1.1.2",
+            "chapter": "1",
+            "content": "<p class=\"level1\">Italicised expressions in the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> are defined in the glossary in <a href=\"#chap_10\" data-link-type=\"chapter\" data-content=\"874880\">Chapter 10</a>.</p>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872797",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872795"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872798,
+            "parent_id": 872795,
+            "title": "[Deleted]",
+            "description": null,
+            "index": "1.1.3",
+            "chapter": "1",
+            "content": null,
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872798",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872795"
+            },
+            "parent": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 872799,
+        "parent_id": 872794,
+        "title": "Background",
+        "description": null,
+        "index": "1.2",
+        "chapter": "1",
+        "content": "<p class=\"level1\">The National Electricity Rules are made under the <a href=\"term_nel\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_nel\">NEL</a> and may be amended from time to time in accordance with the <a href=\"term_nel\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_nel\">NEL</a>.</p>",
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872799",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": []
+      },
+      {
+        "id": 872800,
+        "parent_id": 872794,
+        "title": "Nomenclature of and references to provisions of a Chapter",
+        "description": null,
+        "index": "1.3",
+        "chapter": "1",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872800",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": [
+          {
+            "id": 872801,
+            "parent_id": 872800,
+            "title": "Definitions",
+            "description": null,
+            "index": "1.3.1A1",
+            "chapter": "1",
+            "content": "<div class=\"localDef\"><p class=\"level1\">In this rule, \"<dfn id=\"chap_1_0_term_numbered\">numbered</dfn>\" means identified by one or more numbers or one or more letters, or by a combination of one or more numbers and one or more letters.</p></div>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872801",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872800"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872802,
+            "parent_id": 872800,
+            "title": "Introduction",
+            "description": null,
+            "index": "1.3.1",
+            "chapter": "1",
+            "content": "<div class=\"prov1\" id=\"clause_1.3.1.a\"><span class=\"label\">(a)</span>This rule applies to provisions inserted after 16 November 2006, and applies unless the context otherwise requires.</div>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872802",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872800"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872803,
+            "parent_id": 872800,
+            "title": "Parts, Divisions and Subdivisions",
+            "description": null,
+            "index": "1.3.2",
+            "chapter": "1",
+            "content": "<div class=\"prov1\" id=\"clause_1.3.2.a\"><span class=\"label\">(a)</span>Chapters may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> Parts.</div> <div class=\"prov1\" id=\"clause_1.3.2.b\"><span class=\"label\">(b)</span>Parts may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> Divisions.</div> <div class=\"prov1\" id=\"clause_1.3.2.c\"><span class=\"label\">(c)</span>Divisions may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> Subdivisions.</div> <div class=\"prov1\" id=\"clause_1.3.2.d\"><span class=\"label\">(d)</span>The following table indicates how Parts, Divisions and Subdivisions may be referred to in the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>.</div> <table class=\"PageWide\"><colgroup><col style=\"width:16.69%;\"><col style=\"width:20.03%;\"><col style=\"width:31.05%;\"><col style=\"width:32.22%;\"></colgroup><thead><tr><th><p>Level</p></th><th><p>Provision</p></th><th><p>Internal reference in same level</p></th><th><p>External reference in preceding level</p></th></tr></thead><tbody><tr><td style=\"text-align:center;\"><p>1</p></td><td><p>Chapter 1</p></td><td><p> </p></td><td><p> </p></td></tr><tr><td style=\"text-align:center;\"><p>2</p></td><td><p>Part A</p></td><td><p>this Part</p></td><td><p>Part A</p></td></tr><tr><td style=\"text-align:center;\"><p>3</p></td><td><p>Division 1</p></td><td><p>this Division</p></td><td><p>Division 1</p></td></tr><tr><td style=\"text-align:center;\"><p>4</p></td><td><p>Subdivision 1</p></td><td><p>this Subdivision</p></td><td><p>Subdivision 1</p></td></tr></tbody></table> <p class=\"ruleLev3_explTitle\">Note:</p> <p class=\"ruleLev3_expl\">The numbering of the provisions in the table is by way of example.</p>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872803",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872800"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872804,
+            "parent_id": 872800,
+            "title": "Rules, clauses, paragraphs, subparagraphs and other items",
+            "description": null,
+            "index": "1.3.3",
+            "chapter": "1",
+            "content": "<div class=\"prov1\" id=\"clause_1.3.3.a\"><span class=\"label\">(a)</span>Chapters, Parts, Divisions and Subdivisions of the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> rules.</div> <div class=\"prov1\" id=\"clause_1.3.3.b\"><span class=\"label\">(b)</span>Rules may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> clauses.</div> <div class=\"prov1\" id=\"clause_1.3.3.c\"><span class=\"label\">(c)</span>Rules and clauses may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> paragraphs.</div> <div class=\"prov1\" id=\"clause_1.3.3.d\"><span class=\"label\">(d)</span>Paragraphs may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> subparagraphs.</div> <div class=\"prov1\" id=\"clause_1.3.3.e\"><span class=\"label\">(e)</span>Subparagraphs may contain <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> items.</div> <div class=\"prov1\" id=\"clause_1.3.3.f\"><span class=\"label\">(f)</span>The following table indicates how rules, clauses, paragraphs, subparagraphs and other <a href=\"chap_1_0_term_numbered\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_1_0_term_numbered\">numbered</a> items may be referred to in the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>.</div> <table class=\"PageWide\"><colgroup><col style=\"width:16.58%;\"><col style=\"width:23.88%;\"><col style=\"width:28.86%;\"><col style=\"width:30.68%;\"></colgroup><thead><tr><th><p>Level</p></th><th><p>Provision</p></th><th><p>Internal reference in same level</p></th><th><p>External reference in preceding level</p></th></tr></thead><tbody><tr><td><p>1</p></td><td><p>Chapter, Part or Subdivision</p></td><td><p> </p></td><td><p> </p></td></tr><tr><td><p>2</p></td><td><p>rule 1.2</p></td><td><p>this rule</p></td><td><p>rule 1.2</p></td></tr><tr><td><p>3</p></td><td><p>clause 1.2.3</p></td><td><p>this clause</p></td><td><p>clause 1.2.3</p></td></tr><tr><td><p>4</p></td><td><p>rule 1.2(a)</p><p>clause 1.2.3(a)</p></td><td><p>this paragraph</p><p>this paragraph</p></td><td><p>paragraph (a)</p><p>paragraph (a)</p></td></tr><tr><td><p>5</p></td><td><p>rule 1.2(a)(1)</p><p>clause 1.2.3(a)(1)</p></td><td><p>this subparagraph</p><p>this subparagraph</p></td><td><p>subparagraph (1)</p><p>subparagraph (1)</p></td></tr><tr><td><p>6</p></td><td><p>rule 1.2(a)(1)(i)</p><p>clause 1.2.3(a)(1)(i)</p></td><td><p>this rule 1.2(a)(1)(i)</p><p>this clause 1.2.3(a)(1)(i)</p></td><td><p>rule 1.2(a)(1)(i)</p><p>clause 1.2.3(a)(1)(i)</p></td></tr><tr><td><p>7</p></td><td><p>rule 1.2(a)(1)(i)(A)</p><p>clause 1.2.3(a)(1)(i)(A)</p></td><td><p>this rule 1.2(a)(1)(i)(A)</p><p>this clause 1.2.3(a)(1)(i)(A)</p></td><td><p>rule 1.2(a)(1)(i)(A)</p><p>clause 1.2.3(a)(1)(i)(A)</p></td></tr></tbody></table> <p class=\"ruleLev3_explTitle\">Note:</p> <p class=\"ruleLev3_expl\">The numbering of the provisions in the table is by way of example.</p>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872804",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872800"
+            },
+            "parent": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 872805,
+        "parent_id": 872794,
+        "title": "Effect of renumbering of provisions of the Rules",
+        "description": null,
+        "index": "1.4",
+        "chapter": "1",
+        "content": "<div class=\"prov1\" id=\"rule_1.4.a\"><span class=\"label\">(a)</span>The renumbering of a provision of the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> by an <a href=\"term_amending_rule\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_amending_rule\">Amending Rule</a> does not affect anything done or omitted under the provision before the <a href=\"term_amending_rule\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_amending_rule\">Amending Rule</a> comes into operation.</div> <div class=\"prov1\" id=\"rule_1.4.b\"><span class=\"label\">(b)</span>A reference (however expressed) in the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> or in any other document to that provision is taken to be a reference to the provision as renumbered.</div> <div class=\"prov1\" id=\"rule_1.4.c\"><span class=\"label\">(c)</span>Paragraphs (a) and (b) have effect whether or not the renumbered provision is also relocated.</div>",
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872805",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": []
+      },
+      {
+        "id": 872806,
+        "parent_id": 872794,
+        "title": "[Deleted]",
+        "description": null,
+        "index": "1.5",
+        "chapter": "1",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872806",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": []
+      },
+      {
+        "id": 872807,
+        "parent_id": 872794,
+        "title": "[Deleted]",
+        "description": null,
+        "index": "1.6",
+        "chapter": "1",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872807",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": []
+      },
+      {
+        "id": 872808,
+        "parent_id": 872794,
+        "title": "Interpretation",
+        "description": null,
+        "index": "1.7",
+        "chapter": "1",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872808",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": [
+          {
+            "id": 872809,
+            "parent_id": 872808,
+            "title": "General",
+            "description": null,
+            "index": "1.7.1",
+            "chapter": "1",
+            "content": "<p class=\"level1\">In the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>, unless the context otherwise requires:</p> <div class=\"prov1\" id=\"clause_1.7.1.a\"><span class=\"label\">(a)</span>headings are for convenience only and do not affect the interpretation of the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>;</div> <div class=\"prov1\" id=\"clause_1.7.1.b\"><span class=\"label\">(b)</span>words importing the singular include the plural and vice versa;</div> <div class=\"prov1\" id=\"clause_1.7.1.c\"><span class=\"label\">(c)</span>words importing a gender include any gender;</div> <div class=\"prov1\" id=\"clause_1.7.1.d\"><span class=\"label\">(d)</span>when italicised, other parts of speech and grammatical forms of a word or phrase defined in the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> have a corresponding meaning;</div> <div class=\"prov1\" id=\"clause_1.7.1.e\"><span class=\"label\">(e)</span>an expression importing a natural person includes any company, partnership, trust, joint venture, association, corporation or other body corporate and any government agency;</div> <div class=\"prov1\" id=\"clause_1.7.1.f\"><span class=\"label\">(f)</span>a reference to any thing includes a part of that thing;</div> <div class=\"prov1\" id=\"clause_1.7.1.g\"><span class=\"label\">(g)</span>a reference to a chapter, condition, clause, schedule or part is to a chapter, condition, clause, schedule or part of the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>;</div> <div class=\"prov1\" id=\"clause_1.7.1.h\"><span class=\"label\">(h)</span>a reference to any statute, regulation, proclamation, order in council, ordinances or by-laws includes all statutes, regulations, proclamations, orders in council, ordinances and by-laws varying, consolidating, re-enacting, extending or replacing them and a reference to a statute includes all regulations, proclamations, orders in council, ordinances, by-laws and determinations issued under that statute;</div> <div class=\"prov1\" id=\"clause_1.7.1.i\"><span class=\"label\">(i)</span>a reference to a document or a provision of a document includes an amendment or supplement to, or replacement or novation of, that document or that provision of that document;</div> <div class=\"prov1\" id=\"clause_1.7.1.j\"><span class=\"label\">(j)</span>a reference to a person includes that person's executors, administrators, successors, substitutes (including, without limitation, persons taking by novation) and permitted assigns;</div> <div class=\"prov1\" id=\"clause_1.7.1.k\"><span class=\"label\">(k)</span>a period of time:</div> <div class=\"prov2\" id=\"clause_1.7.1.k.1\"><span class=\"label\">(1)</span>which dates from a given <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> or the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> of an act or event is to be calculated exclusive of that <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a>; or</div> <div class=\"prov2\" id=\"clause_1.7.1.k.2\"><span class=\"label\">(2)</span>which commences on a given <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> or the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> of an act or event is to be calculated inclusive of that <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a>;</div> <div class=\"prov1\" id=\"clause_1.7.1.l\"><span class=\"label\">(l)</span>an event which is required under the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> to occur on or by a stipulated <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> which is not a <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a> may occur on or by the next <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a>; and</div> <div class=\"prov1\" id=\"clause_1.7.1.m\"><span class=\"label\">(m)</span>the schedules to the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> form part of the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>.</div> <p class=\"level1\">It is not intended that any of the following provisions of Schedule 2 to the <a href=\"term_nel\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_nel\">NEL</a> should apply to the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>:</p> <p class=\"level1\">Clauses 2, 4, 9, 10, 11, 21, 28, 29, 30, 31AH, 35, 36, 37 and 38.</p> <p class=\"level1\">This exclusion is in addition to an exclusion that arises from other provisions of the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> in which an intention is expressed, or from which an intention may be inferred, that a provision of the relevant Schedule is not to apply to the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>.</p>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872809",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872808"
+            },
+            "parent": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 872810,
+        "parent_id": 872794,
+        "title": "Notices",
+        "description": null,
+        "index": "1.8",
+        "chapter": "1",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872810",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": [
+          {
+            "id": 872811,
+            "parent_id": 872810,
+            "title": "Service of notices under the Rules",
+            "description": null,
+            "index": "1.8.1",
+            "chapter": "1",
+            "content": "<p class=\"level1\">A notice is properly given under the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> to a person if:</p> <div class=\"prov1\" id=\"clause_1.8.1.a\"><span class=\"label\">(a)</span>it is personally served;</div> <div class=\"prov1\" id=\"clause_1.8.1.b\"><span class=\"label\">(b)</span>a letter containing the notice is prepaid and posted to the person at an address (if any) supplied by the person to the sender for service of notices or, where the person is a <a href=\"term_registered_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_registered_participant\">Registered Participant</a>, an address shown for that person in the register of <a href=\"term_registered_participants\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_registered_participants\">Registered Participants</a> maintained by <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a>;</div> <div class=\"prov1\" id=\"clause_1.8.1.c\"><span class=\"label\">(c)</span>it is sent to the person by facsimile or electronic mail to a number or reference which corresponds with the address referred to in <a href=\"#clause_1.8.1.b\" data-link-type=\"clause\" data-content=\"872811\">clause 1.8.1(b)</a>; or</div> <div class=\"prov1\" id=\"clause_1.8.1.d\"><span class=\"label\">(d)</span>the person receives the notice.</div>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872811",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872810"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872812,
+            "parent_id": 872810,
+            "title": "Time of service",
+            "description": null,
+            "index": "1.8.2",
+            "chapter": "1",
+            "content": "<p class=\"level1\">A notice is treated as being given to a person by the sender:</p> <div class=\"prov1\" id=\"clause_1.8.2.a\"><span class=\"label\">(a)</span>where sent by post in accordance with <a href=\"#clause_1.8.1.b\" data-link-type=\"clause\" data-content=\"872811\">clause 1.8.1(b)</a> to an address in the central business district of a capital city of Australia, on the second <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a> after the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> on which it is posted;</div> <div class=\"prov1\" id=\"clause_1.8.2.b\"><span class=\"label\">(b)</span>where sent by post in accordance with <a href=\"#clause_1.8.1.b\" data-link-type=\"clause\" data-content=\"872811\">clause 1.8.1(b)</a> to any other address, on the third <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a> after the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> on which it is posted;</div> <div class=\"prov1\" id=\"clause_1.8.2.c\"><span class=\"label\">(c)</span>where sent by facsimile in accordance with <a href=\"#clause_1.8.1.c\" data-link-type=\"clause\" data-content=\"872811\">clause 1.8.1(c)</a> and a complete and correct transmission report is received:</div> <div class=\"prov2\" id=\"clause_1.8.2.c.1\"><span class=\"label\">(1)</span>where the notice is of the type in relation to which the addressee is obliged under the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> to monitor the receipt by facsimile outside of, as well as during, business hours, on the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> of transmission; and</div> <div class=\"prov2\" id=\"clause_1.8.2.c.2\"><span class=\"label\">(2)</span>in all other cases, on the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> of transmission if a <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a> or, if the transmission is on a <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> which is not a <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a> or is after 4.00 pm (addressee's time), at 9.00 am on the following <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a>;</div> <div class=\"prov1\" id=\"clause_1.8.2.d\"><span class=\"label\">(d)</span>where sent by electronic mail in accordance with <a href=\"#clause_1.8.1.c\" data-link-type=\"clause\" data-content=\"872811\">clause 1.8.1(c)</a>:</div> <div class=\"prov2\" id=\"clause_1.8.2.d.1\"><span class=\"label\">(1)</span>where the notice is of a type in relation to which the addressee is obliged under the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> to monitor receipt by electronic mail outside of, as well as during, business hours, on the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> when the notice is recorded as having been first received at the electronic mail destination; and</div> <div class=\"prov2\" id=\"clause_1.8.2.d.2\"><span class=\"label\">(2)</span>in all other cases, on the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> when the notice is recorded as having been first received at the electronic mail destination if a <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a> or, if that time is after 4.00 pm (addressee's time) or the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> is not a <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a>, at 9.00 am on the following <a href=\"term_business_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_business_day\">business day</a>; or</div> <div class=\"prov1\" id=\"clause_1.8.2.e\"><span class=\"label\">(e)</span>in any other case, when the person actually receives the notice.</div>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872812",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872810"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872813,
+            "parent_id": 872810,
+            "title": "Counting of days",
+            "description": null,
+            "index": "1.8.3",
+            "chapter": "1",
+            "content": "<p class=\"level1\">Where a specified period (including, without limitation, a particular number of <a href=\"term_days\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_days\">days</a>) must elapse or expire from or after the giving of a notice before an action may be taken neither the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> on which the notice is given nor the <a href=\"term_day\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_day\">day</a> on which the action is to be taken may be counted in reckoning the period.</p>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872813",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872810"
+            },
+            "parent": [],
+            "children": []
+          },
+          {
+            "id": 872814,
+            "parent_id": 872810,
+            "title": "Reference to addressee",
+            "description": null,
+            "index": "1.8.4",
+            "chapter": "1",
+            "content": "<p class=\"level1\">In this rule 1.8, a reference to an addressee includes a reference to an addressee's officers, agents, or employees or any person reasonably believed by the sender to be an officer, agent or employee of the addressee.</p>",
+            "content_type": "clause",
+            "metadata": null,
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872814",
+              "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872810"
+            },
+            "parent": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 872815,
+        "parent_id": 872794,
+        "title": "Retention of Records and Documents",
+        "description": null,
+        "index": "1.9",
+        "chapter": "1",
+        "content": "<p class=\"level1\">Unless otherwise specified in the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a>, all records and documents prepared for or in connection with the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> must be retained for a period of at least 7 years.</p> <p class=\"ruleLev3_explTitle\">Note</p> <p class=\"ruleLev3_expl\">This rule is classified as a tier 2 civil penalty provision under the National Electricity (South Australia) Regulations. (See clause 6(1) and Schedule 1 of the National Electricity (South Australia) Regulations.)</p>",
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872815",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": []
+      },
+      {
+        "id": 872816,
+        "parent_id": 872794,
+        "title": "[Deleted]",
+        "description": null,
+        "index": "1.10",
+        "chapter": "1",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872816",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": []
+      },
+      {
+        "id": 872817,
+        "parent_id": 872794,
+        "title": "AEMO Rule Funds",
+        "description": null,
+        "index": "1.11",
+        "chapter": "1",
+        "content": "<div class=\"prov1\" id=\"rule_1.11.a\"><span class=\"label\">(a)</span><a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> must continue to maintain, in the books of the corporation:</div> <div class=\"prov2\" id=\"rule_1.11.a.1\"><span class=\"label\">(1)</span>the registration and administration fund;</div> <div class=\"prov2\" id=\"rule_1.11.a.2\"><span class=\"label\">(2)</span>the security deposit fund; and</div> <div class=\"prov2\" id=\"rule_1.11.a.3\"><span class=\"label\">(3)</span>any other fund which the <a href=\"term_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rules\">Rules</a> provide will be maintained in <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO's</a> books,</div> <p class=\"level2\">(each being a <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule Fund</a>).</p> <div class=\"prov1\" id=\"rule_1.11.b\"><span class=\"label\">(b)</span><a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> must ensure that there is paid into each <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a>:</div> <div class=\"prov2\" id=\"rule_1.11.b.1\"><span class=\"label\">(1)</span>in the case of the registration and administration fund, all amounts of <a href=\"term_participant_fees\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_participant_fees\">Participant fees</a> and <a href=\"term_auction_expense_fees\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_auction_expense_fees\">auction expense fees</a> and any other amounts payable under the <a href=\"term_auction_rules\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_auction_rules\">auction rules</a> or <em class=\"missingTerm\">SRD agreements</em> as <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> considers necessary from time to time other than those which are to be paid into another <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a>;</div> <div class=\"prov2\" id=\"rule_1.11.b.2\"><span class=\"label\">(2)</span>in the case of the security deposit fund, amounts which are received by <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> under clauses <a href=\"#clause_3.3.8A\" data-link-type=\"clause\" data-content=\"872974\">3.3.8A</a>, <a href=\"#clause_3.3.13.a.2\" data-link-type=\"clause\" data-content=\"872980\">3.3.13(a)(2)</a> and <a href=\"#clause_3.3.13.a.3\" data-link-type=\"clause\" data-content=\"872980\">3.3.13(a)(3)</a>;</div> <div class=\"prov2\" id=\"rule_1.11.b.3\"><span class=\"label\">(3)</span>in the case of a fund referred to in paragraph (a)(3):</div> <div class=\"prov3\" id=\"rule_1.11.b.3.i\"><span class=\"label\">(i)</span>all amounts which are received by <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> in connection with carrying out its functions or powers in relation to that fund;</div> <div class=\"prov3\" id=\"rule_1.11.b.3.ii\"><span class=\"label\">(ii)</span>all amounts of <a href=\"term_participant_fees\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_participant_fees\">Participant fees</a> which are received or recovered by <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> which relate to <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO's</a> actual or budgeted costs and expenses for carrying out its functions or powers in relation to that fund; and</div> <div class=\"prov2\" id=\"rule_1.11.b.4\"><span class=\"label\">(4)</span>in the case of each <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a>, income from investment of money in the <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a>.</div> <div class=\"prov1\" id=\"rule_1.11.c\"><span class=\"label\">(c)</span>In respect of the security deposit fund, <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> must keep records, in respect of each individual <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a>, of:</div> <div class=\"prov2\" id=\"rule_1.11.c.1\"><span class=\"label\">(1)</span>security deposits made by that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a> and actual interest or other income earned on that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant's</a> payments to that fund which will be recorded as credits for that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a>;</div> <div class=\"prov2\" id=\"rule_1.11.c.2\"><span class=\"label\">(2)</span>any application, or return to that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a>, of monies in the security deposit fund in accordance with <a href=\"#clause_3.3.13A\" data-link-type=\"clause\" data-content=\"872981\">clause 3.3.13A</a>;</div> <div class=\"prov2\" id=\"rule_1.11.c.3\"><span class=\"label\">(3)</span>deductions for liabilities and expenses of the security deposit fund referable, or allocated, to that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a> which will be recorded as debits to that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a>; and</div> <div class=\"prov2\" id=\"rule_1.11.c.4\"><span class=\"label\">(4)</span>the credit or debit balance for that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a>.</div> <div class=\"prov1\" id=\"rule_1.11.d\"><span class=\"label\">(d)</span><a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> must ensure that money from each <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a> is only applied in payment of:</div> <div class=\"prov2\" id=\"rule_1.11.d.1\"><span class=\"label\">(1)</span>in the case of the registration and administration fund, costs and expenses of <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> carrying out its functions or powers:</div> <div class=\"prov3\" id=\"rule_1.11.d.1.i\"><span class=\"label\">(i)</span>in relation to a fund referred to paragraph (a)(3) to the extent that such costs and expenses cannot be met from the money contained in that fund; or</div> <div class=\"prov3\" id=\"rule_1.11.d.1.ii\"><span class=\"label\">(ii)</span>other than those functions and powers referred to in subparagraph (i);</div> <div class=\"prov2\" id=\"rule_1.11.d.2\"><span class=\"label\">(2)</span>in the case of the security deposit fund, monies owing to <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> by a <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a> or the return of monies to a <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a> in accordance with <a href=\"#clause_3.3.13A\" data-link-type=\"clause\" data-content=\"872981\">clause 3.3.13A</a>;</div> <div class=\"prov2\" id=\"rule_1.11.d.3\"><span class=\"label\">(3)</span>in the case of a fund referred to in paragraph (a)(3), costs and expenses of <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> carrying out its functions or powers in relation to that fund; and</div> <div class=\"prov2\" id=\"rule_1.11.d.4\"><span class=\"label\">(4)</span>in the case of each <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a>:</div> <div class=\"prov3\" id=\"rule_1.11.d.4.i\"><span class=\"label\">(i)</span>other than the security deposit fund, reimbursement to a <a href=\"term_registered_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_registered_participant\">Registered Participant</a> or another <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a> to make any necessary adjustment for any excess amounts which are paid as <a href=\"term_participant_fees\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_participant_fees\">Participant fees</a> as a result of any of <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO's</a> actual costs and expenses being less than the budgeted costs and expenses or as a result of the payment of any interim <a href=\"term_participant_fees\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_participant_fees\">Participant fees</a>; and</div> <div class=\"prov3\" id=\"rule_1.11.d.4.ii\"><span class=\"label\">(ii)</span>liabilities or expenses of the <a href=\"term_rule_fund\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_rule_fund\">Rule fund</a>.</div>",
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872817",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794"
+        },
+        "parent": [],
+        "children": []
+      }
+    ]
+  },
+  "meta": {
+    "archived": 0,
+    "approved": 1,
+    "current": 1,
+    "approve_link": null
+  }
+}

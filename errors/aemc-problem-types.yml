@@ -1,0 +1,40 @@
+generated: '2026-07-27'
+method: derived
+source: live probes of https://energy-rules.aemc.gov.au/api/v1 on 2026-07-27
+format: proprietary
+note: >-
+  AEMC publishes no error reference for the Energy Rules API. The single error shape below is the
+  one actually returned on probed failures; it is NOT RFC 9457 application/problem+json. No status
+  code is listed here that was not observed.
+envelope:
+  media_type: application/json
+  fields:
+    message: Human-readable error string.
+problems:
+- status: 404
+  title: Not found
+  body: '{"message":"Not found"}'
+  media_type: application/json
+  causes:
+  - Unknown rule version id.
+  - The human-facing version number was passed where the version id is required (e.g. /rules/251/toc instead of /rules/803/toc).
+  - Unknown content node id or glossary term identifier.
+  remediation: >-
+    Resolve the version id from listRuleVersions (the `id` field, not `version`), and resolve
+    content ids from getRuleTableOfContents / listRuleChapters / searchRuleVersion links.
+  source_operation: openapi/aemc-energy-rules-openapi-derived.yml#getRuleTableOfContents
+  evidence:
+  - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/9999/toc', status: 404, date: '2026-07-27'}
+  - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/251/toc', status: 404, date: '2026-07-27'}
+non_errors:
+- note: >-
+    An unknown rule type is NOT an error — /rules/nel/versions and the WA variants return HTTP 200
+    with an empty data array and a valid pagination envelope. Clients must check meta.total rather
+    than relying on a 4xx.
+  evidence:
+  - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/nel/versions', status: 200, date: '2026-07-27'}
+- note: >-
+    Unmatched routes on the host return the single-page-application HTML shell with HTTP 200, not a
+    JSON error. Clients must assert the response content type is application/json.
+  evidence:
+  - {url: 'https://energy-rules.aemc.gov.au/api/v1/', status: 200, content_type: 'text/html', date: '2026-07-27'}

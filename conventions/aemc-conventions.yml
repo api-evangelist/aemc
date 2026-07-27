@@ -1,0 +1,88 @@
+generated: '2026-07-27'
+method: derived
+source: openapi/aemc-energy-rules-openapi-derived.yml + live probes 2026-07-27
+api: AEMC Energy Rules API
+note: >-
+  AEMC documents none of these conventions — the API is undocumented. Everything below was observed
+  on live anonymous responses on 2026-07-27 and is described as observed behaviour, not as a
+  published contract.
+authentication:
+  style: none
+  detail: Anonymous read access on every endpoint. See authentication/aemc-authentication.yml.
+idempotency:
+  supported: false
+  detail: >-
+    The public surface is read-only (GET only). No idempotency key, header or parameter is
+    documented or observed, and none is needed. No Idempotency pointer is emitted for this provider.
+pagination:
+  style: page-number
+  params:
+    page: page
+    page_size: perPage
+  defaults:
+    perPage: 30
+    client_defaults: {version_list: 10, search: 30}
+  bypass:
+    param: showAll
+    detail: showAll=true returns the entire result set in one response, ignoring perPage.
+  response_fields:
+    envelope: Laravel API Resource
+    links: [first, last, prev, next]
+    meta: [current_page, from, to, last_page, per_page, total, path, links]
+    variant: >-
+      The search endpoint returns the page URLs inside meta (first_page_url, last_page_url,
+      next_page_url, prev_page_url) rather than in a sibling links object — the two endpoints use
+      two different Laravel paginator serialisations.
+filtering:
+  version_list: [searchVersion, searchDate, showAll]
+  search: [query, chapter]
+  detail: searchDate returns the rule version in force on a given date (verified with 2020-01-01 -> NER v132).
+identifiers:
+  version_id: >-
+    Every content, search and glossary endpoint is keyed by the rule version *id* (e.g. 803), not
+    the human-facing version number (e.g. 251). Passing the version number returns HTTP 404. This is
+    the single most likely integration mistake.
+  content_id: Integer node id; discover via getRuleTableOfContents / listRuleChapters / searchRuleVersion links.self.
+  term_identifier: Slug of the form term_<term>, e.g. term_aarr; leading '#' from anchors must be stripped.
+hypermedia:
+  present: true
+  detail: >-
+    Rule version objects carry links.toc and links.chapters as absolute URLs; content and search
+    nodes carry links.self and links.parent; table-of-contents nodes carry a relative links.self of
+    the form "content/<id>".
+content_format:
+  media_type: application/json
+  html_in_json: >-
+    Rule text and glossary definitions are returned as HTML strings (with data-glossary-type /
+    data-link-type attributes on cross-references), not as structured or plain text. A
+    text_definition field carries the plain-text form for glossary entries only.
+  binary_artifacts: >-
+    Each rule version references published PDF and DOCX files on
+    aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com, addressed by the version's content hash.
+compression:
+  detail: >-
+    Responses are gzip-encoded; requests without Accept-Encoding handling receive binary output.
+    Send Accept-Encoding: gzip (curl --compressed).
+error_envelope:
+  shape: '{"message": "Not found"}'
+  format: not rfc9457
+  see: errors/aemc-problem-types.yml
+rate_limiting:
+  headers: [x-ratelimit-limit, x-ratelimit-remaining]
+  see: rate-limits/aemc-rate-limits.yml
+versioning:
+  api: uri-path (/api/v1)
+  data: >-
+    The rules themselves are versioned as data — every rule book keeps its full version history
+    (NER 304 versions, NGR 115, NERR 65 as at 2026-07-27), which is the real "changelog" of this API.
+  see: lifecycle/aemc-lifecycle.yml
+tracing:
+  request_id: apigw-requestid (AWS API Gateway); no provider-documented correlation header.
+caching:
+  cache_control: 'no-cache, private'
+  etag: not observed
+cors:
+  vary: Origin
+  detail: >-
+    A "Vary: Origin" header is returned; no Access-Control-Allow-Origin was observed on a plain
+    anonymous GET without an Origin header.

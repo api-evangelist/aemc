@@ -1,0 +1,38 @@
+generated: '2026-07-27'
+method: searched
+source: live anonymous responses from https://energy-rules.aemc.gov.au/api/v1 captured 2026-07-27
+note: >-
+  Real captured responses from the undocumented AEMC Energy Rules API. Nothing here is synthetic.
+  Two files were truncated for repository size and say so in the file; every other file is the
+  verbatim response body, re-indented only.
+examples:
+- file: aemc-energy-rules-listRuleVersions-ner.json
+  operation: listRuleVersions
+  request: GET /rules/ner/versions?page=1&perPage=1
+  status: 200
+- file: aemc-energy-rules-getRuleTableOfContents.json
+  operation: getRuleTableOfContents
+  request: GET /rules/803/toc
+  status: 200
+  truncated: true
+- file: aemc-energy-rules-getRuleContent.json
+  operation: getRuleContent
+  request: GET /rules/803/content/872794
+  status: 200
+- file: aemc-energy-rules-searchRuleVersion.json
+  operation: searchRuleVersion
+  request: GET /rules/803/search?query=smart%20meter&page=1&perPage=3
+  status: 200
+- file: aemc-energy-rules-getGlossaryMenu.json
+  operation: getGlossaryMenu
+  request: GET /rules/803/glossary/menu
+  status: 200
+- file: aemc-energy-rules-listGlossaryTermsByLetter-a.json
+  operation: listGlossaryTermsByLetter
+  request: GET /rules/803/glossary/by-letter/a
+  status: 200
+  truncated: true
+- file: aemc-energy-rules-getGlossaryTerm.json
+  operation: getGlossaryTerm
+  request: GET /rules/803/glossary/term_aarr
+  status: 200

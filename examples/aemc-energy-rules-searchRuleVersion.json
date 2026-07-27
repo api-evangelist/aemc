@@ -1,0 +1,459 @@
+{
+  "data": [
+    {
+      "id": 875092,
+      "parent_id": 874881,
+      "title": "Transitional Arrangements for Ministerial Smart Meter Roll Out Determinations",
+      "description": null,
+      "index": "11.Part ZF",
+      "chapter": "11",
+      "content": null,
+      "content_type": "part",
+      "metadata": null,
+      "links": {
+        "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875092",
+        "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/874881"
+      },
+      "parent": {
+        "id": 874881,
+        "parent_id": null,
+        "title": "Savings and Transitional Rules",
+        "description": null,
+        "index": "11",
+        "chapter": "11",
+        "content": null,
+        "content_type": "chapter",
+        "metadata": {
+          "is_glossary": false
+        },
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/874881",
+          "parent": null
+        },
+        "parent": []
+      },
+      "children": [
+        {
+          "id": 875093,
+          "parent_id": 875092,
+          "title": "Ministerial Smart Meter Roll Out Determinations",
+          "description": null,
+          "index": "11.36",
+          "chapter": "11",
+          "content": null,
+          "content_type": "rule",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875092"
+          },
+          "parent": [],
+          "children": [
+            {
+              "id": 875094,
+              "parent_id": 875093,
+              "title": "Definitions",
+              "description": null,
+              "index": "11.36.1",
+              "chapter": "11",
+              "content": "<p class=\"level1\">In this rule:</p> <div class=\"localDef\"><p class=\"level1\"><dfn id=\"chap_11_209_term_relevant_commencement_date\">relevant commencement date,</dfn> for a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a>, means the day on which the Ministerial smart meter roll out determination that applies to the relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> takes effect.</p><p class=\"level1\"><dfn id=\"chap_11_210_term_relevant_metering_installation\">relevant metering installation</dfn> has the meaning given by rule 11.36.2.</p><p class=\"level1\"><dfn id=\"chap_11_211_term_specified_amount\">specified amount</dfn> means the amount assigned to variable \"y\" in accordance with S7.2.3 in relation to a participating jurisdiction.</p><p class=\"level1\"><dfn id=\"chap_11_212_term_supply_point\">supply point</dfn> means a <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a>:</p><div class=\"prov1\"><span class=\"label\">(1)</span>that is a <a href=\"term_connection_point\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_connection_point\">connection point</a> connected to the distribution system of a regulated distribution system operator; and</div><div class=\"prov1\"><span class=\"label\">(2)</span>through which the regulated distribution system operator is required to provide smart metering services in accordance with a Ministerial smart meter roll out determination.</div><p class=\"level1\"><dfn id=\"chap_11_213_term_volume_consumption\">volume consumption</dfn> means the volume of <a href=\"term_energy\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_energy\">energy</a> consumed by a customer through the relevant <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> calculated in accordance with S7.2.3.</p></div>",
+              "content_type": "clause",
+              "metadata": null,
+              "links": {
+                "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875094",
+                "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+              },
+              "parent": [],
+              "children": []
+            },
+            {
+              "id": 875095,
+              "parent_id": 875093,
+              "title": "Meaning of relevant metering installation",
+              "description": null,
+              "index": "11.36.2",
+              "chapter": "11",
+              "content": "<div class=\"localDef\"><div class=\"prov1\" id=\"clause_11.36.2.a\"><span class=\"label\">(a)</span>For the purpose of this rule, a <dfn id=\"chap_11_214_term_relevant_metering_installation\">relevant <i>metering installation</i></dfn> is a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> for a <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> in respect of which the <a href=\"chap_11_213_term_volume_consumption\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_213_term_volume_consumption\">volume consumption</a> of the customer is less than the <a href=\"chap_11_211_term_specified_amount\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_211_term_specified_amount\">specified amount</a>.</div></div> <div class=\"localDef\"><div class=\"prov1\" id=\"clause_11.36.2.b\"><span class=\"label\">(b)</span>For the purpose of this rule, a <dfn id=\"chap_11_215_term_relevant_metering_installation\">relevant <i>metering installation</i></dfn> does not include:</div></div> <div class=\"prov2\" id=\"clause_11.36.2.b.1\"><span class=\"label\">(1)</span>a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> installed for a <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> before the relevant <a href=\"chap_11_202_term_commencement_date\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_202_term_commencement_date\">commencement date</a> in respect of which a <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a> is the <a href=\"term_responsible_person\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_responsible_person\">responsible person</a>; or;</div> <div class=\"prov2\" id=\"clause_11.36.2.b.2\"><span class=\"label\">(2)</span>a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> referred in paragraph (a) that is installed for the <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> referred to in that paragraph on and after the relevant <a href=\"chap_11_202_term_commencement_date\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_202_term_commencement_date\">commencement date</a> in accordance with the ordinary replacement cycle of that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a>; or</div> <div class=\"prov2\" id=\"clause_11.36.2.b.3\"><span class=\"label\">(3)</span>a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> located at a <em class=\"missingTerm\">high voltage connection point</em>.</div>",
+              "content_type": "clause",
+              "metadata": null,
+              "links": {
+                "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875095",
+                "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+              },
+              "parent": [],
+              "children": []
+            },
+            {
+              "id": 875096,
+              "parent_id": 875093,
+              "title": "Period of application of rule to relevant metering installation",
+              "description": null,
+              "index": "11.36.3",
+              "chapter": "11",
+              "content": "<p class=\"level1\">This rule:</p> <div class=\"prov1\" id=\"clause_11.36.3.a\"><span class=\"label\">(a)</span>applies to a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> on the day the Ministerial smart meter roll out determination that applies to the relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> takes effect; and</div> <div class=\"prov1\" id=\"clause_11.36.3.b\"><span class=\"label\">(b)</span>ceases to apply to a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> on the day the Ministerial smart meter roll out determination that applies to the relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> ceases to have effect.</div>",
+              "content_type": "clause",
+              "metadata": null,
+              "links": {
+                "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875096",
+                "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+              },
+              "parent": [],
+              "children": []
+            },
+            {
+              "id": 875097,
+              "parent_id": 875093,
+              "title": "Designation of responsible person",
+              "description": null,
+              "index": "11.36.4",
+              "chapter": "11",
+              "content": "<p class=\"level1\">Despite clauses <a href=\"#clause_7.2.2\" data-link-type=\"clause\" data-content=\"874345\">7.2.2</a> and <a href=\"#clause_7.2.3\" data-link-type=\"clause\" data-content=\"874346\">7.2.3</a>, the <a href=\"term_responsible_person\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_responsible_person\">responsible person</a> for a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> is the regulated distribution system operator to whom the Ministerial smart meter roll out determination (that applies to that relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a>) applies.</p>",
+              "content_type": "clause",
+              "metadata": null,
+              "links": {
+                "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875097",
+                "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+              },
+              "parent": [],
+              "children": []
+            },
+            {
+              "id": 875098,
+              "parent_id": 875093,
+              "title": "[Deleted]",
+              "description": null,
+              "index": "11.36.5",
+              "chapter": "11",
+              "content": null,
+              "content_type": "clause",
+              "metadata": null,
+              "links": {
+                "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875098",
+                "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+              },
+              "parent": [],
+              "children": []
+            },
+            {
+              "id": 875099,
+              "parent_id": 875093,
+              "title": "[Deleted]",
+              "description": null,
+              "index": "11.36.6",
+              "chapter": "11",
+              "content": null,
+              "content_type": "clause",
+              "metadata": null,
+              "links": {
+                "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875099",
+                "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+              },
+              "parent": [],
+              "children": []
+            }
+          ]
+        }
+      ],
+      "search_index": 1,
+      "version": {
+        "version_id": 803,
+        "version": 251,
+        "approved": 1,
+        "current": 1,
+        "archived": 0,
+        "type": "ner",
+        "start_date": "2026-07-23 00:00:00",
+        "end_date": null
+      },
+      "search_content": "Transitional Arrangements for Ministerial Smart Meter Roll Out Determinations",
+      "type": "chapter"
+    },
+    {
+      "id": 875093,
+      "parent_id": 875092,
+      "title": "Ministerial Smart Meter Roll Out Determinations",
+      "description": null,
+      "index": "11.36",
+      "chapter": "11",
+      "content": null,
+      "content_type": "rule",
+      "metadata": null,
+      "links": {
+        "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093",
+        "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875092"
+      },
+      "parent": {
+        "id": 875092,
+        "parent_id": 874881,
+        "title": "Transitional Arrangements for Ministerial Smart Meter Roll Out Determinations",
+        "description": null,
+        "index": "11.Part ZF",
+        "chapter": "11",
+        "content": null,
+        "content_type": "part",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875092",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/874881"
+        },
+        "parent": {
+          "id": 874881,
+          "parent_id": null,
+          "title": "Savings and Transitional Rules",
+          "description": null,
+          "index": "11",
+          "chapter": "11",
+          "content": null,
+          "content_type": "chapter",
+          "metadata": {
+            "is_glossary": false
+          },
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/874881",
+            "parent": null
+          },
+          "parent": []
+        }
+      },
+      "children": [
+        {
+          "id": 875094,
+          "parent_id": 875093,
+          "title": "Definitions",
+          "description": null,
+          "index": "11.36.1",
+          "chapter": "11",
+          "content": "<p class=\"level1\">In this rule:</p> <div class=\"localDef\"><p class=\"level1\"><dfn id=\"chap_11_209_term_relevant_commencement_date\">relevant commencement date,</dfn> for a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a>, means the day on which the Ministerial smart meter roll out determination that applies to the relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> takes effect.</p><p class=\"level1\"><dfn id=\"chap_11_210_term_relevant_metering_installation\">relevant metering installation</dfn> has the meaning given by rule 11.36.2.</p><p class=\"level1\"><dfn id=\"chap_11_211_term_specified_amount\">specified amount</dfn> means the amount assigned to variable \"y\" in accordance with S7.2.3 in relation to a participating jurisdiction.</p><p class=\"level1\"><dfn id=\"chap_11_212_term_supply_point\">supply point</dfn> means a <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a>:</p><div class=\"prov1\"><span class=\"label\">(1)</span>that is a <a href=\"term_connection_point\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_connection_point\">connection point</a> connected to the distribution system of a regulated distribution system operator; and</div><div class=\"prov1\"><span class=\"label\">(2)</span>through which the regulated distribution system operator is required to provide smart metering services in accordance with a Ministerial smart meter roll out determination.</div><p class=\"level1\"><dfn id=\"chap_11_213_term_volume_consumption\">volume consumption</dfn> means the volume of <a href=\"term_energy\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_energy\">energy</a> consumed by a customer through the relevant <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> calculated in accordance with S7.2.3.</p></div>",
+          "content_type": "clause",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875094",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+          },
+          "parent": [],
+          "children": []
+        },
+        {
+          "id": 875095,
+          "parent_id": 875093,
+          "title": "Meaning of relevant metering installation",
+          "description": null,
+          "index": "11.36.2",
+          "chapter": "11",
+          "content": "<div class=\"localDef\"><div class=\"prov1\" id=\"clause_11.36.2.a\"><span class=\"label\">(a)</span>For the purpose of this rule, a <dfn id=\"chap_11_214_term_relevant_metering_installation\">relevant <i>metering installation</i></dfn> is a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> for a <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> in respect of which the <a href=\"chap_11_213_term_volume_consumption\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_213_term_volume_consumption\">volume consumption</a> of the customer is less than the <a href=\"chap_11_211_term_specified_amount\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_211_term_specified_amount\">specified amount</a>.</div></div> <div class=\"localDef\"><div class=\"prov1\" id=\"clause_11.36.2.b\"><span class=\"label\">(b)</span>For the purpose of this rule, a <dfn id=\"chap_11_215_term_relevant_metering_installation\">relevant <i>metering installation</i></dfn> does not include:</div></div> <div class=\"prov2\" id=\"clause_11.36.2.b.1\"><span class=\"label\">(1)</span>a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> installed for a <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> before the relevant <a href=\"chap_11_202_term_commencement_date\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_202_term_commencement_date\">commencement date</a> in respect of which a <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a> is the <a href=\"term_responsible_person\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_responsible_person\">responsible person</a>; or;</div> <div class=\"prov2\" id=\"clause_11.36.2.b.2\"><span class=\"label\">(2)</span>a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> referred in paragraph (a) that is installed for the <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> referred to in that paragraph on and after the relevant <a href=\"chap_11_202_term_commencement_date\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_202_term_commencement_date\">commencement date</a> in accordance with the ordinary replacement cycle of that <a href=\"term_market_participant\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_market_participant\">Market Participant</a>; or</div> <div class=\"prov2\" id=\"clause_11.36.2.b.3\"><span class=\"label\">(3)</span>a <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> located at a <em class=\"missingTerm\">high voltage connection point</em>.</div>",
+          "content_type": "clause",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875095",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+          },
+          "parent": [],
+          "children": []
+        },
+        {
+          "id": 875096,
+          "parent_id": 875093,
+          "title": "Period of application of rule to relevant metering installation",
+          "description": null,
+          "index": "11.36.3",
+          "chapter": "11",
+          "content": "<p class=\"level1\">This rule:</p> <div class=\"prov1\" id=\"clause_11.36.3.a\"><span class=\"label\">(a)</span>applies to a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> on the day the Ministerial smart meter roll out determination that applies to the relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> takes effect; and</div> <div class=\"prov1\" id=\"clause_11.36.3.b\"><span class=\"label\">(b)</span>ceases to apply to a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> on the day the Ministerial smart meter roll out determination that applies to the relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> ceases to have effect.</div>",
+          "content_type": "clause",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875096",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+          },
+          "parent": [],
+          "children": []
+        },
+        {
+          "id": 875097,
+          "parent_id": 875093,
+          "title": "Designation of responsible person",
+          "description": null,
+          "index": "11.36.4",
+          "chapter": "11",
+          "content": "<p class=\"level1\">Despite clauses <a href=\"#clause_7.2.2\" data-link-type=\"clause\" data-content=\"874345\">7.2.2</a> and <a href=\"#clause_7.2.3\" data-link-type=\"clause\" data-content=\"874346\">7.2.3</a>, the <a href=\"term_responsible_person\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_responsible_person\">responsible person</a> for a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> is the regulated distribution system operator to whom the Ministerial smart meter roll out determination (that applies to that relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a>) applies.</p>",
+          "content_type": "clause",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875097",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+          },
+          "parent": [],
+          "children": []
+        },
+        {
+          "id": 875098,
+          "parent_id": 875093,
+          "title": "[Deleted]",
+          "description": null,
+          "index": "11.36.5",
+          "chapter": "11",
+          "content": null,
+          "content_type": "clause",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875098",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+          },
+          "parent": [],
+          "children": []
+        },
+        {
+          "id": 875099,
+          "parent_id": 875093,
+          "title": "[Deleted]",
+          "description": null,
+          "index": "11.36.6",
+          "chapter": "11",
+          "content": null,
+          "content_type": "clause",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875099",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+          },
+          "parent": [],
+          "children": []
+        }
+      ],
+      "search_index": 2,
+      "version": {
+        "version_id": 803,
+        "version": 251,
+        "approved": 1,
+        "current": 1,
+        "archived": 0,
+        "type": "ner",
+        "start_date": "2026-07-23 00:00:00",
+        "end_date": null
+      },
+      "search_content": "Ministerial Smart Meter Roll Out Determinations",
+      "type": "chapter"
+    },
+    {
+      "id": 875094,
+      "parent_id": 875093,
+      "title": "Definitions",
+      "description": null,
+      "index": "11.36.1",
+      "chapter": "11",
+      "content": "<p class=\"level1\">In this rule:</p> <div class=\"localDef\"><p class=\"level1\"><dfn id=\"chap_11_209_term_relevant_commencement_date\">relevant commencement date,</dfn> for a relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a>, means the day on which the Ministerial smart meter roll out determination that applies to the relevant <a href=\"term_metering_installation\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_metering_installation\">metering installation</a> takes effect.</p><p class=\"level1\"><dfn id=\"chap_11_210_term_relevant_metering_installation\">relevant metering installation</dfn> has the meaning given by rule 11.36.2.</p><p class=\"level1\"><dfn id=\"chap_11_211_term_specified_amount\">specified amount</dfn> means the amount assigned to variable \"y\" in accordance with S7.2.3 in relation to a participating jurisdiction.</p><p class=\"level1\"><dfn id=\"chap_11_212_term_supply_point\">supply point</dfn> means a <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a>:</p><div class=\"prov1\"><span class=\"label\">(1)</span>that is a <a href=\"term_connection_point\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_connection_point\">connection point</a> connected to the distribution system of a regulated distribution system operator; and</div><div class=\"prov1\"><span class=\"label\">(2)</span>through which the regulated distribution system operator is required to provide smart metering services in accordance with a Ministerial smart meter roll out determination.</div><p class=\"level1\"><dfn id=\"chap_11_213_term_volume_consumption\">volume consumption</dfn> means the volume of <a href=\"term_energy\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_energy\">energy</a> consumed by a customer through the relevant <a href=\"chap_11_212_term_supply_point\" class=\"term\"  data-glossary-type=\"local\" data-link-type=\"glossary\" data-content=\"chap_11_212_term_supply_point\">supply point</a> calculated in accordance with S7.2.3.</p></div>",
+      "content_type": "clause",
+      "metadata": null,
+      "links": {
+        "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875094",
+        "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093"
+      },
+      "parent": {
+        "id": 875093,
+        "parent_id": 875092,
+        "title": "Ministerial Smart Meter Roll Out Determinations",
+        "description": null,
+        "index": "11.36",
+        "chapter": "11",
+        "content": null,
+        "content_type": "rule",
+        "metadata": null,
+        "links": {
+          "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875093",
+          "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875092"
+        },
+        "parent": {
+          "id": 875092,
+          "parent_id": 874881,
+          "title": "Transitional Arrangements for Ministerial Smart Meter Roll Out Determinations",
+          "description": null,
+          "index": "11.Part ZF",
+          "chapter": "11",
+          "content": null,
+          "content_type": "part",
+          "metadata": null,
+          "links": {
+            "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/875092",
+            "parent": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/874881"
+          },
+          "parent": {
+            "id": 874881,
+            "parent_id": null,
+            "title": "Savings and Transitional Rules",
+            "description": null,
+            "index": "11",
+            "chapter": "11",
+            "content": null,
+            "content_type": "chapter",
+            "metadata": {
+              "is_glossary": false
+            },
+            "links": {
+              "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/content/874881",
+              "parent": null
+            },
+            "parent": []
+          }
+        }
+      },
+      "children": [],
+      "search_index": 3,
+      "version": {
+        "version_id": 803,
+        "version": 251,
+        "approved": 1,
+        "current": 1,
+        "archived": 0,
+        "type": "ner",
+        "start_date": "2026-07-23 00:00:00",
+        "end_date": null
+      },
+      "search_content": "the ministerial smart meter roll out...",
+      "type": "chapter"
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "first_page_url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=1",
+    "from": 1,
+    "last_page": 4,
+    "last_page_url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=4",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=2",
+        "label": "2",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=3",
+        "label": "3",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=4",
+        "label": "4",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=2",
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "next_page_url": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search?perPage=3&query=smart%20meter&page=2",
+    "path": "https://energy-rules.aemc.gov.au/api/v1/rules/803/search",
+    "per_page": 3,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 10
+  }
+}

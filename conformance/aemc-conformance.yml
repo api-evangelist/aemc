@@ -1,0 +1,51 @@
+generated: '2026-07-27'
+method: derived
+source: openapi/aemc-energy-rules-openapi-derived.yml + live probes 2026-07-27
+note: >-
+  AEMC makes no conformance or compliance claims for the Energy Rules API — it does not document the
+  API at all. Every assertion below is derived from observed behaviour. No Compliance pointer is
+  emitted because AEMC publishes no certifications or compliance programme.
+standards:
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI is published by AEMC. openapi/aemc-energy-rules-openapi-derived.yml is an
+    API Evangelist derivation from the production client bundle plus live probes.
+- id: rest
+  conforms: true
+  evidence: Resource-oriented GET endpoints returning JSON with hypermedia links (links.self, links.parent, links.toc, links.chapters).
+- id: json-api
+  conforms: false
+  evidence: Laravel API Resource envelope (data/links/meta), not the JSON:API media type or document structure.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'Errors return {"message":"Not found"} as application/json, not application/problem+json.'
+- id: oauth2
+  conforms: false
+  evidence: No securitySchemes; every endpoint answers anonymously.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on both www.aemc.gov.au and energy-rules.aemc.gov.au.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt is not served (403 at the edge on www.aemc.gov.au, SPA shell on energy-rules.aemc.gov.au).
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation headers observed.
+- id: rfc6585-rate-limit
+  conforms: partial
+  evidence: 'Non-standard x-ratelimit-limit / x-ratelimit-remaining headers are returned; no Retry-After or RFC 9331 RateLimit fields observed.'
+- id: pagination
+  conforms: true
+  evidence: Laravel page/perPage pagination with links + meta on collection endpoints.
+- id: idempotency
+  conforms: not-applicable
+  evidence: Read-only public surface (GET only).
+- id: consumer-data-standards-au
+  conforms: false
+  evidence: >-
+    The Consumer Data Standards (energy) are implemented by retailers and AEMO, not by AEMC. AEMC is
+    not a CDR data holder. See review.yml.
+- id: cim-iec-61968
+  conforms: false
+  evidence: No energy-domain data model is exposed; the payloads are legal-text structures (chapters, rules, clauses, defined terms).

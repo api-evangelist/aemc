@@ -1,0 +1,20 @@
+generated: '2026-07-27'
+method: generated
+source: openapi/aemc-energy-rules-openapi-derived.yml
+note: >-
+  Generated from the derived OpenAPI. Every operationId referenced below exists verbatim in that
+  spec and was probed live on 2026-07-27. AEMC publishes no skills, AGENTS.md or agent guidance —
+  searched 2026-07-27, none found.
+skills:
+- file: aemc-look-up-current-rule.md
+  name: Look up a rule in the current Australian energy rules
+  api: openapi/aemc-energy-rules-openapi-derived.yml
+  operations: [listRuleVersions, getRuleTableOfContents, getRuleContent]
+- file: aemc-search-rules-and-resolve-terms.md
+  name: Search the energy rules and resolve defined terms
+  api: openapi/aemc-energy-rules-openapi-derived.yml
+  operations: [listRuleVersions, searchRuleVersion, getRuleContent, getGlossaryMenu, listGlossaryTermsByLetter, getGlossaryTerm]
+- file: aemc-track-rule-versions-over-time.md
+  name: Track energy rule versions over time
+  api: openapi/aemc-energy-rules-openapi-derived.yml
+  operations: [listRuleVersions, getRuleTableOfContents, getRuleContent]

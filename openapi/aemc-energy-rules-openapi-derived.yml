@@ -1,0 +1,622 @@
+openapi: 3.1.0
+info:
+  title: AEMC Energy Rules API
+  version: '2026-07-27'
+  description: >-
+    Machine-readable description of the undocumented JSON API that serves the Australian Energy
+    Market Commission's Energy Rules application at https://energy-rules.aemc.gov.au. It exposes the
+    consolidated, versioned text of the National Electricity Rules (NER), National Gas Rules (NGR)
+    and National Energy Retail Rules (NERR) — the rule versions and their PDF/DOCX artefacts, the
+    table of contents, every chapter/part/division/rule/clause node, the full-text search index and
+    the complete defined-terms glossary.
+
+
+    AEMC publishes NO OpenAPI, no developer portal and no API documentation for this surface. This
+    document is DERIVED, not harvested. Every path below is a literal route string taken from AEMC's
+    own shipped production JavaScript bundle
+    (https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js), and each
+    one was probed live and anonymously on 2026-07-27 with the observed HTTP status recorded in
+    `x-evidence`. Response schemas are derived ONLY from responses actually observed on those probes
+    — no field, parameter or status code is invented.
+
+
+    ACCESS: entirely anonymous. No API key, no OAuth, no cookie and no CSRF token was required for
+    any read endpoint probed; responses carry `x-ratelimit-limit: 1000` and
+    `x-ratelimit-remaining`, served through AWS API Gateway (`apigw-requestid`) in front of a
+    Laravel application (Laravel API Resource `data`/`links`/`meta` envelope, Laravel-style
+    pagination).
+
+
+    NOT MODELLED: the production bundle also contains an administrative, token-gated approval route
+    of the form `/api/v1/{type}/{version}/approve/{token}` used by the editorial preview workflow.
+    It is a state-changing endpoint, it was deliberately NOT probed, and it is deliberately not
+    modelled here. The `previewToken` query parameter that several read endpoints accept belongs to
+    the same editorial preview workflow and is not usable anonymously.
+
+
+    STATUS: this is an undocumented internal API of a public website, not a product AEMC offers or
+    supports. There is no published terms-of-use, rate-limit policy, SLA, versioning policy or
+    contact for it. Treat it as subject to change without notice, and report inaccuracies rather
+    than treating this document as an authoritative contract.
+  contact:
+    name: AEMC
+    url: https://www.aemc.gov.au/contact-us
+  x-provenance:
+    generated: '2026-07-27'
+    method: derived
+    sources:
+      - https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js
+      - live anonymous HTTP probes 2026-07-27
+    note: >-
+      Not published by AEMC. Derived by API Evangelist from AEMC's own production client bundle plus
+      live anonymous probes of every route.
+servers:
+  - url: https://energy-rules.aemc.gov.au/api/v1
+    description: Production
+tags:
+  - name: Rule Versions
+    description: Versions of the National Electricity, Gas and Energy Retail Rules, with their published PDF and DOCX artefacts.
+  - name: Rule Content
+    description: The structural tree of a rule version — chapters, parts, divisions, rules and clauses.
+  - name: Search
+    description: Full-text search within a single rule version.
+  - name: Glossary
+    description: Defined terms for a rule version.
+  - name: Settings
+    description: Application settings exposed to the client.
+paths:
+  /rules/{ruleType}/versions:
+    get:
+      operationId: listRuleVersions
+      summary: List the published versions of a rule book
+      description: >-
+        Returns the paginated list of published versions of one rule book, newest first, each with
+        its commencement and start dates, status flags and the full set of published PDF and DOCX
+        files (full document, coversheet/contents and one file per chapter). Verified live
+        2026-07-27: `ner` returned 304 versions (latest v251), `ngr` 115 versions (latest v92),
+        `nerr` 65 versions (latest v51); `nel` and the `-wa` variants returned an empty `data` array
+        with a valid pagination envelope.
+      tags: [Rule Versions]
+      parameters:
+        - name: ruleType
+          in: path
+          required: true
+          description: >-
+            Rule book identifier. Observed to carry data for `ner` (National Electricity Rules),
+            `ngr` (National Gas Rules) and `nerr` (National Energy Retail Rules); `nel`, `ner-wa`,
+            `ngr-wa`, `nerr-wa`, `wa` and `nogr` return HTTP 200 with an empty `data` array.
+          schema:
+            type: string
+            examples: [ner, ngr, nerr]
+        - name: page
+          in: query
+          required: false
+          schema: {type: integer, minimum: 1, default: 1}
+        - name: perPage
+          in: query
+          required: false
+          description: Page size. The client defaults to 10 for the version list and 30 for search.
+          schema: {type: integer, minimum: 1, default: 30}
+        - name: showAll
+          in: query
+          required: false
+          description: >-
+            When true the full version history is returned in one response, ignoring `perPage`
+            (observed 4.5 MB for `ner`).
+          schema: {type: boolean}
+        - name: searchVersion
+          in: query
+          required: false
+          description: Filter by version number.
+          schema: {type: string}
+        - name: searchDate
+          in: query
+          required: false
+          description: >-
+            Return the version(s) in force on a date. Verified 2026-07-27 —
+            `searchDate=2020-01-01` returned NER version 132.
+          schema: {type: string, format: date}
+        - name: previewToken
+          in: query
+          required: false
+          description: Editorial preview token. Not usable anonymously.
+          schema: {type: string}
+      responses:
+        '200':
+          description: Paginated list of rule versions.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: {$ref: '#/components/schemas/RuleVersion'}
+                  links: {$ref: '#/components/schemas/PaginationLinks'}
+                  meta: {$ref: '#/components/schemas/PaginationMeta'}
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=1&perPage=1', status: 200, bytes: 13240}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/ngr/versions?perPage=1', status: 200}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/nerr/versions?perPage=1', status: 200}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/nel/versions?perPage=1', status: 200, note: 'empty data array'}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?perPage=1&searchDate=2020-01-01', status: 200}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?perPage=1&showAll=true', status: 200, bytes: 4479473}
+  /rules/{versionId}/toc:
+    get:
+      operationId: getRuleTableOfContents
+      summary: Get the full table of contents for a rule version
+      description: >-
+        Returns the complete nested structure of a rule version — chapters, parts, divisions, rules,
+        clauses and schedules — as a recursive tree of content nodes, each with the relative link to
+        its own content resource. Verified live 2026-07-27 for version id 803 (NER v251): 19
+        top-level nodes, 86 KB gzipped.
+      tags: [Rule Content]
+      parameters:
+        - $ref: '#/components/parameters/VersionId'
+      responses:
+        '200':
+          description: Table of contents tree.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: {$ref: '#/components/schemas/TocNode'}
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/toc', status: 200, bytes: 86222}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/9999/toc', status: 404}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/251/toc', status: 404, note: 'the path parameter is the version id, not the version number'}
+  /rules/{versionId}/chapters:
+    get:
+      operationId: listRuleChapters
+      summary: List the top-level chapters of a rule version
+      description: >-
+        Returns the top-level content nodes (chapters and schedules) of a rule version without their
+        descendants. Discovered from the `links.chapters` URL returned on every rule version object.
+      tags: [Rule Content]
+      parameters:
+        - $ref: '#/components/parameters/VersionId'
+      responses:
+        '200':
+          description: Top-level chapter nodes.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: {$ref: '#/components/schemas/TocNode'}
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/chapters', status: 200, bytes: 3216}
+  /rules/{versionId}/content/{contentId}:
+    get:
+      operationId: getRuleContent
+      summary: Get one content node of a rule version
+      description: >-
+        Returns a single content node — a chapter, part, division, rule or clause — with its parent,
+        its immediate children and, for leaf nodes, the rule text. A `meta` block reports whether
+        the version is approved, current or archived.
+      tags: [Rule Content]
+      parameters:
+        - $ref: '#/components/parameters/VersionId'
+        - name: contentId
+          in: path
+          required: true
+          description: Content node id, as returned in `links.self` on any table-of-contents or search result node.
+          schema: {type: integer}
+        - name: previewToken
+          in: query
+          required: false
+          description: Editorial preview token. Not usable anonymously.
+          schema: {type: string}
+      responses:
+        '200':
+          description: One content node.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: {$ref: '#/components/schemas/ContentNode'}
+                  meta: {$ref: '#/components/schemas/ContentMeta'}
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794', status: 200, bytes: 5567}
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872796', status: 200, bytes: 591}
+  /rules/{versionId}/search:
+    get:
+      operationId: searchRuleVersion
+      summary: Full-text search within a rule version
+      description: >-
+        Searches the text of one rule version and returns matching content nodes with a
+        `search_content` snippet, the parent node, the children and the version block. Paginated
+        with a Laravel `meta` envelope. Verified live 2026-07-27 — `query=smart meter` against NER
+        v251 returned matches including "Transitional Arrangements for Ministerial Smart Meter Roll
+        Out Determinations".
+      tags: [Search]
+      parameters:
+        - $ref: '#/components/parameters/VersionId'
+        - name: query
+          in: query
+          required: true
+          schema: {type: string}
+        - name: chapter
+          in: query
+          required: false
+          description: Restrict to one chapter. The client omits this parameter for "All Chapters".
+          schema: {type: string}
+        - name: page
+          in: query
+          required: false
+          schema: {type: integer, minimum: 1, default: 1}
+        - name: perPage
+          in: query
+          required: false
+          schema: {type: integer, minimum: 1, default: 30}
+        - name: previewToken
+          in: query
+          required: false
+          schema: {type: string}
+      responses:
+        '200':
+          description: Paginated search results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: {$ref: '#/components/schemas/SearchResult'}
+                  meta: {$ref: '#/components/schemas/PaginationMeta'}
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/search?query=smart%20meter&page=1&perPage=3', status: 200, bytes: 2171}
+  /rules/{versionId}/glossary/menu:
+    get:
+      operationId: getGlossaryMenu
+      summary: Get the glossary index, grouped by first letter
+      description: >-
+        Returns every defined term in a rule version grouped by its first character, as the letter
+        navigation for the glossary. Verified live 2026-07-27 for NER v251.
+      tags: [Glossary]
+      parameters:
+        - $ref: '#/components/parameters/VersionId'
+      responses:
+        '200':
+          description: Terms grouped by first letter.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Map of letter (or digit) to the list of defined terms beginning with it.
+                    additionalProperties:
+                      type: array
+                      items: {type: string}
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/menu', status: 200, bytes: 8986}
+  /rules/{versionId}/glossary/by-letter/{letter}:
+    get:
+      operationId: listGlossaryTermsByLetter
+      summary: List defined terms beginning with a letter
+      description: >-
+        Returns the full definition record for every defined term in a rule version beginning with
+        the given letter, including HTML and plain-text definitions, alternative forms, the chapter
+        the term is sourced from and whether it is a global definition.
+      tags: [Glossary]
+      parameters:
+        - $ref: '#/components/parameters/VersionId'
+        - name: letter
+          in: path
+          required: true
+          description: Single letter or digit group, lower case (e.g. `a`, `3`).
+          schema: {type: string}
+      responses:
+        '200':
+          description: Glossary entries for the letter.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: {$ref: '#/components/schemas/GlossaryEntry'}
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/by-letter/a', status: 200, bytes: 18489}
+  /rules/{versionId}/glossary/{termIdentifier}:
+    get:
+      operationId: getGlossaryTerm
+      summary: Resolve one defined term
+      description: >-
+        Returns the definition of a single defined term by its identifier (the `term_identifier`
+        returned by the glossary listings, e.g. `term_aarr`). The client strips a leading `#` from
+        anchor links before calling this endpoint.
+      tags: [Glossary]
+      parameters:
+        - $ref: '#/components/parameters/VersionId'
+        - name: termIdentifier
+          in: path
+          required: true
+          schema: {type: string, examples: [term_aarr]}
+      responses:
+        '200':
+          description: One glossary definition.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: {type: string}
+                  data:
+                    type: object
+                    properties:
+                      term_id: {type: string}
+                      term: {type: string}
+                      definition: {type: string, description: HTML definition body.}
+                  metadata:
+                    type: object
+                    properties:
+                      lookup: {type: string}
+                      version: {type: integer}
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/term_aarr', status: 200, bytes: 275}
+  /settings/wa:
+    get:
+      operationId: getWaSettings
+      summary: Get the Western Australia rules display setting
+      description: >-
+        Returns the application flag the client uses to decide whether the Western Australian rule
+        variants are shown. Verified live 2026-07-27 — returns the literal body `1`.
+      tags: [Settings]
+      responses:
+        '200':
+          description: Setting value.
+          content:
+            application/json:
+              schema:
+                type: integer
+                examples: [1]
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+          - {url: 'https://energy-rules.aemc.gov.au/api/v1/settings/wa', status: 200, bytes: 1}
+components:
+  parameters:
+    VersionId:
+      name: versionId
+      in: path
+      required: true
+      description: >-
+        The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) —
+        NOT the human-facing version number. Passing the version number returns HTTP 404.
+      schema: {type: integer, examples: [803]}
+  responses:
+    NotFound:
+      description: No such rule version, content node or term.
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/Error'}
+  schemas:
+    Error:
+      type: object
+      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
+      properties:
+        message: {type: string, examples: ['Not found']}
+    RuleVersion:
+      type: object
+      properties:
+        id: {type: integer, description: Version id used as the path parameter on every other endpoint.}
+        version: {type: integer, description: Human-facing rule version number.}
+        type: {type: string, examples: [ner, ngr, nerr]}
+        files:
+          type: object
+          properties:
+            pdf:
+              type: array
+              items: {$ref: '#/components/schemas/RuleFile'}
+            docx:
+              type: array
+              items: {$ref: '#/components/schemas/RuleFile'}
+        commencement_date: {type: [string, 'null']}
+        start_date: {type: [string, 'null']}
+        schedule_date: {type: [string, 'null']}
+        end_date: {type: [string, 'null']}
+        summary: {type: [string, 'null']}
+        parsed: {type: integer}
+        approved: {type: integer}
+        archived: {type: integer}
+        created_at: {type: string, format: date-time}
+        updated_at: {type: string, format: date-time}
+        hash: {type: string, description: Content hash used in the S3 asset path for this version's files.}
+        added_coversheets: {type: integer}
+        is_current: {type: integer}
+        pdf_coversheet: {type: [string, 'null']}
+        docx_coversheet: {type: [string, 'null']}
+        is_historic_data: {type: integer}
+        links:
+          type: object
+          properties:
+            toc: {type: string, format: uri}
+            chapters: {type: string, format: uri}
+    RuleFile:
+      type: object
+      description: A published rule artefact on AEMC's S3 bucket (aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com).
+      properties:
+        name: {type: string}
+        path: {type: string, format: uri}
+        size: {type: integer}
+        filename: {type: string}
+    TocNode:
+      type: object
+      properties:
+        id: {type: integer}
+        parent_id: {type: [integer, 'null']}
+        version_id: {type: integer}
+        sort_index: {type: integer}
+        title: {type: string}
+        description: {type: [string, 'null']}
+        index: {type: string, description: 'Citation index, e.g. "1.1.1" or "11.Part ZF".'}
+        chapter: {type: string}
+        content_type:
+          type: string
+          description: Observed values on NER v251.
+          enum: [chapter, part, division, rule, clause, chapter_schedule, part_schedule]
+        metadata:
+          type: [object, 'null']
+          properties:
+            is_glossary: {type: boolean}
+        is_glossary: {type: boolean}
+        children:
+          type: array
+          items: {$ref: '#/components/schemas/TocNode'}
+        links:
+          type: object
+          properties:
+            self: {type: string, description: 'Relative content link, e.g. "content/872796".'}
+    ContentNode:
+      type: object
+      properties:
+        id: {type: integer}
+        parent_id: {type: [integer, 'null']}
+        title: {type: string}
+        description: {type: [string, 'null']}
+        index: {type: string}
+        chapter: {type: string}
+        content: {type: [string, 'null'], description: HTML rule text for leaf nodes.}
+        content_type: {type: string}
+        metadata: {type: [object, 'null']}
+        links:
+          type: object
+          properties:
+            self: {type: string, format: uri}
+            parent: {type: [string, 'null'], format: uri}
+        parent: {type: [object, array, 'null'], description: Parent node, or an empty array at the root.}
+        children:
+          type: array
+          items: {$ref: '#/components/schemas/ContentNode'}
+    ContentMeta:
+      type: object
+      properties:
+        archived: {type: integer}
+        approved: {type: integer}
+        current: {type: integer}
+        approve_link: {type: [string, 'null']}
+    SearchResult:
+      type: object
+      properties:
+        id: {type: integer}
+        parent_id: {type: [integer, 'null']}
+        title: {type: string}
+        description: {type: [string, 'null']}
+        index: {type: string}
+        chapter: {type: string}
+        content: {type: [string, 'null']}
+        content_type: {type: string}
+        metadata: {type: [object, 'null']}
+        search_index: {type: integer}
+        search_content: {type: string, description: Matched text snippet.}
+        type: {type: string}
+        links:
+          type: object
+          properties:
+            self: {type: string, format: uri}
+            parent: {type: [string, 'null'], format: uri}
+        parent: {type: [object, 'null']}
+        children:
+          type: array
+          items: {type: object}
+        version:
+          type: object
+          properties:
+            version_id: {type: integer}
+            version: {type: integer}
+            approved: {type: integer}
+            current: {type: integer}
+            archived: {type: integer}
+            type: {type: string}
+            start_date: {type: [string, 'null']}
+            end_date: {type: [string, 'null']}
+    GlossaryEntry:
+      type: object
+      properties:
+        global: {type: integer}
+        sort_index: {type: integer}
+        sourced_from: {type: string, description: 'Chapter the definition comes from, e.g. "chapter 10".'}
+        term_identifier: {type: string}
+        alternatives:
+          type: array
+          items: {type: string}
+        alternative_identifier: {type: string}
+        term: {type: string}
+        alternative_term: {type: string}
+        definition: {type: string, description: HTML definition body with cross-links to other defined terms.}
+        text_definition: {type: string}
+        parent_chapter: {type: integer}
+        links:
+          type: object
+          properties:
+            self: {type: string, format: uri}
+    PaginationLinks:
+      type: object
+      properties:
+        first: {type: [string, 'null'], format: uri}
+        last: {type: [string, 'null'], format: uri}
+        prev: {type: [string, 'null'], format: uri}
+        next: {type: [string, 'null'], format: uri}
+    PaginationMeta:
+      type: object
+      properties:
+        current_page: {type: integer}
+        from: {type: [integer, 'null']}
+        to: {type: [integer, 'null']}
+        last_page: {type: integer}
+        per_page: {type: integer}
+        total: {type: integer}
+        path: {type: string, format: uri}
+        first_page_url: {type: [string, 'null'], format: uri}
+        last_page_url: {type: [string, 'null'], format: uri}
+        next_page_url: {type: [string, 'null'], format: uri}
+        prev_page_url: {type: [string, 'null'], format: uri}
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              url: {type: [string, 'null'], format: uri}
+              label: {type: string}
+              active: {type: boolean}

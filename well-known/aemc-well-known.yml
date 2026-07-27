@@ -1,0 +1,35 @@
+generated: '2026-07-27'
+method: searched
+source: live probes 2026-07-27 (browser user-agent, redirects followed)
+note: >-
+  Probed the standard /.well-known/ discovery surface on both AEMC hosts. Nothing returned a usable
+  document, so no WellKnown or SecurityTxt pointer is emitted. Two shapes of negative result are
+  recorded honestly: www.aemc.gov.au returns 403 from the edge for security.txt / llms.txt / ai.txt
+  (a WAF block on those paths, not a served document) and 404 for the rest, while
+  energy-rules.aemc.gov.au is a single-page application that answers every unmatched path with its
+  1,779-byte HTML shell at HTTP 200 — a 200 there is not a document.
+hosts:
+- host: https://www.aemc.gov.au
+  documents:
+  - {path: /.well-known/security.txt, status: 403, note: edge block, no document served}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 403, note: edge block}
+  - {path: /ai.txt, status: 403, note: edge block}
+  - {path: /robots.txt, status: 200, note: stock Drupal robots.txt, no sitemap or API references}
+  - {path: /sitemap.xml, status: 404}
+  - {path: /rss.xml, status: 200, note: 'site RSS 2.0 feed, application/rss+xml'}
+- host: https://energy-rules.aemc.gov.au
+  documents:
+  - {path: /.well-known/security.txt, status: 200, note: SPA HTML shell, not a security.txt}
+  - {path: /.well-known/openid-configuration, status: 200, note: SPA HTML shell, not OIDC discovery}
+  - {path: /robots.txt, status: 200, note: 24-byte robots.txt served from CloudFront}
+  - {path: /sitemap.xml, status: 200, note: SPA HTML shell}
+spec_discovery:
+  note: >-
+    Spec-location probes are recorded with the rest of the contract-discovery evidence — see
+    review.yml (round 1, www.aemc.gov.au) and the x-evidence blocks in
+    openapi/aemc-energy-rules-openapi-derived.yml (round 2, energy-rules.aemc.gov.au). No OpenAPI,
+    Swagger, GraphQL or AsyncAPI document is published on either host.

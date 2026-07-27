@@ -1,0 +1,361 @@
+{
+  "data": [
+    {
+      "id": 803,
+      "version": 251,
+      "type": "ner",
+      "files": {
+        "pdf": [
+          {
+            "name": "National Electricity Rules version 251",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Full.pdf",
+            "size": 8264664,
+            "filename": "NER - v251 - Full.pdf"
+          },
+          {
+            "name": "Coversheet & contents",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Contents.pdf",
+            "size": 946662,
+            "filename": "NER - v251 - Contents.pdf"
+          },
+          {
+            "name": "Chapter 1: Introduction",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 1.pdf",
+            "size": 136096,
+            "filename": "NER - v251 - Chapter 1.pdf"
+          },
+          {
+            "name": "Chapter 2: Registered Participants and Registration",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 2.pdf",
+            "size": 286695,
+            "filename": "NER - v251 - Chapter 2.pdf"
+          },
+          {
+            "name": "Chapter 2A: Regional Structure",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 2A.pdf",
+            "size": 174838,
+            "filename": "NER - v251 - Chapter 2A.pdf"
+          },
+          {
+            "name": "Chapter 3: Market Rules",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 3.pdf",
+            "size": 1079824,
+            "filename": "NER - v251 - Chapter 3.pdf"
+          },
+          {
+            "name": "Chapter 4: Power System Security",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 4.pdf",
+            "size": 465167,
+            "filename": "NER - v251 - Chapter 4.pdf"
+          },
+          {
+            "name": "Chapter 4A: Retailer Reliability Obligation",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 4A.pdf",
+            "size": 302081,
+            "filename": "NER - v251 - Chapter 4A.pdf"
+          },
+          {
+            "name": "Chapter 4B: Orderly Exit Management",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 4B.pdf",
+            "size": 314747,
+            "filename": "NER - v251 - Chapter 4B.pdf"
+          },
+          {
+            "name": "Chapter 5: Network Connection Access, Planning and Expansion",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 5.pdf",
+            "size": 2049250,
+            "filename": "NER - v251 - Chapter 5.pdf"
+          },
+          {
+            "name": "Chapter 5A: Electricity connection for retail customers",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 5A.pdf",
+            "size": 233600,
+            "filename": "NER - v251 - Chapter 5A.pdf"
+          },
+          {
+            "name": "Chapter 6: Economic Regulation of Distribution Services",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 6.pdf",
+            "size": 561144,
+            "filename": "NER - v251 - Chapter 6.pdf"
+          },
+          {
+            "name": "Chapter 6A: Economic Regulation of Transmission Services",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 6A.pdf",
+            "size": 611816,
+            "filename": "NER - v251 - Chapter 6A.pdf"
+          },
+          {
+            "name": "Chapter 6B: Retail markets",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 6B.pdf",
+            "size": 171666,
+            "filename": "NER - v251 - Chapter 6B.pdf"
+          },
+          {
+            "name": "Chapter 7: Metering",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 7.pdf",
+            "size": 477737,
+            "filename": "NER - v251 - Chapter 7.pdf"
+          },
+          {
+            "name": "Chapter 8: Administrative Functions",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 8.pdf",
+            "size": 337635,
+            "filename": "NER - v251 - Chapter 8.pdf"
+          },
+          {
+            "name": "Chapter 8A: Participant Derogations",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 8A.pdf",
+            "size": 207022,
+            "filename": "NER - v251 - Chapter 8A.pdf"
+          },
+          {
+            "name": "Chapter 9: Jurisdictional Derogations and Transitional Arrangements",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 9.pdf",
+            "size": 366181,
+            "filename": "NER - v251 - Chapter 9.pdf"
+          },
+          {
+            "name": "Chapter 10: Glossary",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 10.pdf",
+            "size": 527736,
+            "filename": "NER - v251 - Chapter 10.pdf"
+          },
+          {
+            "name": "Chapter 11: Savings and Transitional Rules",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 11.pdf",
+            "size": 1539721,
+            "filename": "NER - v251 - Chapter 11.pdf"
+          }
+        ],
+        "docx": [
+          {
+            "name": "Coversheet & contents",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Contents.docx",
+            "size": 147546,
+            "filename": "NER - v251 - Contents.docx"
+          },
+          {
+            "name": "Chapter 1: Introduction",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 1.docx",
+            "size": 49931,
+            "filename": "NER - v251 - Chapter 1.docx"
+          },
+          {
+            "name": "Chapter 2: Registered Participants and Registration",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 2.docx",
+            "size": 77926,
+            "filename": "NER - v251 - Chapter 2.docx"
+          },
+          {
+            "name": "Chapter 2A: Regional Structure",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 2A.docx",
+            "size": 54637,
+            "filename": "NER - v251 - Chapter 2A.docx"
+          },
+          {
+            "name": "Chapter 3: Market Rules",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 3.docx",
+            "size": 322225,
+            "filename": "NER - v251 - Chapter 3.docx"
+          },
+          {
+            "name": "Chapter 4: Power System Security",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 4.docx",
+            "size": 117751,
+            "filename": "NER - v251 - Chapter 4.docx"
+          },
+          {
+            "name": "Chapter 4A: Retailer Reliability Obligation",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 4A.docx",
+            "size": 83997,
+            "filename": "NER - v251 - Chapter 4A.docx"
+          },
+          {
+            "name": "Chapter 4B: Orderly Exit Management",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 4B.docx",
+            "size": 84195,
+            "filename": "NER - v251 - Chapter 4B.docx"
+          },
+          {
+            "name": "Chapter 5: Network Connection Access, Planning and Expansion",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 5.docx",
+            "size": 645243,
+            "filename": "NER - v251 - Chapter 5.docx"
+          },
+          {
+            "name": "Chapter 5A: Electricity connection for retail customers",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 5A.docx",
+            "size": 64752,
+            "filename": "NER - v251 - Chapter 5A.docx"
+          },
+          {
+            "name": "Chapter 6: Economic Regulation of Distribution Services",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 6.docx",
+            "size": 132723,
+            "filename": "NER - v251 - Chapter 6.docx"
+          },
+          {
+            "name": "Chapter 6A: Economic Regulation of Transmission Services",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 6A.docx",
+            "size": 146039,
+            "filename": "NER - v251 - Chapter 6A.docx"
+          },
+          {
+            "name": "Chapter 6B: Retail markets",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 6B.docx",
+            "size": 51464,
+            "filename": "NER - v251 - Chapter 6B.docx"
+          },
+          {
+            "name": "Chapter 7: Metering",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 7.docx",
+            "size": 123466,
+            "filename": "NER - v251 - Chapter 7.docx"
+          },
+          {
+            "name": "Chapter 8: Administrative Functions",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 8.docx",
+            "size": 89610,
+            "filename": "NER - v251 - Chapter 8.docx"
+          },
+          {
+            "name": "Chapter 8A: Participant Derogations",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 8A.docx",
+            "size": 58780,
+            "filename": "NER - v251 - Chapter 8A.docx"
+          },
+          {
+            "name": "Chapter 9: Jurisdictional Derogations and Transitional Arrangements",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 9.docx",
+            "size": 91291,
+            "filename": "NER - v251 - Chapter 9.docx"
+          },
+          {
+            "name": "Chapter 10: Glossary",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 10.docx",
+            "size": 153667,
+            "filename": "NER - v251 - Chapter 10.docx"
+          },
+          {
+            "name": "Chapter 11: Savings and Transitional Rules",
+            "path": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/a3f0454b50d95ca16bf13a90f42de807e8d853cd/assets/files/NER - v251 - Chapter 11.docx",
+            "size": 329835,
+            "filename": "NER - v251 - Chapter 11.docx"
+          }
+        ]
+      },
+      "commencement_date": "2026-07-23 00:00:00",
+      "start_date": "2026-07-23 00:00:00",
+      "schedule_date": null,
+      "end_date": null,
+      "summary": null,
+      "parsed": 1,
+      "approved": 1,
+      "archived": 0,
+      "created_at": "2026-07-16T05:08:17.000000Z",
+      "updated_at": "2026-07-22T14:01:23.000000Z",
+      "hash": "a3f0454b50d95ca16bf13a90f42de807e8d853cd",
+      "added_coversheets": 0,
+      "is_current": 1,
+      "pdf_coversheet": null,
+      "docx_coversheet": null,
+      "is_historic_data": 0,
+      "links": {
+        "toc": "https://energy-rules.aemc.gov.au/api/v1/rules/803/toc",
+        "chapters": "https://energy-rules.aemc.gov.au/api/v1/rules/803/chapters"
+      }
+    }
+  ],
+  "links": {
+    "first": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=1",
+    "last": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=304",
+    "prev": null,
+    "next": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=2"
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 304,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=2",
+        "label": "2",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=3",
+        "label": "3",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=4",
+        "label": "4",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=5",
+        "label": "5",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=6",
+        "label": "6",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=7",
+        "label": "7",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=8",
+        "label": "8",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=9",
+        "label": "9",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=10",
+        "label": "10",
+        "active": false
+      },
+      {
+        "url": null,
+        "label": "...",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=303",
+        "label": "303",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=304",
+        "label": "304",
+        "active": false
+      },
+      {
+        "url": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?page=2",
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions",
+    "per_page": 1,
+    "to": 1,
+    "total": 304
+  }
+}

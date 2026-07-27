@@ -1,0 +1,12 @@
+{
+  "success": "true",
+  "data": {
+    "term_id": "term_aarr",
+    "term": "AARR",
+    "definition": "<p class=\"defBody\">The <a href=\"term_aggregate_annual_revenue_requirement\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aggregate_annual_revenue_requirement\">aggregate annual revenue requirement</a> for <a href=\"term_prescribed_transmission_services\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_prescribed_transmission_services\">prescribed transmission services</a>.</p>"
+  },
+  "metadata": {
+    "lookup": "term_aarr",
+    "version": 251
+  }
+}

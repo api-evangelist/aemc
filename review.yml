@@ -9,9 +9,15 @@ review:
   reviewer: API Evangelist
   homeMarket: Australia
   tier: regulator
+  answerRevised: '2026-07-27 — see roundTwo. AEMC publishes no DOCUMENTED API, but it
+    operates an undocumented, anonymous public JSON API at energy-rules.aemc.gov.au/api/v1
+    serving the versioned text of all three rule books. The "documented" qualifier is what
+    keeps the answer false.'
   summary: |
-    AEMC publishes no API, no developer portal, and no machine-readable data
-    product. It is the rule maker, not an operator or a data holder. The
+    AEMC publishes no documented API, no developer portal, and no open data
+    product. It is the rule maker, not an operator or a data holder. Round two
+    corrected one part of this: the Energy Rules application is backed by a real,
+    anonymous, undocumented JSON API, now captured as a derived OpenAPI. The
     substantive finding for this sector study is regulatory: AEMC AUTHORED a
     smart-meter real-time data access mandate (final rule 18 December 2025) that
     is designated but does not commence until 30 November 2028, and it is a
@@ -266,12 +272,82 @@ probes:
     status: 200
     note: empty result — AEMC is not a publishing organization on data.gov.au
 
+roundTwo:
+  date: '2026-07-27'
+  reviewer: API Evangelist enrichment pipeline
+  correctsRoundOne: true
+  headline: |
+    Round one concluded AEMC exposes no machine-readable surface beyond its RSS feed. That
+    conclusion was WRONG, and this round corrects it. Round one probed only www.aemc.gov.au and a
+    fixed list of subdomains; it did not probe energy-rules.aemc.gov.au, which resolves
+    (52.65.87.241) and hosts AEMC's Energy Rules application — a CloudFront/Laravel single-page
+    app backed by an undocumented, entirely anonymous JSON API at /api/v1.
+  howFound: |
+    A DNS sweep of additional subdomain candidates returned energy-rules.aemc.gov.au and
+    portal.aemc.gov.au. energy-rules.aemc.gov.au answers every unmatched path with a 1,779-byte
+    HTML shell at HTTP 200 — including /openapi.json, /swagger.json, /api-docs and
+    /.well-known/*, which is why a status-code-only probe reads as "everything exists" and is
+    equally useless. The real routes were extracted from AEMC's own production bundle
+    (https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js),
+    which contains the literal strings /api/v1/rules/{...}/versions, /toc, /content/, /search,
+    /glossary/menu, /glossary/by-letter/, /glossary/ and /settings/wa. Every one was then probed
+    live and anonymously on 2026-07-27.
+  whatItServes: |
+    The consolidated, versioned text of all three rule books, with per-version PDF and DOCX
+    artefacts on AEMC's S3 bucket: National Electricity Rules (304 versions, current v251,
+    version id 803), National Gas Rules (115 versions, current v92, id 800), National Energy
+    Retail Rules (65 versions, current v51, id 802). Plus the full chapter/part/division/rule/
+    clause tree, per-node rule text as HTML, full-text search within a version, and the complete
+    defined-terms glossary with cross-linked definitions. searchDate resolves the version in
+    force on any past date (2020-01-01 returned NER v132).
+  access: |
+    Entirely anonymous. No API key, OAuth, session cookie or CSRF token was required for any read
+    endpoint. Responses carry x-ratelimit-limit: 1000 and x-ratelimit-remaining, served through
+    AWS API Gateway (apigw-requestid) in front of a Laravel app using the Laravel API Resource
+    data/links/meta envelope and page/perPage pagination.
+  notDocumented: |
+    AEMC publishes no OpenAPI, no documentation, no terms of use, no SLA, no versioning or
+    deprecation policy, no support channel and no rate-limit policy for this API. It is an
+    internal API of a public website, not an offered product. openapi/ therefore holds a DERIVED
+    specification with x-evidence on every operation, not a harvested one.
+  notProbed: |
+    The bundle also contains a state-changing, token-in-path approval route of the form
+    /api/v1/{type}/{version}/approve/{token}, used by the editorial preview workflow, along with
+    a previewToken query parameter on several read endpoints. Neither was exercised. The approve
+    route is deliberately excluded from the OpenAPI; a token-in-URL approval link is recorded in
+    authentication/aemc-authentication.yml as a security-relevant design observation only.
+  otherHosts:
+  - url: https://portal.aemc.gov.au/
+    dns: 118.127.77.52
+    tcp443: filtered/timeout
+    note: Resolves but does not answer on 443 from the public internet; not reachable, not modelled.
+  - url: https://www.aemc.gov.au/.well-known/security.txt
+    status: 403
+    note: |
+      Edge block on security.txt / llms.txt / ai.txt with a browser user-agent, not a served
+      document. Round one's 403s were the same block, not a WAF reaction to curl.
+  - url: https://github.com/Australian-Energy-Market-Commission
+    status: 200
+    note: |
+      An organisation matching the name exists (created 2024-08-02) but has zero public
+      repositories, no name, description, email or website, so ownership cannot be verified. No
+      GitHubOrganization pointer was emitted for it.
+  stillTrue: |
+    Everything round one recorded about the corporate site stands: no developer portal, no
+    documented API, no open data product, a Data portal of HTML charts whose newest project is
+    2021, and no CDR data-holder role. The smart-meter real-time data rule remains designated but
+    not live (AEMO procedures due 30 November 2026, meter obligation 30 November 2028). What
+    changed is that AEMC does in fact operate one real, callable, machine-readable surface — it
+    simply never told anyone.
+
 findings:
   developerPortal: none
   developerPortalConfirmed: false
   openapiHarvested: false
-  specsCount: 0
-  apisListed: 0
+  openapiDerived: true
+  specsCount: 1
+  specsNote: 1 derived OpenAPI 3.1 (9 operations) for the undocumented AEMC Energy Rules API; AEMC publishes none
+  apisListed: 1
   regulatorPublishesBetterThanIndustry: false
   regulatorNote: |
     This series has repeatedly found regulators out-publishing the industry they
@@ -311,10 +387,15 @@ sources:
 
 actions:
   apisYmlCreated: true
-  apisArrayEmpty: true
-  openapiDirectory: omitted — no real specification was found to harvest
+  apisArrayEmpty: false
+  openapiDirectory: openapi/aemc-energy-rules-openapi-derived.yml (derived, not harvested)
   reason: |
-    apis[] is deliberately empty. AEMC documents no API and exposes no callable
-    surface, and this profile records only what was fetched and verified. Nothing
-    was invented, and the site RSS feed was recorded as a common[] property rather
-    than promoted to an API.
+    Round one left apis[] deliberately empty because nothing callable had been found.
+    Round two (2026-07-27) found the undocumented AEMC Energy Rules API at
+    energy-rules.aemc.gov.au/api/v1, probed every route anonymously, and listed it as
+    one API with a DERIVED OpenAPI carrying per-operation x-evidence. Nothing was
+    invented: no path, parameter, status code or response field appears that was not
+    observed on a live response or read literally out of AEMC's own production
+    JavaScript bundle. The state-changing approval route found in that bundle was not
+    probed and is not modelled. The site RSS feed remains a common[] property rather
+    than an API.

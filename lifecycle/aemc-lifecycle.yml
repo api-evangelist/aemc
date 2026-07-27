@@ -1,0 +1,39 @@
+generated: '2026-07-27'
+method: derived
+source: openapi/aemc-energy-rules-openapi-derived.yml + live probes 2026-07-27
+api: AEMC Energy Rules API
+versioning:
+  scheme: uri-path
+  current: v1
+  base: https://energy-rules.aemc.gov.au/api/v1
+  policy_url: null
+  published: false
+  note: The /api/v1 prefix is the only versioning signal; AEMC publishes no API versioning policy.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  published: false
+  note: >-
+    No deprecation policy, no Sunset/Deprecation header support (RFC 8594) and no published change
+    process. This is an undocumented internal API of a public website and may change without notice.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  probed: ['https://status.aemc.gov.au (DNS NXDOMAIN, 2026-07-27)']
+support:
+  url: https://www.aemc.gov.au/contact-us
+  note: General AEMC contact form; there is no developer support channel for this API.
+deprecated_operations: []
+data_lifecycle:
+  note: >-
+    The rules themselves are versioned as first-class data, and that history is the substantive
+    lifecycle surface of this API. Each version carries commencement_date, start_date, end_date,
+    is_current and archived flags, and searchDate resolves the version in force on any past date.
+  rule_books:
+  - {type: ner, name: National Electricity Rules, versions: 304, current: 251, current_since: '2026-07-23'}
+  - {type: ngr, name: National Gas Rules, versions: 115, current: 92, current_since: '2026-07-16'}
+  - {type: nerr, name: National Energy Retail Rules, versions: 65, current: 51, current_since: '2026-07-01'}
+  counts_as_at: '2026-07-27'

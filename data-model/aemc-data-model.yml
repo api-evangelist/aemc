@@ -1,0 +1,55 @@
+generated: '2026-07-27'
+method: derived
+source: openapi/aemc-energy-rules-openapi-derived.yml + captured examples in examples/
+api: AEMC Energy Rules API
+note: >-
+  Entity graph derived from the schemas observed on live responses. AEMC publishes no object
+  reference for this API.
+entities:
+- name: RuleBook
+  description: >-
+    A body of rules identified by a type code. Not a returned object — it is the ruleType path
+    parameter, and the root of the graph.
+  identifier: type code
+  values:
+  - {code: ner, name: National Electricity Rules, versions: 304, latest: 251, latest_version_id: 803}
+  - {code: ngr, name: National Gas Rules, versions: 115, latest: 92, latest_version_id: 800}
+  - {code: nerr, name: National Energy Retail Rules, versions: 65, latest: 51, latest_version_id: 802}
+  - {code: nel, name: 'Declared but empty (HTTP 200, data: [])'}
+  - {code: 'ner-wa / ngr-wa / nerr-wa / wa / nogr', name: 'Declared but empty (HTTP 200, data: [])'}
+  counts_as_at: '2026-07-27'
+- name: RuleVersion
+  description: One published consolidation of a rule book, with its commencement dates, status flags and published files.
+  identifier: id
+  natural_key: version
+  fields_of_note: [id, version, type, commencement_date, start_date, end_date, is_current, approved, archived, hash]
+  operations: [listRuleVersions]
+- name: RuleFile
+  description: A published PDF or DOCX artefact of a rule version, stored on AEMC's S3 bucket and addressed by the version hash.
+  identifier: filename
+  operations: [listRuleVersions]
+- name: ContentNode
+  description: >-
+    A node in the rule tree — chapter, part, division, rule, clause, chapter_schedule or
+    part_schedule. Self-referential via parent_id/children. Leaf nodes carry the HTML rule text.
+  identifier: id
+  operations: [getRuleTableOfContents, listRuleChapters, getRuleContent, searchRuleVersion]
+- name: GlossaryEntry
+  description: A defined term for a rule version, with HTML and plain-text definitions and alternative word forms.
+  identifier: term_identifier
+  operations: [getGlossaryMenu, listGlossaryTermsByLetter, getGlossaryTerm]
+relationships:
+- {from: RuleBook, to: RuleVersion, kind: has_many, via: type}
+- {from: RuleVersion, to: RuleFile, kind: has_many, via: files.pdf / files.docx}
+- {from: RuleVersion, to: ContentNode, kind: has_many, via: version_id}
+- {from: ContentNode, to: ContentNode, kind: has_many, via: parent_id (children)}
+- {from: ContentNode, to: ContentNode, kind: belongs_to, via: parent_id (parent)}
+- {from: RuleVersion, to: GlossaryEntry, kind: has_many, via: version id in path}
+- {from: GlossaryEntry, to: ContentNode, kind: belongs_to, via: parent_chapter / sourced_from}
+- {from: ContentNode, to: GlossaryEntry, kind: references, via: HTML anchors with data-link-type="glossary" and data-content="term_*"}
+traversal:
+  canonical_path: >-
+    listRuleVersions(ruleType) -> take data[0].id -> getRuleTableOfContents(versionId) ->
+    follow links.self ("content/<id>") -> getRuleContent(versionId, contentId) -> resolve embedded
+    term_* anchors with getGlossaryTerm(versionId, termIdentifier).
+  warning: Every child endpoint is keyed by the version id, never the version number.

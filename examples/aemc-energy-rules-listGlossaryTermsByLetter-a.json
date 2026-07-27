@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "global": 1,
+      "sort_index": 2969,
+      "sourced_from": "chapter 10",
+      "term_identifier": "term_aarr",
+      "alternatives": [
+        "term_aarrs",
+        "term_aarrs",
+        "term_aarred",
+        "term_aarring"
+      ],
+      "alternative_identifier": "term_aarrs",
+      "term": "AARR",
+      "alternative_term": "AARR",
+      "definition": "<p class=\"defBody\">The <a href=\"term_aggregate_annual_revenue_requirement\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aggregate_annual_revenue_requirement\">aggregate annual revenue requirement</a> for <a href=\"term_prescribed_transmission_services\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_prescribed_transmission_services\">prescribed transmission services</a>.</p>",
+      "text_definition": "The aggregate annual revenue requirement for prescribed transmission services.",
+      "parent_chapter": 0,
+      "links": {
+        "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/term_aarr"
+      }
+    },
+    {
+      "global": 1,
+      "sort_index": 2970,
+      "sourced_from": "chapter 10",
+      "term_identifier": "term_abnormal_baseline_notice",
+      "alternatives": [
+        "term_abnormal_baseline_notices",
+        "term_abnormal_baseline_noticed",
+        "term_abnormal_baseline_noticing",
+        "term_abnormal_baseline_notices",
+        "term_abnormal_baseline_noticeed",
+        "term_abnormal_baseline_noticeing"
+      ],
+      "alternative_identifier": "term_abnormal_baseline_notices",
+      "term": "abnormal baseline notice",
+      "alternative_term": "abnormal baseline notices",
+      "definition": "<p class=\"defBody\">A notice given to <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> in accordance with <a href=\"#clause_3.10.5.b\" data-link-type=\"clause\" data-content=\"873072\">clause 3.10.5(b)</a> and the <a href=\"term_abnormal_baseline_notice_procedures\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_abnormal_baseline_notice_procedures\">abnormal baseline notice procedures</a>.</p>",
+      "text_definition": "A notice given to AEMO in accordance with clause 3.10.5(b) and the abnormal baseline notice procedures.",
+      "parent_chapter": 0,
+      "links": {
+        "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/term_abnormal_baseline_notice"
+      }
+    },
+    {
+      "global": 1,
+      "sort_index": 2971,
+      "sourced_from": "chapter 10",
+      "term_identifier": "term_abnormal_baseline_notice_procedures",
+      "alternatives": [
+        "term_abnormal_baseline_notice_procedure",
+        "term_abnormal_baseline_notice_proceduress",
+        "term_abnormal_baseline_notice_proceduresed",
+        "term_abnormal_baseline_notice_proceduresing"
+      ],
+      "alternative_identifier": "term_abnormal_baseline_notice_procedure",
+      "term": "abnormal baseline notice procedures",
+      "alternative_term": "abnormal baseline notice procedure",
+      "definition": "<p class=\"defBody\">The procedures which may be made by <a href=\"term_aemo\" class=\"term\"  data-glossary-type=\"global\" data-link-type=\"glossary\" data-content=\"term_aemo\">AEMO</a> under <a href=\"#clause_3.10.5\" data-link-type=\"clause\" data-content=\"873072\">clause 3.10.5</a>.</p>",
+      "text_definition": "The procedures which may be made by AEMO under clause 3.10.5.",
+      "parent_chapter": 0,
+      "links": {
+        "self": "https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/term_abnormal_baseline_notice_procedures"
+      }
+    }
+  ]
+}

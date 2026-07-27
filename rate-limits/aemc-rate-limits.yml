@@ -1,0 +1,31 @@
+generated: '2026-07-27'
+method: probed
+source: response headers observed on https://energy-rules.aemc.gov.au/api/v1 on 2026-07-27
+note: >-
+  AEMC publishes no rate-limit policy for the Energy Rules API — the API itself is undocumented.
+  The values below are the rate-limit headers the API actually returned on an anonymous request,
+  not a published commitment, and may change without notice.
+apis:
+- name: AEMC Energy Rules API
+  host: energy-rules.aemc.gov.au
+  authenticated: false
+  headers:
+    limit: x-ratelimit-limit
+    remaining: x-ratelimit-remaining
+    reset: null
+  observed:
+    x-ratelimit-limit: 1000
+    x-ratelimit-remaining: 1000
+    probe: GET https://energy-rules.aemc.gov.au/api/v1/rules/ner/versions?perPage=1
+    date: '2026-07-27'
+  limits:
+  - limit_count: 1000
+    limit_interval: unspecified
+    scope: anonymous client
+    published: false
+    evidence: x-ratelimit-limit header observed 2026-07-27
+  retry_after: not observed
+  quota_docs: null
+  edge: >-
+    Served through AWS API Gateway (apigw-requestid response header) in front of a Laravel
+    application; cache-control is "no-cache, private".
