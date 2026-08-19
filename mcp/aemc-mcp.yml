@@ -2,14 +2,12 @@ generated: '2026-07-27'
 method: derived
 status: candidate
 source: openapi/aemc-energy-rules-openapi-derived.yml
-note: >-
-  AEMC publishes NO MCP server. Searched 2026-07-27 — no mcp.aemc.gov.au (DNS NXDOMAIN), no MCP
-  reference anywhere on aemc.gov.au, no AEMC package on npm/PyPI, and the only GitHub organisation
-  matching the name (github.com/Australian-Energy-Market-Commission, created 2024-08-02) has zero
-  public repositories and no verifiable ownership signal. The tool list below is a CANDIDATE
-  derived one-to-one from the operations of the derived OpenAPI — a design for a server that does
-  not exist, not a server anyone can call. Each tool inherits its input schema from the named
-  operation.
+note: AEMC publishes NO MCP server. Searched 2026-07-27 — no mcp.aemc.gov.au (DNS NXDOMAIN), no MCP reference
+  anywhere on aemc.gov.au, no AEMC package on npm/PyPI, and the only GitHub organisation matching the
+  name (github.com/Australian-Energy-Market-Commission, created 2024-08-02) has zero public repositories
+  and no verifiable ownership signal. The tool list below is a CANDIDATE derived one-to-one from the operations
+  of the derived OpenAPI — a design for a server that does not exist, not a server anyone can call. Each
+  tool inherits its input schema from the named operation.
 server:
   name: aemc-energy-rules
   transport: http
@@ -17,7 +15,8 @@ server:
   published: false
 tools:
 - name: list_rule_versions
-  description: List the published versions of the National Electricity, Gas or Energy Retail Rules, newest first, with their commencement dates and published PDF/DOCX files.
+  description: List the published versions of the National Electricity, Gas or Energy Retail Rules, newest
+    first, with their commencement dates and published PDF/DOCX files.
   source_operation: openapi/aemc-energy-rules-openapi-derived.yml#listRuleVersions
 - name: get_rule_table_of_contents
   description: Get the full chapter/part/division/rule/clause tree for one rule version.
@@ -26,7 +25,8 @@ tools:
   description: List the top-level chapters and schedules of one rule version.
   source_operation: openapi/aemc-energy-rules-openapi-derived.yml#listRuleChapters
 - name: get_rule_content
-  description: Get one chapter, part, division, rule or clause of a rule version, with its parent, children and rule text.
+  description: Get one chapter, part, division, rule or clause of a rule version, with its parent, children
+    and rule text.
   source_operation: openapi/aemc-energy-rules-openapi-derived.yml#getRuleContent
 - name: search_rule_version
   description: Full-text search inside one rule version, optionally restricted to a chapter.
@@ -42,5 +42,12 @@ tools:
   source_operation: openapi/aemc-energy-rules-openapi-derived.yml#getGlossaryTerm
 caveats:
 - The upstream API is undocumented and unsupported by AEMC; any server built on it can break without notice.
-- Every tool must resolve the rule version id (not the version number) before calling the content, search or glossary tools.
+- Every tool must resolve the rule version id (not the version number) before calling the content, search
+  or glossary tools.
 - Rule text and definitions come back as HTML strings and need sanitising before being handed to a model.
+deployment:
+  mode: none
+  verified: derived
+  tools: 8
+  checked: '2026-08-12'
+  source: catalog MCP census

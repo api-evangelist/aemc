@@ -1,0 +1,297 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AEMC Energy Rules API",
+    "version": "2026-07-27"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rule Versions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the published versions of a rule book",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:ruleType/versions",
+            "params": [
+              {
+                "name": "ruleType",
+                "value": "",
+                "type": "path",
+                "description": "Rule book identifier. Observed to carry data for `ner` (National Electricity Rules), `ngr` (National Gas Rules) and `nerr` (National Energy Retail Rules); `nel`, `ner-wa`, `ngr-wa`, `nerr-wa`, `wa` and `nogr` return HTTP 200 with an empty `data` array."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Page size. The client defaults to 10 for the version list and 30 for search."
+              },
+              {
+                "name": "showAll",
+                "value": "",
+                "type": "query",
+                "description": "When true the full version history is returned in one response, ignoring `perPage` (observed 4.5 MB for `ner`)."
+              },
+              {
+                "name": "searchVersion",
+                "value": "",
+                "type": "query",
+                "description": "Filter by version number."
+              },
+              {
+                "name": "searchDate",
+                "value": "",
+                "type": "query",
+                "description": "Return the version(s) in force on a date. Verified 2026-07-27 — `searchDate=2020-01-01` returned NER version 132."
+              },
+              {
+                "name": "previewToken",
+                "value": "",
+                "type": "query",
+                "description": "Editorial preview token. Not usable anonymously."
+              }
+            ]
+          },
+          "docs": "Returns the paginated list of published versions of one rule book, newest first, each with its commencement and start dates, status flags and the full set of published PDF and DOCX files (full document, coversheet/contents and one file per chapter). Verified live 2026-07-27: `ner` returned 304 versions (latest v251), `ngr` 115 versions (latest v92), `nerr` 65 versions (latest v51); `nel` and the `-wa` variants returned an empty `data` array with a valid pagination envelope."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rule Content",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the full table of contents for a rule version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:versionId/toc",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+              }
+            ]
+          },
+          "docs": "Returns the complete nested structure of a rule version — chapters, parts, divisions, rules, clauses and schedules — as a recursive tree of content nodes, each with the relative link to its own content resource. Verified live 2026-07-27 for version id 803 (NER v251): 19 top-level nodes, 86 KB gzipped."
+        },
+        {
+          "info": {
+            "name": "List the top-level chapters of a rule version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:versionId/chapters",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+              }
+            ]
+          },
+          "docs": "Returns the top-level content nodes (chapters and schedules) of a rule version without their descendants. Discovered from the `links.chapters` URL returned on every rule version object."
+        },
+        {
+          "info": {
+            "name": "Get one content node of a rule version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:versionId/content/:contentId",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+              },
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path",
+                "description": "Content node id, as returned in `links.self` on any table-of-contents or search result node."
+              },
+              {
+                "name": "previewToken",
+                "value": "",
+                "type": "query",
+                "description": "Editorial preview token. Not usable anonymously."
+              }
+            ]
+          },
+          "docs": "Returns a single content node — a chapter, part, division, rule or clause — with its parent, its immediate children and, for leaf nodes, the rule text. A `meta` block reports whether the version is approved, current or archived."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Full-text search within a rule version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:versionId/search",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "chapter",
+                "value": "",
+                "type": "query",
+                "description": "Restrict to one chapter. The client omits this parameter for \"All Chapters\"."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "previewToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Searches the text of one rule version and returns matching content nodes with a `search_content` snippet, the parent node, the children and the version block. Paginated with a Laravel `meta` envelope. Verified live 2026-07-27 — `query=smart meter` against NER v251 returned matches including \"Transitional Arrangements for Ministerial Smart Meter Roll Out Determinations\"."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Glossary",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the glossary index, grouped by first letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:versionId/glossary/menu",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+              }
+            ]
+          },
+          "docs": "Returns every defined term in a rule version grouped by its first character, as the letter navigation for the glossary. Verified live 2026-07-27 for NER v251."
+        },
+        {
+          "info": {
+            "name": "List defined terms beginning with a letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:versionId/glossary/by-letter/:letter",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+              },
+              {
+                "name": "letter",
+                "value": "",
+                "type": "path",
+                "description": "Single letter or digit group, lower case (e.g. `a`, `3`)."
+              }
+            ]
+          },
+          "docs": "Returns the full definition record for every defined term in a rule version beginning with the given letter, including HTML and plain-text definitions, alternative forms, the chapter the term is sourced from and whether it is a global definition."
+        },
+        {
+          "info": {
+            "name": "Resolve one defined term",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/rules/:versionId/glossary/:termIdentifier",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+              },
+              {
+                "name": "termIdentifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the definition of a single defined term by its identifier (the `term_identifier` returned by the glossary listings, e.g. `term_aarr`). The client strips a leading `#` from anchor links before calling this endpoint."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the Western Australia rules display setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://energy-rules.aemc.gov.au/api/v1/settings/wa"
+          },
+          "docs": "Returns the application flag the client uses to decide whether the Western Australian rule variants are shown. Verified live 2026-07-27 — returns the literal body `1`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

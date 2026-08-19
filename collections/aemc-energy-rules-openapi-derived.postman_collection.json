@@ -1,0 +1,1409 @@
+{
+  "item": [
+    {
+      "id": "0456ed37-9378-4621-8964-9d04336e96af",
+      "name": "Rule Versions",
+      "description": {
+        "content": "Versions of the National Electricity, Gas and Energy Retail Rules, with their published PDF and DOCX artefacts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f9aec323-8994-4fc6-8a6c-dce953cc4fba",
+          "name": "List the published versions of a rule book",
+          "request": {
+            "name": "List the published versions of a rule book",
+            "description": {
+              "content": "Returns the paginated list of published versions of one rule book, newest first, each with its commencement and start dates, status flags and the full set of published PDF and DOCX files (full document, coversheet/contents and one file per chapter). Verified live 2026-07-27: `ner` returned 304 versions (latest v251), `ngr` 115 versions (latest v92), `nerr` 65 versions (latest v51); `nel` and the `-wa` variants returned an empty `data` array with a valid pagination envelope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":ruleType",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "30",
+                  "description": "Page size. The client defaults to 10 for the version list and 30 for search."
+                },
+                {
+                  "disabled": false,
+                  "key": "showAll",
+                  "value": "<boolean>",
+                  "description": "When true the full version history is returned in one response, ignoring `perPage` (observed 4.5 MB for `ner`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchVersion",
+                  "value": "<string>",
+                  "description": "Filter by version number."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchDate",
+                  "value": "<date>",
+                  "description": "Return the version(s) in force on a date. Verified 2026-07-27 — `searchDate=2020-01-01` returned NER version 132."
+                },
+                {
+                  "disabled": false,
+                  "key": "previewToken",
+                  "value": "<string>",
+                  "description": "Editorial preview token. Not usable anonymously."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleType",
+                  "description": "(Required) Rule book identifier. Observed to carry data for `ner` (National Electricity Rules), `ngr` (National Gas Rules) and `nerr` (National Energy Retail Rules); `nel`, `ner-wa`, `ngr-wa`, `nerr-wa`, `wa` and `nogr` return HTTP 200 with an empty `data` array."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bfa4058-db1d-49af-9a91-d2bf77934982",
+              "name": "Paginated list of rule versions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":ruleType",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "30"
+                    },
+                    {
+                      "key": "showAll",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "searchVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "previewToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleType",
+                      "description": "(Required) Rule book identifier. Observed to carry data for `ner` (National Electricity Rules), `ngr` (National Gas Rules) and `nerr` (National Energy Retail Rules); `nel`, `ner-wa`, `ngr-wa`, `nerr-wa`, `wa` and `nogr` return HTTP 200 with an empty `data` array."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6232,\n      \"version\": 447,\n      \"type\": \"ner\",\n      \"files\": {\n        \"pdf\": [\n          {\n            \"name\": \"string\",\n            \"path\": \"http://UMFPyUvVbFGNSMRE.phpmJIGIbiybTRdDS7f6WhVjSMOcSJdND7PdJ\",\n            \"size\": 2107,\n            \"filename\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"path\": \"http://CaaBgBIwwVigCkxwmFYXgDfedu.xbdtHVQRXbfVAUaCE\",\n            \"size\": 5520,\n            \"filename\": \"string\"\n          }\n        ],\n        \"docx\": [\n          {\n            \"name\": \"string\",\n            \"path\": \"https://xrmjzWhcHZelddf.pxfO2puWuiys0tcBj57H,FIBOKHYeHQA-z47uqf4z2v.j0Nns9J8bKxlJiLgvc1\",\n            \"size\": 6569,\n            \"filename\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"path\": \"http://DGnaQfcutA.jkcYwVP2aARaypR,r1JLgYPC,Kz3SP2HyZSeTbaf3\",\n            \"size\": 4544,\n            \"filename\": \"string\"\n          }\n        ]\n      },\n      \"commencement_date\": \"string\",\n      \"start_date\": \"string\",\n      \"schedule_date\": \"string\",\n      \"end_date\": \"string\",\n      \"summary\": \"string\",\n      \"parsed\": 174,\n      \"approved\": 2947,\n      \"archived\": 4973,\n      \"created_at\": \"2006-11-05T15:22:48.826Z\",\n      \"updated_at\": \"2018-10-07T11:59:45.498Z\",\n      \"hash\": \"string\",\n      \"added_coversheets\": 4959,\n      \"is_current\": 2809,\n      \"pdf_coversheet\": \"string\",\n      \"docx_coversheet\": \"string\",\n      \"is_historic_data\": 5125,\n      \"links\": {\n        \"toc\": \"https://bsWsXuYCAP.wrlqLFLLHl8toS,Cj6Ez.dwVObVryp1C4.bqoLn2d.jCYwNOfWucF3\",\n        \"chapters\": \"https://mL.fusjMmqeGYJK1Jub,VShwYIAWoENbr4xtXMTP47E7wVePJ8zl0K-NtrDZrvZApLf82vWZ\"\n      }\n    },\n    {\n      \"id\": 2827,\n      \"version\": 3570,\n      \"type\": \"ner\",\n      \"files\": {\n        \"pdf\": [\n          {\n            \"name\": \"string\",\n            \"path\": \"http://dRIAoHMTOiVPZvTJJLavJfXa.fit3BvhkYo0qFTOjfvLijcJTmZyl6.uY5RuizVokvj,PQD0EPqdg5.IIR\",\n            \"size\": 9702,\n            \"filename\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"path\": \"http://rmYFaUJyefLikDBpcbgvnCLUZyoGOlkvK.ltgW5vupl+aK+5soQFAPuj8cpbeRIcW6NC57tOO\",\n            \"size\": 1594,\n            \"filename\": \"string\"\n          }\n        ],\n        \"docx\": [\n          {\n            \"name\": \"string\",\n            \"path\": \"http://sbfmRFNSI.fijs4dJU-\",\n            \"size\": 4042,\n            \"filename\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"path\": \"https://UaAPsDfIOQoPSlQKjybcjMm.xwWLi-eXZKHBOBnOxl09JjRxNBYCX6bz+5B9yCzUg6Ol9ph4\",\n            \"size\": 464,\n            \"filename\": \"string\"\n          }\n        ]\n      },\n      \"commencement_date\": \"string\",\n      \"start_date\": \"string\",\n      \"schedule_date\": \"string\",\n      \"end_date\": \"string\",\n      \"summary\": \"string\",\n      \"parsed\": 1682,\n      \"approved\": 3157,\n      \"archived\": 3422,\n      \"created_at\": \"1980-07-13T05:01:30.458Z\",\n      \"updated_at\": \"1961-06-03T20:21:21.520Z\",\n      \"hash\": \"string\",\n      \"added_coversheets\": 2250,\n      \"is_current\": 5300,\n      \"pdf_coversheet\": \"string\",\n      \"docx_coversheet\": \"string\",\n      \"is_historic_data\": 2517,\n      \"links\": {\n        \"toc\": \"http://UHWeH.qtivdNSXdtXeIr5+NsLbyA+cOJr.+V+J,.IXD7ePQWSzKIK8j\",\n        \"chapters\": \"http://RPQKufiVPzfYPNLFPqTG.onnEy4dM7xvHw5KCHrg6AqwNR+tS8qYFY5K,vfjCQ1rWi.rU5-x29RoYADft\"\n      }\n    }\n  ],\n  \"links\": {\n    \"first\": \"http://KzcBFCwvKuDgQaazLn.idlJW5cqYSqe72OCTvil2BWEf3my2QCVOvlT5.codDHQucGtjI0\",\n    \"last\": \"https://ehzwJhivfaq.emS\",\n    \"prev\": \"http://cv.xvljD,95azMdV\",\n    \"next\": \"https://gbDDMKuJeBOvupfzZRlDJiKXjj.vsfyh-qVMh9V5\"\n  },\n  \"meta\": {\n    \"current_page\": 915,\n    \"from\": 1532,\n    \"to\": 2822,\n    \"last_page\": 3430,\n    \"per_page\": 4004,\n    \"total\": 1835,\n    \"path\": \"http://vm.cqtsgIckhzVbDnRVHPsXM3jy0AAOw9WAjeQulkIRHS8KjkLbrGiHAKt+ITSheXWP\",\n    \"first_page_url\": \"http://AwsmKgjlaBbCaJlIiTO.crjr-JFagpbmi9tXFTfTq9BOauvvadtBvmPVVcz\",\n    \"last_page_url\": \"http://ZCncSdRWeYIZJkkYL.jwsjKHPhSZ,PKgO9Y7vxIPiLAr,hiKNTTaIpxQawJvTiYVvm\",\n    \"next_page_url\": \"http://HttVQrewKfvplSJSnPUKKBwTWXGJ.ifLAwqn-tg.RSL1l,ze354fUyiUwG9PeNP\",\n    \"prev_page_url\": \"http://yIfEeLlBSHUbbNzBwPAX.hwlefAoGAdpYB4Z2dDdCJoj+XFXP6fpAzKGjPR3pR,2l7,c3\",\n    \"links\": [\n      {\n        \"url\": \"http://MXLyzxtELvhOcoRImXaKuJOaRPmOmz.tiggaYjlfuPZ79VdDu97ZOhVkeYV1NFFYKzTTGp7iqbU6nMxOFRYRQ\",\n        \"label\": \"string\",\n        \"active\": false\n      },\n      {\n        \"url\": \"https://jMwEaR.dvov6D,NlX+cL\",\n        \"label\": \"string\",\n        \"active\": false\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fdb8a671-b333-428b-96ab-cfeb5eff958b",
+      "name": "Rule Content",
+      "description": {
+        "content": "The structural tree of a rule version — chapters, parts, divisions, rules and clauses.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4b37ac8a-9a4c-4d70-8bb0-ce6e58aed2ca",
+          "name": "Get the full table of contents for a rule version",
+          "request": {
+            "name": "Get the full table of contents for a rule version",
+            "description": {
+              "content": "Returns the complete nested structure of a rule version — chapters, parts, divisions, rules, clauses and schedules — as a recursive tree of content nodes, each with the relative link to its own content resource. Verified live 2026-07-27 for version id 803 (NER v251): 19 top-level nodes, 86 KB gzipped.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":versionId",
+                "toc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f42eb8a-0612-4983-b26c-dd116089f33b",
+              "name": "Table of contents tree.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "toc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 8030,\n      \"parent_id\": 6035,\n      \"version_id\": 7652,\n      \"sort_index\": 8708,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"index\": \"string\",\n      \"chapter\": \"string\",\n      \"content_type\": \"chapter_schedule\",\n      \"metadata\": {\n        \"is_glossary\": true\n      },\n      \"is_glossary\": true,\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        }\n      ],\n      \"links\": {\n        \"self\": \"string\"\n      }\n    },\n    {\n      \"id\": 2491,\n      \"parent_id\": 5260,\n      \"version_id\": 1934,\n      \"sort_index\": 1530,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"index\": \"string\",\n      \"chapter\": \"string\",\n      \"content_type\": \"clause\",\n      \"metadata\": {\n        \"is_glossary\": true\n      },\n      \"is_glossary\": true,\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        }\n      ],\n      \"links\": {\n        \"self\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c8e49e9-6f48-4358-a7eb-422aed61c090",
+              "name": "No such rule version, content node or term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "toc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83a065f9-d9d4-41ae-ba2f-c736c43d4c8c",
+          "name": "List the top-level chapters of a rule version",
+          "request": {
+            "name": "List the top-level chapters of a rule version",
+            "description": {
+              "content": "Returns the top-level content nodes (chapters and schedules) of a rule version without their descendants. Discovered from the `links.chapters` URL returned on every rule version object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":versionId",
+                "chapters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02a9312b-fb1b-42d0-8257-4cb9d8720b8d",
+              "name": "Top-level chapter nodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "chapters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 8030,\n      \"parent_id\": 6035,\n      \"version_id\": 7652,\n      \"sort_index\": 8708,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"index\": \"string\",\n      \"chapter\": \"string\",\n      \"content_type\": \"chapter_schedule\",\n      \"metadata\": {\n        \"is_glossary\": true\n      },\n      \"is_glossary\": true,\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        }\n      ],\n      \"links\": {\n        \"self\": \"string\"\n      }\n    },\n    {\n      \"id\": 2491,\n      \"parent_id\": 5260,\n      \"version_id\": 1934,\n      \"sort_index\": 1530,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"index\": \"string\",\n      \"chapter\": \"string\",\n      \"content_type\": \"clause\",\n      \"metadata\": {\n        \"is_glossary\": true\n      },\n      \"is_glossary\": true,\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/TocNode detected>\"\n        }\n      ],\n      \"links\": {\n        \"self\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa048c19-0b79-4dc8-b5b8-05d7410697ff",
+              "name": "No such rule version, content node or term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "chapters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b47e3f3a-4828-4599-b44b-bd5a86330d75",
+          "name": "Get one content node of a rule version",
+          "request": {
+            "name": "Get one content node of a rule version",
+            "description": {
+              "content": "Returns a single content node — a chapter, part, division, rule or clause — with its parent, its immediate children and, for leaf nodes, the rule text. A `meta` block reports whether the version is approved, current or archived.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":versionId",
+                "content",
+                ":contentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "previewToken",
+                  "value": "<string>",
+                  "description": "Editorial preview token. Not usable anonymously."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "contentId",
+                  "description": "(Required) Content node id, as returned in `links.self` on any table-of-contents or search result node."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d81a53d9-0ffa-42ca-a1fa-1ccda135c344",
+              "name": "One content node.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "content",
+                    ":contentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "previewToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contentId",
+                      "description": "(Required) Content node id, as returned in `links.self` on any table-of-contents or search result node."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 3776,\n    \"parent_id\": 6501,\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"index\": \"string\",\n    \"chapter\": \"string\",\n    \"content\": \"string\",\n    \"content_type\": \"string\",\n    \"metadata\": {},\n    \"links\": {\n      \"self\": \"http://cwTITfDQvcyHlsF.sxlch0gop.R4uFXTRmRJkBrVPeTB-e.9LrcR5XPWFopxBG5wt+Op-hCi6yrE\",\n      \"parent\": \"http://CTyvzKWQwuCHtiCCNJUHSiSGgn.xlKiMFBPlNKVYXCaGNJC9d0sMb+NG8h6dc9hRvnmYxGcW2pYjldmjyrrClZu\"\n    },\n    \"parent\": {},\n    \"children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"archived\": 1520,\n    \"approved\": 8734,\n    \"current\": 789,\n    \"approve_link\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a47b3f5b-c276-4aa6-8f25-ccb8369830a7",
+              "name": "No such rule version, content node or term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "content",
+                    ":contentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "previewToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contentId",
+                      "description": "(Required) Content node id, as returned in `links.self` on any table-of-contents or search result node."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "93510951-464b-4c91-8b8e-490201f630f0",
+      "name": "Search",
+      "description": {
+        "content": "Full-text search within a single rule version.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "707375b2-88d2-4d29-aa3b-3609099e286e",
+          "name": "Full-text search within a rule version",
+          "request": {
+            "name": "Full-text search within a rule version",
+            "description": {
+              "content": "Searches the text of one rule version and returns matching content nodes with a `search_content` snippet, the parent node, the children and the version block. Paginated with a Laravel `meta` envelope. Verified live 2026-07-27 — `query=smart meter` against NER v251 returned matches including \"Transitional Arrangements for Ministerial Smart Meter Roll Out Determinations\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":versionId",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "chapter",
+                  "value": "<string>",
+                  "description": "Restrict to one chapter. The client omits this parameter for \"All Chapters\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "30"
+                },
+                {
+                  "disabled": false,
+                  "key": "previewToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58a61eba-0890-413c-ac61-1949ff2dbfd6",
+              "name": "Paginated search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chapter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "30"
+                    },
+                    {
+                      "key": "previewToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1725,\n      \"parent_id\": 7836,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"index\": \"string\",\n      \"chapter\": \"string\",\n      \"content\": \"string\",\n      \"content_type\": \"string\",\n      \"metadata\": {},\n      \"search_index\": 2123,\n      \"search_content\": \"string\",\n      \"type\": \"string\",\n      \"links\": {\n        \"self\": \"https://dKbictyEIY.ygOlyN7mAIpkG\",\n        \"parent\": \"https://wDTNYDjlJpRWOlGcMsmjUYZKRwBUhJqw.xbQHrFkBjgcbCv.0DPWkVQRFnAcYezB0RWNz3DdQz,gvL0ou\"\n      },\n      \"parent\": {},\n      \"version\": {\n        \"version_id\": 9932,\n        \"version\": 7436,\n        \"approved\": 920,\n        \"current\": 1036,\n        \"archived\": 2556,\n        \"type\": \"string\",\n        \"start_date\": \"string\",\n        \"end_date\": \"string\"\n      }\n    },\n    {\n      \"id\": 5488,\n      \"parent_id\": 7793,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"index\": \"string\",\n      \"chapter\": \"string\",\n      \"content\": \"string\",\n      \"content_type\": \"string\",\n      \"metadata\": {},\n      \"search_index\": 464,\n      \"search_content\": \"string\",\n      \"type\": \"string\",\n      \"links\": {\n        \"self\": \"http://AqDqgUYgRhrtmRHFQZj.hxbZXc9JOdaWU+wVlA4i,cri4kI7BzNGNxX9J+agLMPZ5sE205XUA7GG--drqUaTdqURm,DYSzQ7\",\n        \"parent\": \"http://vCFmKFPrZ.bkLfL-b9fnP\"\n      },\n      \"parent\": {},\n      \"version\": {\n        \"version_id\": 2954,\n        \"version\": 4700,\n        \"approved\": 7147,\n        \"current\": 4507,\n        \"archived\": 1566,\n        \"type\": \"string\",\n        \"start_date\": \"string\",\n        \"end_date\": \"string\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"current_page\": 6345,\n    \"from\": 9314,\n    \"to\": 8848,\n    \"last_page\": 3545,\n    \"per_page\": 4380,\n    \"total\": 9911,\n    \"path\": \"https://qaiDWeOKYjKE.ygKEPpomEoqYTUKzmIyGG6j\",\n    \"first_page_url\": \"https://lYPWiqEuvHCXtAn.zyoiqAQs8kPbxfjK+ZUK7ANbkSMojC,PGDAd3bMeKQQDMdEh5Hky6HDr0.S\",\n    \"last_page_url\": \"https://eQkxhqVAhOqforUWnSrWYyqWfNfUjAa.qgzQ\",\n    \"next_page_url\": \"https://pTLgPoomJLlxs.kteyYK5qGy3JaYd7W+jjGdhMbeYfMvXcnETFBaOLpZJzr28Wh+w9RznuslYhH\",\n    \"prev_page_url\": \"https://oSeAOeqDJbRxwLDzrOOSjWlYCMsGRI.rvTi\",\n    \"links\": [\n      {\n        \"url\": \"https://jpi.hbsiM41VDOQFgZmPTNL.8duKdjUKJCFlkqC.KrJwvkG8ldTEB\",\n        \"label\": \"string\",\n        \"active\": false\n      },\n      {\n        \"url\": \"https://eh.avbmEohTF+Bb\",\n        \"label\": \"string\",\n        \"active\": true\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31f748b7-8f39-4b96-80a4-4b404d9da3d1",
+              "name": "No such rule version, content node or term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chapter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "30"
+                    },
+                    {
+                      "key": "previewToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f7b69ef3-3578-4a23-98a6-d96718f6a53f",
+      "name": "Glossary",
+      "description": {
+        "content": "Defined terms for a rule version.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa4d2a73-d9f7-416b-a551-5248a4b4908c",
+          "name": "Get the glossary index, grouped by first letter",
+          "request": {
+            "name": "Get the glossary index, grouped by first letter",
+            "description": {
+              "content": "Returns every defined term in a rule version grouped by its first character, as the letter navigation for the glossary. Verified live 2026-07-27 for NER v251.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":versionId",
+                "glossary",
+                "menu"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ae9e58e-78fa-4766-85ee-66f4ae6ceb77",
+              "name": "Terms grouped by first letter.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "glossary",
+                    "menu"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ce5d503-8f29-4199-8004-8a80bbb143c8",
+              "name": "No such rule version, content node or term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "glossary",
+                    "menu"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2edb875-0ed9-46a9-b449-0bd2f8ed6e4d",
+          "name": "List defined terms beginning with a letter",
+          "request": {
+            "name": "List defined terms beginning with a letter",
+            "description": {
+              "content": "Returns the full definition record for every defined term in a rule version beginning with the given letter, including HTML and plain-text definitions, alternative forms, the chapter the term is sourced from and whether it is a global definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":versionId",
+                "glossary",
+                "by-letter",
+                ":letter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "letter",
+                  "description": "(Required) Single letter or digit group, lower case (e.g. `a`, `3`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ad20237-00c2-469e-9208-d31cec0b5135",
+              "name": "Glossary entries for the letter.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "glossary",
+                    "by-letter",
+                    ":letter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "letter",
+                      "description": "(Required) Single letter or digit group, lower case (e.g. `a`, `3`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"global\": 4269,\n      \"sort_index\": 6141,\n      \"sourced_from\": \"string\",\n      \"term_identifier\": \"string\",\n      \"alternatives\": [\n        \"string\",\n        \"string\"\n      ],\n      \"alternative_identifier\": \"string\",\n      \"term\": \"string\",\n      \"alternative_term\": \"string\",\n      \"definition\": \"string\",\n      \"text_definition\": \"string\",\n      \"parent_chapter\": 4682,\n      \"links\": {\n        \"self\": \"http://ehAMCMuEGgalRkBrAmDllEVLa.jkETfjrOghMKo+0eyCFionLURs\"\n      }\n    },\n    {\n      \"global\": 5074,\n      \"sort_index\": 6217,\n      \"sourced_from\": \"string\",\n      \"term_identifier\": \"string\",\n      \"alternatives\": [\n        \"string\",\n        \"string\"\n      ],\n      \"alternative_identifier\": \"string\",\n      \"term\": \"string\",\n      \"alternative_term\": \"string\",\n      \"definition\": \"string\",\n      \"text_definition\": \"string\",\n      \"parent_chapter\": 5714,\n      \"links\": {\n        \"self\": \"http://kBKLNOGjiuvwvePJ.aaqvC8ogCIPMP5lxtpE\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b23d5665-3b06-4b16-b3c5-0ffdaf49d928",
+              "name": "No such rule version, content node or term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "glossary",
+                    "by-letter",
+                    ":letter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "letter",
+                      "description": "(Required) Single letter or digit group, lower case (e.g. `a`, `3`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d648f5d-52fe-4de8-a6ed-bb48ac99080b",
+          "name": "Resolve one defined term",
+          "request": {
+            "name": "Resolve one defined term",
+            "description": {
+              "content": "Returns the definition of a single defined term by its identifier (the `term_identifier` returned by the glossary listings, e.g. `term_aarr`). The client strips a leading `#` from anchor links before calling this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rules",
+                ":versionId",
+                "glossary",
+                ":termIdentifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "termIdentifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd37d356-220d-44ea-8ccc-f4d6a9130fab",
+              "name": "One glossary definition.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "glossary",
+                    ":termIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termIdentifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": \"string\",\n  \"data\": {\n    \"term_id\": \"string\",\n    \"term\": \"string\",\n    \"definition\": \"string\"\n  },\n  \"metadata\": {\n    \"lookup\": \"string\",\n    \"version\": 5478\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1ee49b0-52e9-4503-a517-29dfe86558b3",
+              "name": "No such rule version, content node or term.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    ":versionId",
+                    "glossary",
+                    ":termIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termIdentifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f274e4d9-3f27-44cb-8bae-ad7577867eda",
+      "name": "Settings",
+      "description": {
+        "content": "Application settings exposed to the client.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f540e4ae-4adc-4d8a-a95a-da9098ddca29",
+          "name": "Get the Western Australia rules display setting",
+          "request": {
+            "name": "Get the Western Australia rules display setting",
+            "description": {
+              "content": "Returns the application flag the client uses to decide whether the Western Australian rule variants are shown. Verified live 2026-07-27 — returns the literal body `1`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "wa"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b75e9ce-ff11-46ac-98b2-9218db9cad69",
+              "name": "Setting value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "wa"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "1",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://energy-rules.aemc.gov.au/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fc0eaf8e-cbc5-42fa-9852-72f5f6b6fa7b",
+    "name": "AEMC Energy Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Machine-readable description of the undocumented JSON API that serves the Australian Energy Market Commission's Energy Rules application at https://energy-rules.aemc.gov.au. It exposes the consolidated, versioned text of the National Electricity Rules (NER), National Gas Rules (NGR) and National Energy Retail Rules (NERR) — the rule versions and their PDF/DOCX artefacts, the table of contents, every chapter/part/division/rule/clause node, the full-text search index and the complete defined-terms glossary.\n\nAEMC publishes NO OpenAPI, no developer portal and no API documentation for this surface. This document is DERIVED, not harvested. Every path below is a literal route string taken from AEMC's own shipped production JavaScript bundle (https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js), and each one was probed live and anonymously on 2026-07-27 with the observed HTTP status recorded in `x-evidence`. Response schemas are derived ONLY from responses actually observed on those probes — no field, parameter or status code is invented.\n\nACCESS: entirely anonymous. No API key, no OAuth, no cookie and no CSRF token was required for any read endpoint probed; responses carry `x-ratelimit-limit: 1000` and `x-ratelimit-remaining`, served through AWS API Gateway (`apigw-requestid`) in front of a Laravel application (Laravel API Resource `data`/`links`/`meta` envelope, Laravel-style pagination).\n\nNOT MODELLED: the production bundle also contains an administrative, token-gated approval route of the form `/api/v1/{type}/{version}/approve/{token}` used by the editorial preview workflow. It is a state-changing endpoint, it was deliberately NOT probed, and it is deliberately not modelled here. The `previewToken` query parameter that several read endpoints accept belongs to the same editorial preview workflow and is not usable anonymously.\n\nSTATUS: this is an undocumented internal API of a public website, not a product AEMC offers or supports. There is no published terms-of-use, rate-limit policy, SLA, versioning policy or contact for it. Treat it as subject to change without notice, and report inaccuracies rather than treating this document as an authoritative contract.\n\nContact Support:\n Name: AEMC",
+      "type": "text/plain"
+    }
+  }
+}
