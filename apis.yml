@@ -36,6 +36,19 @@ tags:
 - Electricity
 - Gas
 - Utilities
+- Regulations
+- Smart Metering
+- Consumer Data Right
+- Government
+- Legal
+- Rules
+tags_raw:
+- Energy
+- Australia
+- Energy Markets
+- Electricity
+- Gas
+- Utilities
 - Regulation
 - Smart Metering
 - Consumer Data Right
@@ -65,6 +78,12 @@ apis:
   humanURL: https://energy-rules.aemc.gov.au/
   baseURL: https://energy-rules.aemc.gov.au/api/v1
   tags:
+  - Energy
+  - Regulations
+  - Rules
+  - Legal
+  - Australia
+  tags_raw:
   - Energy
   - Regulation
   - Rules
