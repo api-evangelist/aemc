@@ -59,41 +59,16 @@ created: '2026-07-27'
 modified: '2026-07-27'
 specificationVersion: '0.23'
 apis:
-- aid: aemc:aemc-energy-rules-api
-  name: AEMC Energy Rules API
-  description: The undocumented JSON API behind AEMC's Energy Rules application. It serves
-    the consolidated, versioned text of the National Electricity Rules, National Gas Rules
-    and National Energy Retail Rules — every published version with its commencement and
-    start dates and its PDF/DOCX artefacts, the full chapter/part/division/rule/clause tree,
-    per-node rule text, full-text search within a version, and the complete defined-terms
-    glossary with cross-linked definitions. Verified live and entirely anonymous on
-    2026-07-27 — no API key, no OAuth, no cookie, no CSRF token; responses carry
-    x-ratelimit-limit 1000 and are served through AWS API Gateway in front of a Laravel
-    application using the Laravel data/links/meta envelope and page/perPage pagination.
-    AEMC publishes no documentation, terms of use, SLA, versioning or deprecation policy for
-    it, and no OpenAPI — the specification in this repository is derived by API Evangelist
-    from AEMC's own production client bundle plus live probes of every route, with the HTTP
-    status of each probe recorded in x-evidence. Every path is keyed by the rule version id
-    rather than the human-facing version number.
+- aid: aemc:aemc-glossary-api
+  name: Australian Energy Market Commission Glossary API
+  description: Defined terms for a rule version.
   humanURL: https://energy-rules.aemc.gov.au/
   baseURL: https://energy-rules.aemc.gov.au/api/v1
   tags:
-  - Energy
-  - Regulations
-  - Rules
-  - Legal
-  - Australia
-  tags_raw:
-  - Energy
-  - Regulation
-  - Rules
-  - Legal
-  - Australia
+  - Glossary
   properties:
   - type: OpenAPI
-    url: openapi/aemc-energy-rules-openapi-derived.yml
-  - type: Overlay
-    url: overlays/aemc-energy-rules-overlay.yaml
+    url: openapi/aemc-glossary-api-openapi.yml
   - type: Examples
     url: examples/_index.yml
   - type: Authentication
@@ -112,10 +87,128 @@ apis:
     url: changelog/aemc-changelog.yml
   - type: Conformance
     url: conformance/aemc-conformance.yml
-  - type: MCPServer
-    url: mcp/aemc-mcp.yml
-  - type: AgentSkill
-    url: skills/_index.yml
+  - type: Portal
+    url: https://energy-rules.aemc.gov.au/
+- aid: aemc:aemc-rule-content-api
+  name: Australian Energy Market Commission Rule Content API
+  description: The structural tree of a rule version — chapters, parts, divisions, rules and clauses.
+  humanURL: https://energy-rules.aemc.gov.au/
+  baseURL: https://energy-rules.aemc.gov.au/api/v1
+  tags:
+  - Rule Content
+  properties:
+  - type: OpenAPI
+    url: openapi/aemc-rule-content-api-openapi.yml
+  - type: Examples
+    url: examples/_index.yml
+  - type: Authentication
+    url: authentication/aemc-authentication.yml
+  - type: RateLimits
+    url: rate-limits/aemc-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/aemc-problem-types.yml
+  - type: Conventions
+    url: conventions/aemc-conventions.yml
+  - type: DataModel
+    url: data-model/aemc-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/aemc-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/aemc-changelog.yml
+  - type: Conformance
+    url: conformance/aemc-conformance.yml
+  - type: Portal
+    url: https://energy-rules.aemc.gov.au/
+- aid: aemc:aemc-rule-versions-api
+  name: Australian Energy Market Commission Rule Versions API
+  description: >-
+    Versions of the National Electricity, Gas and Energy Retail Rules, with their published PDF and DOCX
+    artefacts.
+  humanURL: https://energy-rules.aemc.gov.au/
+  baseURL: https://energy-rules.aemc.gov.au/api/v1
+  tags:
+  - Rule Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/aemc-rule-versions-api-openapi.yml
+  - type: Examples
+    url: examples/_index.yml
+  - type: Authentication
+    url: authentication/aemc-authentication.yml
+  - type: RateLimits
+    url: rate-limits/aemc-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/aemc-problem-types.yml
+  - type: Conventions
+    url: conventions/aemc-conventions.yml
+  - type: DataModel
+    url: data-model/aemc-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/aemc-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/aemc-changelog.yml
+  - type: Conformance
+    url: conformance/aemc-conformance.yml
+  - type: Portal
+    url: https://energy-rules.aemc.gov.au/
+- aid: aemc:aemc-search-api
+  name: Australian Energy Market Commission Search API
+  description: Full-text search within a single rule version.
+  humanURL: https://energy-rules.aemc.gov.au/
+  baseURL: https://energy-rules.aemc.gov.au/api/v1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/aemc-search-api-openapi.yml
+  - type: Examples
+    url: examples/_index.yml
+  - type: Authentication
+    url: authentication/aemc-authentication.yml
+  - type: RateLimits
+    url: rate-limits/aemc-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/aemc-problem-types.yml
+  - type: Conventions
+    url: conventions/aemc-conventions.yml
+  - type: DataModel
+    url: data-model/aemc-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/aemc-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/aemc-changelog.yml
+  - type: Conformance
+    url: conformance/aemc-conformance.yml
+  - type: Portal
+    url: https://energy-rules.aemc.gov.au/
+- aid: aemc:aemc-settings-api
+  name: Australian Energy Market Commission Settings API
+  description: Application settings exposed to the client.
+  humanURL: https://energy-rules.aemc.gov.au/
+  baseURL: https://energy-rules.aemc.gov.au/api/v1
+  tags:
+  - Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/aemc-settings-api-openapi.yml
+  - type: Examples
+    url: examples/_index.yml
+  - type: Authentication
+    url: authentication/aemc-authentication.yml
+  - type: RateLimits
+    url: rate-limits/aemc-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/aemc-problem-types.yml
+  - type: Conventions
+    url: conventions/aemc-conventions.yml
+  - type: DataModel
+    url: data-model/aemc-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/aemc-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/aemc-changelog.yml
+  - type: Conformance
+    url: conformance/aemc-conformance.yml
   - type: Portal
     url: https://energy-rules.aemc.gov.au/
 common:
