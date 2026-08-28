@@ -28,6 +28,18 @@ description: The Australian Energy Market Commission (AEMC) is the independent s
   and separate from the Consumer Data Right, which is administered by Treasury, the
   ACCC and the Data Standards Body, with retailers as primary and AEMO as secondary
   data holder. AEMC is not a CDR data holder.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.aemc.gov.au/sites/default/files/AEMC_RGB_Favicon_swirl_STRONG_512x512px.png
 tags:
 - Energy
