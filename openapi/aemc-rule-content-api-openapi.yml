@@ -1,0 +1,287 @@
+openapi: 3.2.0
+info:
+  title: AEMC Energy Rules Rule Content API
+  version: '2026-07-27'
+  description: 'Machine-readable description of the undocumented JSON API that serves the Australian Energy Market Commission''s Energy Rules application at https://energy-rules.aemc.gov.au. It exposes the consolidated, versioned text of the National Electricity Rules (NER), National Gas Rules (NGR) and National Energy Retail Rules (NERR) — the rule versions and their PDF/DOCX artefacts, the table of contents, every chapter/part/division/rule/clause node, the full-text search index and the complete defined-terms glossary.
+
+
+    AEMC publishes NO OpenAPI, no developer portal and no API documentation for this surface. This document is DERIVED, not harvested. Every path below is a literal route string taken from AEMC''s own shipped production JavaScript bundle (https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js), and each one was probed live and anonymously on 2026-07-27 with the observed HTTP status recorded in `x-evidence`. Response schemas are derived ONLY from responses actually observed on those probes — no field, parameter or status code is invented.
+
+
+    ACCESS: entirely anonymous. No API key, no OAuth, no cookie and no CSRF token was required for any read endpoint probed; responses carry `x-ratelimit-limit: 1000` and `x-ratelimit-remaining`, served through AWS API Gateway (`apigw-requestid`) in front of a Laravel application (Laravel API Resource `data`/`links`/`meta` envelope, Laravel-style pagination).
+
+
+    NOT MODELLED: the production bundle also contains an administrative, token-gated approval route of the form `/api/v1/{type}/{version}/approve/{token}` used by the editorial preview workflow. It is a state-changing endpoint, it was deliberately NOT probed, and it is deliberately not modelled here. The `previewToken` query parameter that several read endpoints accept belongs to the same editorial preview workflow and is not usable anonymously.
+
+
+    STATUS: this is an undocumented internal API of a public website, not a product AEMC offers or supports. There is no published terms-of-use, rate-limit policy, SLA, versioning policy or contact for it. Treat it as subject to change without notice, and report inaccuracies rather than treating this document as an authoritative contract.'
+  contact:
+    name: AEMC
+    url: https://www.aemc.gov.au/contact-us
+  x-provenance:
+    generated: '2026-07-27'
+    method: derived
+    sources:
+    - https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js
+    - live anonymous HTTP probes 2026-07-27
+    note: Not published by AEMC. Derived by API Evangelist from AEMC's own production client bundle plus live anonymous probes of every route.
+servers:
+- url: https://energy-rules.aemc.gov.au/api/v1
+  description: Production
+tags:
+- name: Rule Content
+  description: The structural tree of a rule version — chapters, parts, divisions, rules and clauses.
+paths:
+  /rules/{versionId}/toc:
+    get:
+      operationId: getRuleTableOfContents
+      summary: Get the full table of contents for a rule version
+      description: 'Returns the complete nested structure of a rule version — chapters, parts, divisions, rules, clauses and schedules — as a recursive tree of content nodes, each with the relative link to its own content resource. Verified live 2026-07-27 for version id 803 (NER v251): 19 top-level nodes, 86 KB gzipped.'
+      tags:
+      - Rule Content
+      parameters:
+      - $ref: '#/components/parameters/VersionId'
+      responses:
+        '200':
+          description: Table of contents tree.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TocNode'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/803/toc
+          status: 200
+          bytes: 86222
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/9999/toc
+          status: 404
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/251/toc
+          status: 404
+          note: the path parameter is the version id, not the version number
+  /rules/{versionId}/chapters:
+    get:
+      operationId: listRuleChapters
+      summary: List the top-level chapters of a rule version
+      description: Returns the top-level content nodes (chapters and schedules) of a rule version without their descendants. Discovered from the `links.chapters` URL returned on every rule version object.
+      tags:
+      - Rule Content
+      parameters:
+      - $ref: '#/components/parameters/VersionId'
+      responses:
+        '200':
+          description: Top-level chapter nodes.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TocNode'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/803/chapters
+          status: 200
+          bytes: 3216
+  /rules/{versionId}/content/{contentId}:
+    get:
+      operationId: getRuleContent
+      summary: Get one content node of a rule version
+      description: Returns a single content node — a chapter, part, division, rule or clause — with its parent, its immediate children and, for leaf nodes, the rule text. A `meta` block reports whether the version is approved, current or archived.
+      tags:
+      - Rule Content
+      parameters:
+      - $ref: '#/components/parameters/VersionId'
+      - name: contentId
+        in: path
+        required: true
+        description: Content node id, as returned in `links.self` on any table-of-contents or search result node.
+        schema:
+          type: integer
+      - name: previewToken
+        in: query
+        required: false
+        description: Editorial preview token. Not usable anonymously.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: One content node.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ContentNode'
+                  meta:
+                    $ref: '#/components/schemas/ContentMeta'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872794
+          status: 200
+          bytes: 5567
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/803/content/872796
+          status: 200
+          bytes: 591
+components:
+  schemas:
+    ContentMeta:
+      type: object
+      properties:
+        archived:
+          type: integer
+        approved:
+          type: integer
+        current:
+          type: integer
+        approve_link:
+          type:
+          - string
+          - 'null'
+    TocNode:
+      type: object
+      properties:
+        id:
+          type: integer
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        version_id:
+          type: integer
+        sort_index:
+          type: integer
+        title:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        index:
+          type: string
+          description: Citation index, e.g. "1.1.1" or "11.Part ZF".
+        chapter:
+          type: string
+        content_type:
+          type: string
+          description: Observed values on NER v251.
+          enum:
+          - chapter
+          - part
+          - division
+          - rule
+          - clause
+          - chapter_schedule
+          - part_schedule
+        metadata:
+          type:
+          - object
+          - 'null'
+          properties:
+            is_glossary:
+              type: boolean
+        is_glossary:
+          type: boolean
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/TocNode'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              description: Relative content link, e.g. "content/872796".
+    Error:
+      type: object
+      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
+      properties:
+        message:
+          type: string
+          examples:
+          - Not found
+    ContentNode:
+      type: object
+      properties:
+        id:
+          type: integer
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        title:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        index:
+          type: string
+        chapter:
+          type: string
+        content:
+          type:
+          - string
+          - 'null'
+          description: HTML rule text for leaf nodes.
+        content_type:
+          type: string
+        metadata:
+          type:
+          - object
+          - 'null'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            parent:
+              type:
+              - string
+              - 'null'
+              format: uri
+        parent:
+          type:
+          - object
+          - array
+          - 'null'
+          description: Parent node
+          or an empty array at the root.: null
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentNode'
+  responses:
+    NotFound:
+      description: No such rule version, content node or term.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    VersionId:
+      name: versionId
+      in: path
+      required: true
+      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
+      schema:
+        type: integer
+        examples:
+        - 803

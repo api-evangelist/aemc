@@ -1,0 +1,214 @@
+openapi: 3.2.0
+info:
+  title: AEMC Energy Rules Glossary API
+  version: '2026-07-27'
+  description: 'Machine-readable description of the undocumented JSON API that serves the Australian Energy Market Commission''s Energy Rules application at https://energy-rules.aemc.gov.au. It exposes the consolidated, versioned text of the National Electricity Rules (NER), National Gas Rules (NGR) and National Energy Retail Rules (NERR) — the rule versions and their PDF/DOCX artefacts, the table of contents, every chapter/part/division/rule/clause node, the full-text search index and the complete defined-terms glossary.
+
+
+    AEMC publishes NO OpenAPI, no developer portal and no API documentation for this surface. This document is DERIVED, not harvested. Every path below is a literal route string taken from AEMC''s own shipped production JavaScript bundle (https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js), and each one was probed live and anonymously on 2026-07-27 with the observed HTTP status recorded in `x-evidence`. Response schemas are derived ONLY from responses actually observed on those probes — no field, parameter or status code is invented.
+
+
+    ACCESS: entirely anonymous. No API key, no OAuth, no cookie and no CSRF token was required for any read endpoint probed; responses carry `x-ratelimit-limit: 1000` and `x-ratelimit-remaining`, served through AWS API Gateway (`apigw-requestid`) in front of a Laravel application (Laravel API Resource `data`/`links`/`meta` envelope, Laravel-style pagination).
+
+
+    NOT MODELLED: the production bundle also contains an administrative, token-gated approval route of the form `/api/v1/{type}/{version}/approve/{token}` used by the editorial preview workflow. It is a state-changing endpoint, it was deliberately NOT probed, and it is deliberately not modelled here. The `previewToken` query parameter that several read endpoints accept belongs to the same editorial preview workflow and is not usable anonymously.
+
+
+    STATUS: this is an undocumented internal API of a public website, not a product AEMC offers or supports. There is no published terms-of-use, rate-limit policy, SLA, versioning policy or contact for it. Treat it as subject to change without notice, and report inaccuracies rather than treating this document as an authoritative contract.'
+  contact:
+    name: AEMC
+    url: https://www.aemc.gov.au/contact-us
+  x-provenance:
+    generated: '2026-07-27'
+    method: derived
+    sources:
+    - https://de4oj9etm9d7w.cloudfront.net/b8470902-3d28-4902-8883-2c59d10e7818/js/app.js
+    - live anonymous HTTP probes 2026-07-27
+    note: Not published by AEMC. Derived by API Evangelist from AEMC's own production client bundle plus live anonymous probes of every route.
+servers:
+- url: https://energy-rules.aemc.gov.au/api/v1
+  description: Production
+tags:
+- name: Glossary
+  description: Defined terms for a rule version.
+paths:
+  /rules/{versionId}/glossary/menu:
+    get:
+      operationId: getGlossaryMenu
+      summary: Get the glossary index, grouped by first letter
+      description: Returns every defined term in a rule version grouped by its first character, as the letter navigation for the glossary. Verified live 2026-07-27 for NER v251.
+      tags:
+      - Glossary
+      parameters:
+      - $ref: '#/components/parameters/VersionId'
+      responses:
+        '200':
+          description: Terms grouped by first letter.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Map of letter (or digit) to the list of defined terms beginning with it.
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/menu
+          status: 200
+          bytes: 8986
+  /rules/{versionId}/glossary/by-letter/{letter}:
+    get:
+      operationId: listGlossaryTermsByLetter
+      summary: List defined terms beginning with a letter
+      description: Returns the full definition record for every defined term in a rule version beginning with the given letter, including HTML and plain-text definitions, alternative forms, the chapter the term is sourced from and whether it is a global definition.
+      tags:
+      - Glossary
+      parameters:
+      - $ref: '#/components/parameters/VersionId'
+      - name: letter
+        in: path
+        required: true
+        description: Single letter or digit group, lower case (e.g. `a`, `3`).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Glossary entries for the letter.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GlossaryEntry'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/by-letter/a
+          status: 200
+          bytes: 18489
+  /rules/{versionId}/glossary/{termIdentifier}:
+    get:
+      operationId: getGlossaryTerm
+      summary: Resolve one defined term
+      description: Returns the definition of a single defined term by its identifier (the `term_identifier` returned by the glossary listings, e.g. `term_aarr`). The client strips a leading `#` from anchor links before calling this endpoint.
+      tags:
+      - Glossary
+      parameters:
+      - $ref: '#/components/parameters/VersionId'
+      - name: termIdentifier
+        in: path
+        required: true
+        schema:
+          type: string
+          examples:
+          - term_aarr
+      responses:
+        '200':
+          description: One glossary definition.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      term_id:
+                        type: string
+                      term:
+                        type: string
+                      definition:
+                        type: string
+                        description: HTML definition body.
+                  metadata:
+                    type: object
+                    properties:
+                      lookup:
+                        type: string
+                      version:
+                        type: integer
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-evidence:
+        probed: '2026-07-27'
+        requests:
+        - url: https://energy-rules.aemc.gov.au/api/v1/rules/803/glossary/term_aarr
+          status: 200
+          bytes: 275
+components:
+  schemas:
+    GlossaryEntry:
+      type: object
+      properties:
+        global:
+          type: integer
+        sort_index:
+          type: integer
+        sourced_from:
+          type: string
+          description: Chapter the definition comes from, e.g. "chapter 10".
+        term_identifier:
+          type: string
+        alternatives:
+          type: array
+          items:
+            type: string
+        alternative_identifier:
+          type: string
+        term:
+          type: string
+        alternative_term:
+          type: string
+        definition:
+          type: string
+          description: HTML definition body with cross-links to other defined terms.
+        text_definition:
+          type: string
+        parent_chapter:
+          type: integer
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+    Error:
+      type: object
+      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
+      properties:
+        message:
+          type: string
+          examples:
+          - Not found
+  responses:
+    NotFound:
+      description: No such rule version, content node or term.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    VersionId:
+      name: versionId
+      in: path
+      required: true
+      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
+      schema:
+        type: integer
+        examples:
+        - 803
