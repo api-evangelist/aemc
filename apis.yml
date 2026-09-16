@@ -2,32 +2,27 @@ aid: aemc
 url: https://raw.githubusercontent.com/api-evangelist/aemc/refs/heads/main/apis.yml
 name: Australian Energy Market Commission
 kind: company
-description: The Australian Energy Market Commission (AEMC) is the independent statutory
-  rule maker for Australia's energy markets, established in 2005 and based in Sydney.
-  It makes and amends the National Electricity Rules, National Gas Rules and National
-  Energy Retail Rules, conducts market reviews, and advises the Energy and Climate
-  Change Ministerial Council. It sits upstream of every other body in the Australian
-  energy value chain — it writes the obligations that AEMO operates, that the AER
-  enforces, and that retailers and networks must meet — but it operates no market
-  systems and holds no consumer data itself. AEMC publishes no developer portal, no
-  documented API, no OpenAPI and no open data product, and the corporate Drupal site
-  at www.aemc.gov.au returns 404 for /api, /openapi.json, /swagger.json, /api-docs,
-  /jsonapi and /graphql. It does, however, run one real machine-readable surface that
-  it does not advertise — the Energy Rules application at energy-rules.aemc.gov.au is
-  backed by an undocumented, entirely anonymous JSON API at /api/v1 that serves the
-  full versioned text of all three rule books — 304 versions of the National
-  Electricity Rules, 115 of the National Gas Rules and 65 of the National Energy
-  Retail Rules — with a table of contents, per-clause content, full-text search, a
-  complete defined-terms glossary and links to every published PDF and DOCX. That API
-  is captured here as a derived OpenAPI built from AEMC's own production JavaScript
-  bundle plus live probes. The other finding that matters is regulatory rather than
-  technical — on 18 December 2025 the AEMC made a final rule giving all consumers and
-  their AEMO-accredited representatives a right to real-time data from smart meters,
-  with AEMO required to publish the technical procedures by 30 November 2026 and the
-  meter obligation commencing 30 November 2028 — a mandate designated but not live,
-  and separate from the Consumer Data Right, which is administered by Treasury, the
-  ACCC and the Data Standards Body, with retailers as primary and AEMO as secondary
-  data holder. AEMC is not a CDR data holder.
+description: The Australian Energy Market Commission (AEMC) is the independent statutory rule maker for
+  Australia's energy markets, established in 2005 and based in Sydney. It makes and amends the National
+  Electricity Rules, National Gas Rules and National Energy Retail Rules, conducts market reviews, and
+  advises the Energy and Climate Change Ministerial Council. It sits upstream of every other body in the
+  Australian energy value chain — it writes the obligations that AEMO operates, that the AER enforces,
+  and that retailers and networks must meet — but it operates no market systems and holds no consumer
+  data itself. AEMC publishes no developer portal, no documented API, no OpenAPI and no open data product,
+  and the corporate Drupal site at www.aemc.gov.au returns 404 for /api, /openapi.json, /swagger.json,
+  /api-docs, /jsonapi and /graphql. It does, however, run one real machine-readable surface that it does
+  not advertise — the Energy Rules application at energy-rules.aemc.gov.au is backed by an undocumented,
+  entirely anonymous JSON API at /api/v1 that serves the full versioned text of all three rule books —
+  304 versions of the National Electricity Rules, 115 of the National Gas Rules and 65 of the National
+  Energy Retail Rules — with a table of contents, per-clause content, full-text search, a complete defined-terms
+  glossary and links to every published PDF and DOCX. That API is captured here as a derived OpenAPI built
+  from AEMC's own production JavaScript bundle plus live probes. The other finding that matters is regulatory
+  rather than technical — on 18 December 2025 the AEMC made a final rule giving all consumers and their
+  AEMO-accredited representatives a right to real-time data from smart meters, with AEMO required to publish
+  the technical procedures by 30 November 2026 and the meter obligation commencing 30 November 2028 —
+  a mandate designated but not live, and separate from the Consumer Data Right, which is administered
+  by Treasury, the ACCC and the Data Standards Body, with retailers as primary and AEMO as secondary data
+  holder. AEMC is not a CDR data holder.
 deliveryModel:
   model: saas
   open_source: false
@@ -82,7 +77,7 @@ tags_raw:
 - Legal
 - Rules
 created: '2026-07-27'
-modified: '2026-07-27'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: aemc:aemc-glossary-api
@@ -147,9 +142,8 @@ apis:
     url: https://energy-rules.aemc.gov.au/
 - aid: aemc:aemc-rule-versions-api
   name: Australian Energy Market Commission Rule Versions API
-  description: >-
-    Versions of the National Electricity, Gas and Energy Retail Rules, with their published PDF and DOCX
-    artefacts.
+  description: Versions of the National Electricity, Gas and Energy Retail Rules, with their published
+    PDF and DOCX artefacts.
   humanURL: https://energy-rules.aemc.gov.au/
   baseURL: https://energy-rules.aemc.gov.au/api/v1
   tags:
@@ -263,7 +257,7 @@ common:
 - type: PrivacyPolicy
   url: https://www.aemc.gov.au/terms-use/privacy
 - type: OpenAPI
-  url: openapi/aemc-energy-rules-openapi-derived.yml
+  url: openapi/_original/aemc-energy-rules-openapi-derived.yml
 - type: Authentication
   url: authentication/aemc-authentication.yml
 - type: Conventions
@@ -284,7 +278,10 @@ common:
   url: conformance/aemc-conformance.yml
 - type: X-MCPServerCandidate
   url: mcp/aemc-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: AgentSkill
   url: skills/_index.yml
 - type: Overlay
