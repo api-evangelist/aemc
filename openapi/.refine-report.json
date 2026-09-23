@@ -1,0 +1,28 @@
+{
+  "provider": "aemc",
+  "sources": [
+    "_original/aemc-energy-rules-openapi-derived.yml"
+  ],
+  "outputs": [
+    "aemc-glossary-api-openapi.yml",
+    "aemc-rule-content-api-openapi.yml",
+    "aemc-rule-versions-api-openapi.yml",
+    "aemc-search-api-openapi.yml",
+    "aemc-settings-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "aemc-energy-rules-openapi-derived.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "aemc-glossary-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aemc-rule-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aemc-rule-versions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aemc-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aemc-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
