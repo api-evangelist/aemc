@@ -139,6 +139,13 @@ paths:
           status: 200
           bytes: 275
 components:
+  responses:
+    NotFound:
+      description: No such rule version, content node or term.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -183,13 +190,6 @@ components:
             self:
               type: string
               format: uri
-  responses:
-    NotFound:
-      description: No such rule version, content node or term.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
     VersionId:
       name: versionId

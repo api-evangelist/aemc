@@ -83,62 +83,6 @@ paths:
           bytes: 2171
 components:
   schemas:
-    PaginationMeta:
-      type: object
-      properties:
-        current_page:
-          type: integer
-        from:
-          type:
-          - integer
-          - 'null'
-        to:
-          type:
-          - integer
-          - 'null'
-        last_page:
-          type: integer
-        per_page:
-          type: integer
-        total:
-          type: integer
-        path:
-          type: string
-          format: uri
-        first_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        last_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        next_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        prev_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        links:
-          type: array
-          items:
-            type: object
-            properties:
-              url:
-                type:
-                - string
-                - 'null'
-                format: uri
-              label:
-                type: string
-              active:
-                type: boolean
     SearchResult:
       type: object
       properties:
@@ -217,6 +161,62 @@ components:
               type:
               - string
               - 'null'
+    PaginationMeta:
+      type: object
+      properties:
+        current_page:
+          type: integer
+        from:
+          type:
+          - integer
+          - 'null'
+        to:
+          type:
+          - integer
+          - 'null'
+        last_page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+        path:
+          type: string
+          format: uri
+        first_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        last_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        next_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        prev_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type:
+                - string
+                - 'null'
+                format: uri
+              label:
+                type: string
+              active:
+                type: boolean
     Error:
       type: object
       description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.

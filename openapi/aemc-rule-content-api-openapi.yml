@@ -129,14 +129,6 @@ paths:
           bytes: 591
 components:
   schemas:
-    Error:
-      type: object
-      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
-      properties:
-        message:
-          type: string
-          examples:
-          - Not found
     TocNode:
       type: object
       properties:
@@ -191,6 +183,19 @@ components:
             self:
               type: string
               description: Relative content link, e.g. "content/872796".
+    ContentMeta:
+      type: object
+      properties:
+        archived:
+          type: integer
+        approved:
+          type: integer
+        current:
+          type: integer
+        approve_link:
+          type:
+          - string
+          - 'null'
     ContentNode:
       type: object
       properties:
@@ -243,19 +248,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ContentNode'
-    ContentMeta:
+    Error:
       type: object
+      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
       properties:
-        archived:
-          type: integer
-        approved:
-          type: integer
-        current:
-          type: integer
-        approve_link:
-          type:
-          - string
-          - 'null'
+        message:
+          type: string
+          examples:
+          - Not found
   responses:
     NotFound:
       description: No such rule version, content node or term.

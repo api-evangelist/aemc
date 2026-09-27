@@ -198,6 +198,42 @@ components:
             chapters:
               type: string
               format: uri
+    RuleFile:
+      type: object
+      description: A published rule artefact on AEMC's S3 bucket (aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com).
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+          format: uri
+        size:
+          type: integer
+        filename:
+          type: string
+    PaginationLinks:
+      type: object
+      properties:
+        first:
+          type:
+          - string
+          - 'null'
+          format: uri
+        last:
+          type:
+          - string
+          - 'null'
+          format: uri
+        prev:
+          type:
+          - string
+          - 'null'
+          format: uri
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
     PaginationMeta:
       type: object
       properties:
@@ -254,39 +290,3 @@ components:
                 type: string
               active:
                 type: boolean
-    PaginationLinks:
-      type: object
-      properties:
-        first:
-          type:
-          - string
-          - 'null'
-          format: uri
-        last:
-          type:
-          - string
-          - 'null'
-          format: uri
-        prev:
-          type:
-          - string
-          - 'null'
-          format: uri
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-    RuleFile:
-      type: object
-      description: A published rule artefact on AEMC's S3 bucket (aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com).
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-          format: uri
-        size:
-          type: integer
-        filename:
-          type: string
