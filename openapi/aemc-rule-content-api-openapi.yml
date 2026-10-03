@@ -129,6 +129,58 @@ paths:
           bytes: 591
 components:
   schemas:
+    ContentNode:
+      type: object
+      properties:
+        id:
+          type: integer
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        title:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        index:
+          type: string
+        chapter:
+          type: string
+        content:
+          type:
+          - string
+          - 'null'
+          description: HTML rule text for leaf nodes.
+        content_type:
+          type: string
+        metadata:
+          type:
+          - object
+          - 'null'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            parent:
+              type:
+              - string
+              - 'null'
+              format: uri
+        parent:
+          type:
+          - object
+          - array
+          - 'null'
+          description: Parent node
+          or an empty array at the root.: null
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentNode'
     TocNode:
       type: object
       properties:
@@ -183,6 +235,14 @@ components:
             self:
               type: string
               description: Relative content link, e.g. "content/872796".
+    Error:
+      type: object
+      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
+      properties:
+        message:
+          type: string
+          examples:
+          - Not found
     ContentMeta:
       type: object
       properties:
@@ -196,73 +256,6 @@ components:
           type:
           - string
           - 'null'
-    ContentNode:
-      type: object
-      properties:
-        id:
-          type: integer
-        parent_id:
-          type:
-          - integer
-          - 'null'
-        title:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-        index:
-          type: string
-        chapter:
-          type: string
-        content:
-          type:
-          - string
-          - 'null'
-          description: HTML rule text for leaf nodes.
-        content_type:
-          type: string
-        metadata:
-          type:
-          - object
-          - 'null'
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-              format: uri
-            parent:
-              type:
-              - string
-              - 'null'
-              format: uri
-        parent:
-          type:
-          - object
-          - array
-          - 'null'
-          description: Parent node
-          or an empty array at the root.: null
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContentNode'
-    Error:
-      type: object
-      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
-      properties:
-        message:
-          type: string
-          examples:
-          - Not found
-  responses:
-    NotFound:
-      description: No such rule version, content node or term.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
     VersionId:
       name: versionId
@@ -273,3 +266,10 @@ components:
         type: integer
         examples:
         - 803
+  responses:
+    NotFound:
+      description: No such rule version, content node or term.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
