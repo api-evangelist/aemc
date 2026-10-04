@@ -139,6 +139,16 @@ paths:
           status: 200
           bytes: 275
 components:
+  parameters:
+    VersionId:
+      name: versionId
+      in: path
+      required: true
+      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
+      schema:
+        type: integer
+        examples:
+        - 803
   schemas:
     Error:
       type: object
@@ -183,16 +193,6 @@ components:
             self:
               type: string
               format: uri
-  parameters:
-    VersionId:
-      name: versionId
-      in: path
-      required: true
-      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
-      schema:
-        type: integer
-        examples:
-        - 803
   responses:
     NotFound:
       description: No such rule version, content node or term.

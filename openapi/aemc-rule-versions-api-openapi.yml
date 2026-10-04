@@ -114,6 +114,98 @@ paths:
           bytes: 4479473
 components:
   schemas:
+    RuleFile:
+      type: object
+      description: A published rule artefact on AEMC's S3 bucket (aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com).
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+          format: uri
+        size:
+          type: integer
+        filename:
+          type: string
+    PaginationMeta:
+      type: object
+      properties:
+        current_page:
+          type: integer
+        from:
+          type:
+          - integer
+          - 'null'
+        to:
+          type:
+          - integer
+          - 'null'
+        last_page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+        path:
+          type: string
+          format: uri
+        first_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        last_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        next_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        prev_page_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type:
+                - string
+                - 'null'
+                format: uri
+              label:
+                type: string
+              active:
+                type: boolean
+    PaginationLinks:
+      type: object
+      properties:
+        first:
+          type:
+          - string
+          - 'null'
+          format: uri
+        last:
+          type:
+          - string
+          - 'null'
+          format: uri
+        prev:
+          type:
+          - string
+          - 'null'
+          format: uri
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
     RuleVersion:
       type: object
       properties:
@@ -198,95 +290,3 @@ components:
             chapters:
               type: string
               format: uri
-    RuleFile:
-      type: object
-      description: A published rule artefact on AEMC's S3 bucket (aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com).
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-          format: uri
-        size:
-          type: integer
-        filename:
-          type: string
-    PaginationLinks:
-      type: object
-      properties:
-        first:
-          type:
-          - string
-          - 'null'
-          format: uri
-        last:
-          type:
-          - string
-          - 'null'
-          format: uri
-        prev:
-          type:
-          - string
-          - 'null'
-          format: uri
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-    PaginationMeta:
-      type: object
-      properties:
-        current_page:
-          type: integer
-        from:
-          type:
-          - integer
-          - 'null'
-        to:
-          type:
-          - integer
-          - 'null'
-        last_page:
-          type: integer
-        per_page:
-          type: integer
-        total:
-          type: integer
-        path:
-          type: string
-          format: uri
-        first_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        last_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        next_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        prev_page_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        links:
-          type: array
-          items:
-            type: object
-            properties:
-              url:
-                type:
-                - string
-                - 'null'
-                format: uri
-              label:
-                type: string
-              active:
-                type: boolean

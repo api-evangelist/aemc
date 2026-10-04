@@ -82,16 +82,6 @@ paths:
           status: 200
           bytes: 2171
 components:
-  parameters:
-    VersionId:
-      name: versionId
-      in: path
-      required: true
-      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
-      schema:
-        type: integer
-        examples:
-        - 803
   schemas:
     SearchResult:
       type: object
@@ -171,6 +161,14 @@ components:
               type:
               - string
               - 'null'
+    Error:
+      type: object
+      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
+      properties:
+        message:
+          type: string
+          examples:
+          - Not found
     PaginationMeta:
       type: object
       properties:
@@ -227,14 +225,16 @@ components:
                 type: string
               active:
                 type: boolean
-    Error:
-      type: object
-      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
-      properties:
-        message:
-          type: string
-          examples:
-          - Not found
+  parameters:
+    VersionId:
+      name: versionId
+      in: path
+      required: true
+      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
+      schema:
+        type: integer
+        examples:
+        - 803
   responses:
     NotFound:
       description: No such rule version, content node or term.

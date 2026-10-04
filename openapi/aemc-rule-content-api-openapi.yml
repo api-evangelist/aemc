@@ -128,7 +128,38 @@ paths:
           status: 200
           bytes: 591
 components:
+  parameters:
+    VersionId:
+      name: versionId
+      in: path
+      required: true
+      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
+      schema:
+        type: integer
+        examples:
+        - 803
   schemas:
+    Error:
+      type: object
+      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
+      properties:
+        message:
+          type: string
+          examples:
+          - Not found
+    ContentMeta:
+      type: object
+      properties:
+        archived:
+          type: integer
+        approved:
+          type: integer
+        current:
+          type: integer
+        approve_link:
+          type:
+          - string
+          - 'null'
     ContentNode:
       type: object
       properties:
@@ -235,37 +266,6 @@ components:
             self:
               type: string
               description: Relative content link, e.g. "content/872796".
-    Error:
-      type: object
-      description: Error envelope observed on 404 responses. Not RFC 9457 problem+json.
-      properties:
-        message:
-          type: string
-          examples:
-          - Not found
-    ContentMeta:
-      type: object
-      properties:
-        archived:
-          type: integer
-        approved:
-          type: integer
-        current:
-          type: integer
-        approve_link:
-          type:
-          - string
-          - 'null'
-  parameters:
-    VersionId:
-      name: versionId
-      in: path
-      required: true
-      description: The rule version **id** (the `id` field of a rule version object, e.g. 803 for NER v251) — NOT the human-facing version number. Passing the version number returns HTTP 404.
-      schema:
-        type: integer
-        examples:
-        - 803
   responses:
     NotFound:
       description: No such rule version, content node or term.
