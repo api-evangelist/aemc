@@ -1,4 +1,4 @@
-# Australian Energy Market Commission (aemc)
+# Australian Energy Market Commission
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,87 +64,135 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Australian Energy Market Commission (AEMC) is the independent statutory rule maker for Australia's energy markets, established in 2005 and based in Sydney. It makes and amends the National Electricity Rules, National Gas Rules and National Energy Retail Rules, conducts market reviews, and advises the Energy and Climate Change Ministerial Council. It sits upstream of every other body in the Australian energy value chain — it writes the obligations that AEMO operates, that the AER enforces, and that retailers and networks must meet — but it operates no market systems and holds no consumer data itself. AEMC publishes no developer portal and no documented API — but it does run one real machine-readable surface it never advertised: an undocumented, entirely anonymous JSON API behind its Energy Rules application, serving the full versioned text of all three rule books.
+The Australian Energy Market Commission (AEMC) is the independent statutory rule maker for Australia's energy markets, established in 2005 and based in Sydney. It makes and amends the National Electricity Rules, National Gas Rules and National Energy Retail Rules, conducts market reviews, and advises the Energy and Climate Change Ministerial Council. It sits upstream of every other body in the Australian energy value chain — it writes the obligations that AEMO operates, that the AER enforces, and that retailers and networks must meet — but it operates no market systems and holds no consumer data itself. AEMC publishes no developer portal, no documented API, no OpenAPI and no open data product, and the corporate Drupal site at www.aemc.gov.au returns 404 for /api, /openapi.json, /swagger.json, /api-docs, /jsonapi and /graphql. It does, however, run one real machine-readable surface that it does not advertise — the Energy Rules application at energy-rules.aemc.gov.au is backed by an undocumented, entirely anonymous JSON API at /api/v1 that serves the full versioned text of all three rule books — 304 versions of the National Electricity Rules, 115 of the National Gas Rules and 65 of the National Energy Retail Rules — with a table of contents, per-clause content, full-text search, a complete defined-terms glossary and links to every published PDF and DOCX. That API is captured here as a derived OpenAPI built from AEMC's own production JavaScript bundle plus live probes. The other finding that matters is regulatory rather than technical — on 18 December 2025 the AEMC made a final rule giving all consumers and their AEMO-accredited representatives a right to real-time data from smart meters, with AEMO required to publish the technical procedures by 30 November 2026 and the meter obligation commencing 30 November 2028 — a mandate designated but not live, and separate from the Consumer Data Right, which is administered by Treasury, the ACCC and the Data Standards Body, with retailers as primary and AEMO as secondary data holder. AEMC is not a CDR data holder.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/aemc/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/aemc/refs/heads/main/apis.yml)
+**Areas:** Energy · Australia · Energy Markets · Electricity · Gas · Utilities · Regulations · Smart Metering · Consumer Data Right · Government · Legal · Rules
 
-## Tags
+## Australian Energy Market Commission on APIs.io
 
-- Energy
-- Australia
-- Energy Markets
-- Electricity
-- Gas
-- Utilities
-- Regulation
-- Smart Metering
-- Consumer Data Right
-- Government
+Everything profiled for Australian Energy Market Commission is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aemc/](https://apis.io/providers/aemc/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-07-27
-- **Modified:** 2026-07-27
+- [Australian Energy Market Commission Glossary API](https://apis.io/apis/aemc/aemc-glossary-api/) — Defined terms for a rule version.
+- [Australian Energy Market Commission Rule Content API](https://apis.io/apis/aemc/aemc-rule-content-api/) — The structural tree of a rule version — chapters, parts, divisions, rules and clauses.
+- [Australian Energy Market Commission Rule Versions API](https://apis.io/apis/aemc/aemc-rule-versions-api/) — Versions of the National Electricity, Gas and Energy Retail Rules, with their published PDF and DOCX artefacts.
+- [Australian Energy Market Commission Search API](https://apis.io/apis/aemc/aemc-search-api/) — Full-text search within a single rule version.
+- [Australian Energy Market Commission Settings API](https://apis.io/apis/aemc/aemc-settings-api/) — Application settings exposed to the client.
 
-## APIs
+### Published properties
 
-### AEMC Energy Rules API — undocumented, anonymous, real
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-`https://energy-rules.aemc.gov.au/api/v1` — the JSON API behind AEMC's [Energy Rules application](https://energy-rules.aemc.gov.au/). It serves the consolidated, versioned text of all three rule books, with per-version PDF and DOCX artefacts, the full chapter/part/division/rule/clause tree, per-node rule text, full-text search within a version, and the complete defined-terms glossary.
+#### MCP servers (1)
 
-| Rule book | Type code | Versions | Current |
-|---|---|---|---|
-| National Electricity Rules | `ner` | 304 | v251 (id 803, from 2026-07-23) |
-| National Gas Rules | `ngr` | 115 | v92 (id 800, from 2026-07-16) |
-| National Energy Retail Rules | `nerr` | 65 | v51 (id 802, from 2026-07-01) |
+Model Context Protocol servers that expose the API to agents.
 
-Verified live on 2026-07-27: **entirely anonymous** — no API key, OAuth, cookie or CSRF token. Responses carry `x-ratelimit-limit: 1000`, served through AWS API Gateway in front of a Laravel app (`data`/`links`/`meta` envelope, `page`/`perPage` pagination). Every path is keyed by the rule version **id**, not the version number — passing the number returns HTTP 404.
+- [aemc-energy-rules](https://apis.io/servers/aemc/aemc-energy-rules/)
 
-AEMC publishes **no** OpenAPI, documentation, terms of use, SLA, support channel, versioning or deprecation policy for it. [`openapi/aemc-energy-rules-openapi-derived.yml`](openapi/aemc-energy-rules-openapi-derived.yml) is therefore a **derived** specification — every route taken from AEMC's own production JavaScript bundle and probed live, with the HTTP status recorded in `x-evidence` on each operation. Treat it as subject to change without notice.
+#### Agentic access (1)
 
-### What is still absent
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Probed on 2026-07-27: `developer.`, `developers.`, `api.`, `docs.`, `data.`, `rules.` and `energyrules.aemc.gov.au` do not resolve; on the corporate site `/developers`, `/api`, `/docs`, `/openapi.json`, `/swagger.json`, `/api-docs`, `/jsonapi`, `/graphql`, `/apis.json`, `/.well-known/apis.json` and `/.well-known/openid-configuration` all return 404, and `/.well-known/security.txt`, `/llms.txt` and `/ai.txt` are blocked at the edge (403). `portal.aemc.gov.au` resolves but does not answer on 443. The other machine-readable surface on the corporate domain is the Drupal site feed at [/rss.xml](https://www.aemc.gov.au/rss.xml) (HTTP 200), recorded as a common property rather than as an API.
+- [Aemc Agentic Access](https://apis.io/agentic-access/aemc/aemc-agentic-access/)
 
-## Artifacts
+#### Examples (7)
 
-- [Derived OpenAPI 3.1 — 9 operations](openapi/aemc-energy-rules-openapi-derived.yml) · [overlay](overlays/aemc-energy-rules-overlay.yaml)
-- [Captured example responses](examples/_index.yml) — real bodies from live anonymous calls
-- [Authentication](authentication/aemc-authentication.yml) · [Conventions](conventions/aemc-conventions.yml) · [Errors](errors/aemc-problem-types.yml) · [Rate limits](rate-limits/aemc-rate-limits.yml)
-- [Data model](data-model/aemc-data-model.yml) · [Lifecycle](lifecycle/aemc-lifecycle.yml) · [Rule version changelog](changelog/aemc-changelog.yml) · [Conformance](conformance/aemc-conformance.yml)
-- [Agent skills](skills/_index.yml) — look up a rule, search and resolve defined terms, track versions over time
-- [Candidate MCP tool list](mcp/aemc-mcp.yml) (AEMC publishes no MCP server) · [Agentic access contracts](agentic-access/aemc-agentic-access.yml)
-- [llms.txt](llms/aemc-llms.txt) · [Well-known probes](well-known/aemc-well-known.yml) · [Domain security](security/aemc-domain-security.yml)
+Example requests and responses.
 
-## Data
+- [Aemc Energy Rules Getglossarymenu](https://apis.io/examples/aemc/aemc-energy-rules-getGlossaryMenu/)
+- [Aemc Energy Rules Getglossaryterm](https://apis.io/examples/aemc/aemc-energy-rules-getGlossaryTerm/)
+- [Aemc Energy Rules Getrulecontent](https://apis.io/examples/aemc/aemc-energy-rules-getRuleContent/)
+- [Aemc Energy Rules Getruletableofcontents](https://apis.io/examples/aemc/aemc-energy-rules-getRuleTableOfContents/)
+- [Aemc Energy Rules Listglossarytermsbyletter A](https://apis.io/examples/aemc/aemc-energy-rules-listGlossaryTermsByLetter-a/)
+- [Aemc Energy Rules Listruleversions Ner](https://apis.io/examples/aemc/aemc-energy-rules-listRuleVersions-ner/)
+- [Aemc Energy Rules Searchruleversion](https://apis.io/examples/aemc/aemc-energy-rules-searchRuleVersion/)
 
-The [AEMC Data portal](https://www.aemc.gov.au/news-centre/data-portal) (HTTP 200) is seven HTML interactive chart projects — Residential Electricity Price Trends, Annual Market Performance Review and Retail Energy Competition Review — whose newest release is 2021. No CSV, XLSX, ZIP, API or data licence statement was found on the portal index or on the child pages probed. AEMC is not a publishing organisation on data.gov.au.
+#### Collections (1)
 
-Open Australian energy market data lives with AEMO, the market operator AEMC writes rules for — not with AEMC.
+Postman and Open Collection request collections.
 
-## Mandate posture
+- [AEMC Energy Rules API](https://apis.io/collections/aemc/open-aemc-energy-rules-openapi-derived/)
 
-- **Regime recorded:** smart-meter-infrastructure — the mandate AEMC *imposes*, not one it is subject to. AEMC is not a Consumer Data Right data holder.
-- **Status:** designated-not-live.
-- **Instrument:** final determination and final rules for *Real-time data for consumers*, published **18 December 2025**. All customers and their AEMO-accredited representatives may request real-time data from their smart meter; Metering Coordinators must facilitate access under AEMO's real-time data procedures; **AEMO must publish those procedures by 30 November 2026**; new smart meters installed from **30 November 2028** must wirelessly communicate real-time data free of charge.
-- **Why not live:** the technical standards do not exist yet. There is no endpoint, no schema, and no register of accredited representatives to verify. A completed rule change is a mandate, not an implementation.
-- **Consumer Data Right (energy)** is a separate instrument, designated by Treasury, regulated by the ACCC, standardised by the Data Standards Body, and live in the National Electricity Market since November 2022 with retailers as primary data holders and AEMO as secondary data holder and gateway. AEMC plays no part in operating it.
+#### Overlays (1)
 
-## Properties
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Aemc Energy Rules Overlay](https://apis.io/overlays/aemc/aemc-energy-rules-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aemc Authentication](https://apis.io/security/aemc/aemc-authentication/)
+- [Aemc Domain Security](https://apis.io/security/aemc/aemc-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Aemc Rate Limits](https://apis.io/rate-limits/aemc/aemc-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.aemc.gov.au/)
-- [About](https://www.aemc.gov.au/about-us)
-- [Contact](https://www.aemc.gov.au/contact-us)
 - [Documentation](https://www.aemc.gov.au/regulation/energy-rules)
-- [Data Portal](https://www.aemc.gov.au/news-centre/data-portal)
+- [Support](https://www.aemc.gov.au/contact-us)
 - [Blog](https://www.aemc.gov.au/news-centre/media-releases)
-- [RSS](https://www.aemc.gov.au/rss.xml)
-- [Regulation](https://www.aemc.gov.au/regulation/energy-rules/national-electricity-rules)
-- [Rule Changes](https://www.aemc.gov.au/our-work/changing-energy-rules/rule-changes)
-- [Energy Rules application](https://energy-rules.aemc.gov.au/)
-- [Terms of Use](https://www.aemc.gov.au/terms-use)
-- [Privacy](https://www.aemc.gov.au/terms-use/privacy)
+- [Terms of service](https://www.aemc.gov.au/terms-use)
+- [Privacy policy](https://www.aemc.gov.au/terms-use/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-- Kin Lane — kin@apievangelist.com
+**Kin Score 28.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 15.7 |
+| Contract governance | 4.5 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 39.9 |
+| Access clarity | 21.1 |
+
+**Agent readiness 27.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 27.0** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aemc/](https://apis.io/providers/aemc/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Australian Energy Market Commission: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aemc/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
